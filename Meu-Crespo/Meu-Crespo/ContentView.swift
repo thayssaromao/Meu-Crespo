@@ -23,7 +23,8 @@ struct ContentView: View {
             Tab("Conteúdo", systemImage: "book.fill", value: .home){
                 LearnView()
             }
-        }
+        }.tint(Color(red: 0.95, green: 0.42, blue: 0.37))
+        
     }
 }
 

@@ -55,18 +55,6 @@ struct SheetView: View {
         }
     }
 }
-struct Constants {
-  static let LabelsVibrantSecondary: Color = Color(red: 0.6, green: 0.6, blue: 0.6)
-}
-
-struct Show: View {
-   
-
-    var body: some View {
-        
-        
-    }
-}
 
 #Preview {
     CardSheet()
