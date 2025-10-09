@@ -18,13 +18,18 @@ struct HomeView: View {
                 .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
                 .padding(.leading,25)
 
-            VStack(spacing:27){
-                CardSheet()
-                CardSheet()
-                CardSheet()
+            ZStack{
+                Image("bgRecomendacao")
+                VStack(spacing:27){
+                    CardSheet()
+                    CardSheet()
+                    CardSheet()
 
-            }.frame(maxWidth: .infinity) // expanda-se horizontalmente para preencher todo o espaço que seu pai (VStack principal) lhe der
-        }
+                }.frame(maxWidth: .infinity) // expanda-se horizontalmente para preencher todo o espaço que seu pai (VStack principal) lhe der
+                    .padding(.bottom,45)
+            }.background(Color.green)
+                
+        }.ignoresSafeArea()
     }
 }
 

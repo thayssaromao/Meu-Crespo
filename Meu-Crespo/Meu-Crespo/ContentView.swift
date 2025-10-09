@@ -7,15 +7,23 @@
 
 import SwiftUI
 
+enum Tabs{
+    case home, learn
+}
+
 struct ContentView: View {
+    @State var selectedTab: Tabs = .home
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView(selection:
+                    $selectedTab){
+            Tab("Home", systemImage: "house", value: .home){
+                HomeView()
+            }
+            Tab("Conteúdo", systemImage: "book.fill", value: .home){
+                LearnView()
+            }
         }
-        .padding()
     }
 }
 

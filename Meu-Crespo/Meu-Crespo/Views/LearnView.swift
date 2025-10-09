@@ -9,7 +9,8 @@ import SwiftUI
 
 struct LearnView: View {
     var body: some View {
-        Text("Tela de Aprendizado Crespo!")
+        Color.orange.ignoresSafeArea()
+            
     }
 }
 
