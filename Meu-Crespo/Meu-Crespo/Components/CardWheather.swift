@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct CardWheather: View {
+    
+    @EnvironmentObject var weatherManager: WeatherManager
+    
     var cardName: String
     var isTemp: Bool = false
     var isWeather: Bool = false
