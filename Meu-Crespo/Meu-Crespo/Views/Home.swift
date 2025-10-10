@@ -15,10 +15,11 @@ struct HomeView: View {
         NavigationStack {
             VStack(spacing:20){
                 
-                VStack(spacing:40){
+                VStack(spacing:30){
                     WeekSlider()
                     CardHead()
                 }.padding(.top,90)
+                
                 VStack(alignment:.leading){
                     Text("Recomendações")
                         .bold()
@@ -34,9 +35,9 @@ struct HomeView: View {
                             CardSheet()
                             
                         }.frame(maxWidth: .infinity)
-                            .padding(.bottom,80)
+                            .padding(.bottom,100)
                     }
-                }.padding(.top,10)
+                }
                 
             }.ignoresSafeArea()
             // The .toolbar modifier must be applied to the content *inside* the NavigationStack

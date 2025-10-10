@@ -8,10 +8,6 @@
 import UIKit
 import CoreLocation
 import WeatherKit
-
-import UIKit
-import CoreLocation
-import WeatherKit
 import SwiftUI // Importar SwiftUI é crucial para usar UIHostingController
 
 class ViewController: UIViewController, CLLocationManagerDelegate {

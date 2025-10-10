@@ -7,8 +7,10 @@
 
 import SwiftUI
 
+
 struct CardWheather: View {
     
+    // Certifique-se de que o CardWheather também tem acesso ao EnvironmentObject
     @EnvironmentObject var weatherManager: WeatherManager
     
     var cardName: String
@@ -17,38 +19,43 @@ struct CardWheather: View {
     var isUv: Bool = false
     
     var body: some View {
-        ZStack {
-            
-            Image(cardName)
-                .frame(width: 115, height: 115)
-            VStack(alignment: .center, spacing: 10) {
 
+        ZStack {
+            Image(cardName)
+                .resizable()
+                .frame(height: 115)
+            VStack(alignment: .center, spacing: 10) {
+                
                 if(isTemp){
-                    Temp()
+                    Temp().environmentObject(weatherManager)
                 }
                 if(isWeather){
-                    Weather()
+                    Weather().environmentObject(weatherManager)
                 }
                 if(isUv){
-                    Uv()
+                    Uv().environmentObject(weatherManager)
                 }
             }
         }
-        .frame(width: 115, height: 115)
+        .frame(width: 115)
+        // Adicione uma verificação de status para não mostrar os cards enquanto carrega
+        .opacity(weatherManager.status == .loaded ? 1 : 0.6)
     }
 }
 
 struct Uv: View {
+    @EnvironmentObject var weatherManager: WeatherManager
+
     var body: some View {
         VStack(alignment: .center, spacing: 8) {
-            Text("Moderado")
+            Text(weatherManager.uvIndex)
                 .font(.system(size:18)).bold()
                 .multilineTextAlignment(.center)
                 .multilineTextAlignment(.center)
                 .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
                 .frame(width: 100)
             
-            Image(systemName: "sun.max.fill")
+            Image(systemName: weatherManager.uvSymbol)
                 .font(Font.custom("SF Pro", size: 46))
                 .multilineTextAlignment(.center)
                 .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
@@ -62,36 +69,41 @@ struct Uv: View {
     }
 }
 struct Weather: View {
+    @EnvironmentObject var weatherManager: WeatherManager
+
     var body: some View {
         
-        Text("70%")
-            .font(.system(size:18)).bold()
-            .multilineTextAlignment(.center)
-            .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
-            .frame(maxWidth: .infinity, alignment: .top)
-        Image(systemName: "cloud.rain.fill")
-            .font(Font.custom("SF Pro", size: 46))
-            .multilineTextAlignment(.center)
-            .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
-            .frame(
-                maxWidth: .infinity,
-                minHeight: 54,
-                maxHeight: 54,
-                alignment: .center
-            )
-    }
-}
-struct Temp: View {
-    var body: some View {
-        VStack(alignment: .center, spacing: 8) {
-            Text("Curitiba")
+        VStack(alignment: .center,  spacing: 5){
+            Text(weatherManager.condition)
+                .lineLimit(2)
                 .font(.system(size:18)).bold()
                 .multilineTextAlignment(.center)
                 .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
-                .frame(maxWidth: .infinity, alignment: .top)
+                .frame(width:100)
+                .padding(.top,3)
             
-            Text("24°")
-                .font(.system(size: 40).bold())
+            Image(systemName:  weatherManager.symbolName)
+                .font(Font.custom("SF Pro", size: 40)).bold()
+                .multilineTextAlignment(.center)
+                .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
+                
+        }
+    }
+}
+struct Temp: View {
+    @EnvironmentObject var weatherManager: WeatherManager
+
+    var body: some View {
+        VStack(alignment: .center, spacing: 10) {
+            Text(weatherManager.cityName)
+                .font(.system(size:18)).bold()
+                .multilineTextAlignment(.center)
+                .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
+                .frame(width:100)
+               
+            
+            Text(weatherManager.temperature)
+                .font(.system(size: 30).bold())
                 .multilineTextAlignment(.center)
                 .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
                 
@@ -103,15 +115,17 @@ struct Temp: View {
 struct CardHead: View {
     var body: some View {
         HStack{
-            Spacer()
+            
             CardWheather(cardName: "cardGrau", isTemp: true)
             CardWheather(cardName: "cardClima", isWeather: true)
             CardWheather(cardName: "cardUv", isUv: true)
-            Spacer()
         }
     }
 }
 
 #Preview {
+    let mockManager = WeatherManager()
+
     CardHead()
+        .environmentObject(mockManager)
 }

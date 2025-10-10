@@ -23,9 +23,13 @@ struct ContentView: View {
             
             Tab("Home", systemImage: "house", value: .home){
                 HomeView()
+                    .environmentObject(weatherManager)
+
             }
             Tab("Conteúdo", systemImage: "book.fill", value: .learn){
                 LearnView()
+                    .environmentObject(weatherManager)
+
             }
             Tab("teste", systemImage: "book.fill", value: .teste){
                 WeatherInfoView()
