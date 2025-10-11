@@ -66,6 +66,8 @@ struct DayView: View {
 
 struct WeekSlider: View {
     
+    @EnvironmentObject var weatherManager: WeatherManager // NOVO
+
     @State private var days: [WeekDay] = []
     @State private var selectedDayId: UUID?
     
@@ -88,6 +90,9 @@ struct WeekSlider: View {
                             .onTapGesture {
                                 withAnimation(.spring(response: 0.4, dampingFraction: 0.7)) {
                                     selectedDayId = day.id
+                                    
+                                    weatherManager.updateWeather(for: day.date)
+
                                 }
                             }
                         }
@@ -99,6 +104,10 @@ struct WeekSlider: View {
                     
                     let todayId = days.first(where: { $0.isToday })?.id
                     self.selectedDayId = todayId
+                    
+                    if let today = days.first(where: { $0.isToday })?.date {
+                                             weatherManager.updateWeather(for: today)
+                                        }
                     
                     DispatchQueue.main.async {
                         withAnimation {
@@ -117,7 +126,7 @@ struct WeekSlider: View {
         var tempDays: [WeekDay] = []
         
         // Gera 30 dias no passado e 30 dias no futuro
-        for i in -15...15 {
+        for i in -0...9 {
             if let date = calendar.date(byAdding: .day, value: i, to: today) {
                 tempDays.append(WeekDay(date: date))
             }
@@ -126,5 +135,5 @@ struct WeekSlider: View {
     }
 }
 #Preview {
-    WeekSlider()
+    WeekSlider().environmentObject(WeatherManager())
 }

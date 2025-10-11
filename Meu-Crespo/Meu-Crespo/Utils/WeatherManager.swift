@@ -23,6 +23,11 @@ final class WeatherManager: NSObject, ObservableObject, CLLocationManagerDelegat
     @Published var uvSymbol: String = "sun.max.fill"
     @Published var humidity: String = "..."
     
+    @Published var windSpeed: String = "..." // NOVO: Velocidade do vento
+    @Published var windSymbol: String = "wind"
+    @Published var windStatus: String = "..." // NOVO: Status de risco do vento
+
+    
     // Dados para exibir na sua View (inicialmente vazios)
     @Published var symbolName: String = "questionmark.circle"
     @Published var temperature: String = "..."
@@ -30,6 +35,9 @@ final class WeatherManager: NSObject, ObservableObject, CLLocationManagerDelegat
     
     @Published var cityName: String = "Buscando cidade..."
     private let geocoder = CLGeocoder()
+    
+    @Published var dailyForecasts: [DayWeather] = []
+
     
     private let locationManager = CLLocationManager()
     private let weatherService = WeatherService.shared
@@ -64,6 +72,22 @@ final class WeatherManager: NSObject, ObservableObject, CLLocationManagerDelegat
         condition = "Erro de Localização"
     }
     
+    private func formatWindStatus(for speed: Measurement<UnitSpeed>) -> String {
+        // Convertendo para Km/h para melhor leitura, já que o Brasil usa métricas.
+        let speedInKph = speed.converted(to: .kilometersPerHour).value
+        
+        if speedInKph >= 30.0 { // Vento forte (30 km/h+)
+            self.windSymbol = "exclamationmark.octagon.fill"
+            return "Alerta"
+        } else if speedInKph >= 15.0 { // Vento moderado (15-29 km/h)
+            self.windSymbol = "wind"
+            return "Moderado"
+        } else { // Vento baixo
+            self.windSymbol = "wind"
+            return "Baixo"
+        }
+    }
+    
     private func fetchCityName(for location: CLLocation) {
             geocoder.reverseGeocodeLocation(location) { [weak self] (placemarks, error) in
                 guard let self = self else { return }
@@ -80,13 +104,76 @@ final class WeatherManager: NSObject, ObservableObject, CLLocationManagerDelegat
                 }
             }
         }
+    
+    private func formatUvIndex(_ uv: Int) -> String {
+        switch uv {
+        case 8...:
+            return "EXTREMO"
+        case 6...7:
+            return "ALTO"
+        case 3...5:
+            return "MODERADO"
+        default:
+            return "BAIXO"
+        }
+    }
+    
+    func updateWeather(for date: Date) {
+           let calendar = Calendar.current
+           
+           // 1. Busca o DayWeather que corresponde à data selecionada
+           if let weatherForDay = dailyForecasts.first(where: { calendar.isDate($0.date, inSameDayAs: date) }) {
+               
+               // 2. Atualiza todas as propriedades com base no dia selecionado (usando o low/high da previsão diária)
+               
+               let maxTemp = Int(weatherForDay.highTemperature.value.rounded())
+               let tempUnit = weatherForDay.highTemperature.unit.symbol
+               self.temperature = "\(maxTemp)\(tempUnit)"
+
+               let uv = weatherForDay.uvIndex.value
+               self.uvIndex = String(uv)
+               self.uvSymbol = (uv > 6) ? "sun.max.fill" : "sun.min.fill"
+               
+               let maxWindSpeed = weatherForDay.wind.speed
+                   
+                   // Formata a velocidade para string (ex: "25 km/h")
+                   let formatter = MeasurementFormatter()
+                   formatter.unitOptions = .providedUnit // Não tenta adivinhar o formato
+                   formatter.numberFormatter.maximumFractionDigits = 0 // Sem casas decimais
+                   
+                   self.windSpeed = formatter.string(from: maxWindSpeed)
+                   
+                   // Define o símbolo e a recomendação (usando a nova função)
+               self.windStatus = formatWindStatus(for: maxWindSpeed)
+               
+               // Outras propriedades
+               self.condition = weatherForDay.condition.description
+               self.symbolName = weatherForDay.symbolName
+               
+               // Precipitação (já está no dailyForecast)
+               let precip = weatherForDay.precipitationChance * 100
+               self.precipitationChance = "\(Int(precip))%"
+               
+               self.status = .loaded
+               
+           } else {
+               // Se a data estiver fora da previsão de 10 dias
+               self.temperature = "N/D"
+               self.condition = "Dados indisponíveis"
+               self.symbolName = "xmark.circle"
+               self.status = .failed
+           }
+       }
     // MARK: - WeatherKit Fetch
     
     private func fetchWeather(for location: CLLocation) {
         Task {
             do {
-                let result = try await weatherService.weather(for: location)
-                let currentWeather = result.currentWeather
+                let weatherData = try await weatherService.weather(for: location, including: .current, .daily)
+
+                let currentWeather = weatherData.0
+                let dailyForecast = weatherData.1
+
                 
                 // Atualiza as propriedades @Published, que acionam a atualização da View
                 // ... dentro do WeatherManager.swift, na função fetchWeather ...
@@ -100,29 +187,20 @@ final class WeatherManager: NSObject, ObservableObject, CLLocationManagerDelegat
                 let humidityPercentage = Int(currentWeather.humidity * 100)
                 let formattedHumidity = "\(humidityPercentage)%"
                 
-                DispatchQueue.main.async {
-                    self.symbolName = currentWeather.symbolName
-                    self.temperature = formattedTemperature
-                    self.condition = currentWeather.condition.description
-                    self.status = .loaded
-                    
-                    self.humidity = formattedHumidity
-
-                    
-                    // 2. Correção da Lógica do UV Index (Removemos o 'if let' desnecessário)
-                    let uv = currentWeather.uvIndex.value
-                    self.uvIndex = String(uv)
-                    self.uvSymbol = (uv > 6) ? "sun.max.fill" : "sun.min.fill"
-                    
-                    // 3. Lógica da Precipitação (Mantida e Correta)
-                    if let todayForecast = result.dailyForecast.first {
-                        let precip = todayForecast.precipitationChance * 100
-                        self.precipitationChance = "\(Int(precip))%"
-                    } else {
-                        self.precipitationChance = "N/D"
-                    }
-                }
-
+                await MainActor.run {
+                                    // Salva a previsão completa. Isso deve ocorrer PRIMEIRO!
+                                    self.dailyForecasts = dailyForecast.forecast
+                                    
+                                    // Altera o clima inicial para o CLIMA ATUAL
+                                    self.temperature = formattedTemperature
+                                    self.condition = currentWeather.condition.description
+                                    self.symbolName = currentWeather.symbolName
+                                    self.humidity = formattedHumidity
+                                    self.status = .loaded
+                                                                       
+                                    // Chamamos a função de atualização para garantir que a UI comece com os dados de HOJE
+                                    self.updateWeather(for: Date())
+                                }
             } catch {
                 print("❌ Erro ao buscar o clima com WeatherKit: \(error.localizedDescription)")
                 DispatchQueue.main.async {

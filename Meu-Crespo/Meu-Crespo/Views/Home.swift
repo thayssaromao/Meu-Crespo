@@ -9,9 +9,9 @@ import SwiftUI
 struct HomeView: View {
     @Environment(\.colorScheme) private var colorScheme
     @State private var preferredScheme: ColorScheme? = nil
-    
+    @StateObject private var weatherManager = WeatherManager() // ✅ adiciona aqui
+
     var body: some View {
-        // Wrap the main content in a NavigationStack
         NavigationStack {
             VStack(spacing:30){
                 VStack(spacing:30){
@@ -31,7 +31,7 @@ struct HomeView: View {
                         Image("bgRecomendacao")
                         
                             CardListView()
-                                .padding(.bottom,190)                           
+                                .padding(.bottom,190)
                     }
                 }
                 
@@ -48,8 +48,7 @@ struct HomeView: View {
 //                    }
 //                }
 //            }
-        } // End of NavigationStack
-        // Apply the color scheme modifier to the entire stack if you want it to affect all children
+        }
         .preferredColorScheme(.light)
     }
 }

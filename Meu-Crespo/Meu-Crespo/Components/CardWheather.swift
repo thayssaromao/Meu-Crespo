@@ -16,8 +16,10 @@ struct CardWheather: View {
     var cardName: String
     var isTemp: Bool = false
     var isWeather: Bool = false
-//    var isUv: Bool = false
+    var isUv: Bool = false
     var isHumidity: Bool = false
+    var isWind: Bool = false
+
     
     var body: some View {
 
@@ -33,13 +35,16 @@ struct CardWheather: View {
                 if(isWeather){
                     Weather().environmentObject(weatherManager)
                 }
-//                if(isUv){
-//                    Uv().environmentObject(weatherManager)
-//                }
+                if(isUv){
+                    Uv().environmentObject(weatherManager)
+                }
                 if(isHumidity){
                 
                     Humidity().environmentObject(weatherManager)
                 }
+                if(isWind){
+                                Wind().environmentObject(weatherManager)
+                            }
             }
         }
         .frame(width: 115)
@@ -53,7 +58,7 @@ struct Uv: View {
 
     var body: some View {
         VStack(alignment: .center, spacing: 8) {
-            Text(weatherManager.uvIndex)
+            Text("Índice Uv\n\(weatherManager.uvIndex)")
                 .font(.system(size:18)).bold()
                 .multilineTextAlignment(.center)
                 .multilineTextAlignment(.center)
@@ -64,12 +69,6 @@ struct Uv: View {
                 .font(Font.custom("SF Pro", size: 46))
                 .multilineTextAlignment(.center)
                 .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
-                .frame(
-                    maxWidth: .infinity,
-                    minHeight: 54,
-                    maxHeight: 54,
-                    alignment: .center
-                )
         }
     }
 }
@@ -95,28 +94,22 @@ struct Weather: View {
         }
     }
 }
-struct Humidity: View { // NOVO STRUCT
+struct Humidity: View {
     @EnvironmentObject var weatherManager: WeatherManager
 
     var body: some View {
         VStack(alignment: .center, spacing: 8) {
-            Text(weatherManager.humidity)
-                .font(.system(size:18)).bold()
+            Text("Umidade \(weatherManager.humidity)")
+                .font(.system(size:15)).bold()
                 .multilineTextAlignment(.center)
                 .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
                 .frame(width: 100)
             
-            // Ícone que representa a umidade
             Image(systemName: "drop.fill")
-                .font(Font.custom("SF Pro", size: 46))
+                .font(Font.custom("SF Pro", size: 35))
                 .multilineTextAlignment(.center)
                 .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
-                .frame(
-                    maxWidth: .infinity,
-                    minHeight: 54,
-                    maxHeight: 54,
-                    alignment: .center
-                )
+               
         }
     }
 }
@@ -140,6 +133,28 @@ struct Temp: View {
         .frame(width: 80)
     }
 }
+// CardWheather.swift
+
+struct Wind: View {
+    @EnvironmentObject var weatherManager: WeatherManager
+
+    var body: some View {
+        VStack(alignment: .center, spacing: 8) {
+            // Exibe a velocidade do vento
+            Text("Vento \(weatherManager.windStatus)\n\(weatherManager.windSpeed)")
+                .font(.system(size:15)).bold()
+                .multilineTextAlignment(.center)
+                .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
+                .frame(width: 100)
+            
+            // Exibe o símbolo do vento
+            Image(systemName: weatherManager.windSymbol)
+                .font(Font.custom("SF Pro", size: 40))
+                .multilineTextAlignment(.center)
+                .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
+        }
+    }
+}
 
 struct CardHead: View {
     var body: some View {
@@ -147,7 +162,7 @@ struct CardHead: View {
             
             CardWheather(cardName: "cardGrau", isTemp: true)
             CardWheather(cardName: "cardClima", isWeather: true)
-            CardWheather(cardName: "cardUv", isHumidity: true)
+            CardWheather(cardName: "cardUv", isWind: true)
         }
     }
 }
