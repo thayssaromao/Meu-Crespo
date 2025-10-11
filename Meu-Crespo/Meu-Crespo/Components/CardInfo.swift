@@ -42,7 +42,7 @@ struct CardInfo: View {
                 }
                 .frame(width: 350)
             }.sheet(isPresented: $showingSheet) {
-                SheetView()
+//                SheetView()
             }
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 enum Tabs{
-    case home, learn, teste
+    case home, learn
 }
 
 //(Injeção de Dependência)
@@ -31,10 +31,7 @@ struct ContentView: View {
                     .environmentObject(weatherManager)
 
             }
-            Tab("teste", systemImage: "book.fill", value: .teste){
-                WeatherInfoView()
-                    .environmentObject(weatherManager)
-            }
+           
         }.tint(Color(red: 0.95, green: 0.42, blue: 0.37))
         
     }

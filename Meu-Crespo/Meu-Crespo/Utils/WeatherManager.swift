@@ -21,6 +21,7 @@ final class WeatherManager: NSObject, ObservableObject, CLLocationManagerDelegat
     @Published var uvIndex: String = "..." // Ex: "Moderado" ou "3"
     @Published var precipitationChance: String = "..." // Ex: "70%"
     @Published var uvSymbol: String = "sun.max.fill"
+    @Published var humidity: String = "..."
     
     // Dados para exibir na sua View (inicialmente vazios)
     @Published var symbolName: String = "questionmark.circle"
@@ -96,11 +97,17 @@ final class WeatherManager: NSObject, ObservableObject, CLLocationManagerDelegat
                 // 3. Concatena para obter a string final (ex: "24°C")
                 let formattedTemperature = "\(temperatureValue)\(temperatureUnit)"
 
+                let humidityPercentage = Int(currentWeather.humidity * 100)
+                let formattedHumidity = "\(humidityPercentage)%"
+                
                 DispatchQueue.main.async {
                     self.symbolName = currentWeather.symbolName
                     self.temperature = formattedTemperature
                     self.condition = currentWeather.condition.description
                     self.status = .loaded
+                    
+                    self.humidity = formattedHumidity
+
                     
                     // 2. Correção da Lógica do UV Index (Removemos o 'if let' desnecessário)
                     let uv = currentWeather.uvIndex.value

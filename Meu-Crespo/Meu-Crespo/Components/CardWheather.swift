@@ -16,7 +16,8 @@ struct CardWheather: View {
     var cardName: String
     var isTemp: Bool = false
     var isWeather: Bool = false
-    var isUv: Bool = false
+//    var isUv: Bool = false
+    var isHumidity: Bool = false
     
     var body: some View {
 
@@ -32,8 +33,12 @@ struct CardWheather: View {
                 if(isWeather){
                     Weather().environmentObject(weatherManager)
                 }
-                if(isUv){
-                    Uv().environmentObject(weatherManager)
+//                if(isUv){
+//                    Uv().environmentObject(weatherManager)
+//                }
+                if(isHumidity){
+                
+                    Humidity().environmentObject(weatherManager)
                 }
             }
         }
@@ -90,16 +95,40 @@ struct Weather: View {
         }
     }
 }
+struct Humidity: View { // NOVO STRUCT
+    @EnvironmentObject var weatherManager: WeatherManager
+
+    var body: some View {
+        VStack(alignment: .center, spacing: 8) {
+            Text(weatherManager.humidity)
+                .font(.system(size:18)).bold()
+                .multilineTextAlignment(.center)
+                .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
+                .frame(width: 100)
+            
+            // Ícone que representa a umidade
+            Image(systemName: "drop.fill")
+                .font(Font.custom("SF Pro", size: 46))
+                .multilineTextAlignment(.center)
+                .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
+                .frame(
+                    maxWidth: .infinity,
+                    minHeight: 54,
+                    maxHeight: 54,
+                    alignment: .center
+                )
+        }
+    }
+}
 struct Temp: View {
     @EnvironmentObject var weatherManager: WeatherManager
 
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
             Text(weatherManager.cityName)
-                .font(.system(size:18)).bold()
+                .font(.system(size:16)).bold()
                 .multilineTextAlignment(.center)
                 .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
-                .frame(width:100)
                
             
             Text(weatherManager.temperature)
@@ -108,7 +137,7 @@ struct Temp: View {
                 .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
                 
         }
-        .frame(width: 71)
+        .frame(width: 80)
     }
 }
 
@@ -118,7 +147,7 @@ struct CardHead: View {
             
             CardWheather(cardName: "cardGrau", isTemp: true)
             CardWheather(cardName: "cardClima", isWeather: true)
-            CardWheather(cardName: "cardUv", isUv: true)
+            CardWheather(cardName: "cardUv", isHumidity: true)
         }
     }
 }

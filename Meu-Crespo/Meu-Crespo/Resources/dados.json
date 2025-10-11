@@ -1,0 +1,29 @@
+[
+  {
+    "tipo": "penteados",
+    "titulo": "Ideias de Penteados para Cabelos Crespos",
+    "conteudo": [
+      "Afro puff alto para dias quentes.",
+      "Tranças com lenço colorido para eventos.",
+      "Coque volumoso com gelatina capilar."
+    ]
+  },
+  {
+    "tipo": "cronograma",
+    "titulo": "Cronograma Capilar Semanal",
+    "conteudo": [
+      "Segunda: Hidratação com babosa.",
+      "Quarta: Nutrição com óleo de rícino.",
+      "Sábado: Reconstrução com queratina líquida."
+    ]
+  },
+  {
+    "tipo": "dicas",
+    "titulo": "Dicas para Cuidados Diários",
+    "conteudo": [
+      "Evite pentear o cabelo seco.",
+      "Use fronha de cetim para dormir.",
+      "Mantenha o couro cabeludo limpo e hidratado."
+    ]
+  }
+]

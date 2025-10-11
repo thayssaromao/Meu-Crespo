@@ -13,12 +13,12 @@ struct HomeView: View {
     var body: some View {
         // Wrap the main content in a NavigationStack
         NavigationStack {
-            VStack(spacing:20){
-                
+            VStack(spacing:30){
                 VStack(spacing:30){
                     WeekSlider()
                     CardHead()
-                }.padding(.top,90)
+                }.padding(.top,200)
+                    .padding(.bottom,10)
                 
                 VStack(alignment:.leading){
                     Text("Recomendações")
@@ -29,13 +29,12 @@ struct HomeView: View {
                     
                     ZStack{
                         Image("bgRecomendacao")
+                        
                         VStack(spacing:20){
-                            CardSheet()
-                            CardSheet()
-                            CardSheet()
+                            CardListView()
                             
                         }.frame(maxWidth: .infinity)
-                            .padding(.bottom,100)
+                            .padding(.bottom,190)
                     }
                 }
                 
