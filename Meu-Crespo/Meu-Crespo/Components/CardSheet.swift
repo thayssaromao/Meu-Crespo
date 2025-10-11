@@ -56,6 +56,19 @@ struct CardSheet: View {
     var item: ConteudoItem
     var onTap: () -> Void
 
+    var imageName: String {
+            switch item.tipo {
+            case "penteados":
+                return "garfo"
+            case "cronograma":
+                return "cronograma"
+            case "dicas":
+                return "dicas"
+            default:
+                return "garfo"
+            }
+        }
+    
     var body: some View {
         Button {
             onTap()
@@ -69,17 +82,19 @@ struct CardSheet: View {
                     .shadow(color: .black.opacity(0.25), radius: 1.83003, x: 0, y: 3.66006)
 
                 HStack(spacing: 20) {
-                    Image("garfo") // pode trocar por item.tipo se quiser
+                    Image(imageName)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 105)
-                        .padding(.trailing, 40)
-                        .padding(.top, 10)
+                        .frame(width: 80)
 
                     Text(item.tipo.capitalized)
-                        .font(.system(size: 17)).bold()
+                        .font(.system(size: 18)).bold()
                         .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
+                        .frame(width: 150)
                 }
+                .padding(10)
+                
+
             }
         }
     }

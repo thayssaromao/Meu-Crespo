@@ -30,11 +30,8 @@ struct HomeView: View {
                     ZStack{
                         Image("bgRecomendacao")
                         
-                        VStack(spacing:20){
                             CardListView()
-                            
-                        }.frame(maxWidth: .infinity)
-                            .padding(.bottom,190)
+                                .padding(.bottom,190)                           
                     }
                 }
                 
