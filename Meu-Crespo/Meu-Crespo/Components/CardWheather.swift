@@ -77,10 +77,10 @@ struct Weather: View {
 
     var body: some View {
         
-        VStack(alignment: .center,  spacing: 5){
+        VStack(alignment: .center,  spacing: 8){
             Text(weatherManager.condition)
                 .lineLimit(2)
-                .font(.system(size:18)).bold()
+                .font(.system(size:14)).bold()
                 .multilineTextAlignment(.center)
                 .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
                 .frame(width:100)
@@ -100,7 +100,7 @@ struct Humidity: View {
     var body: some View {
         VStack(alignment: .center, spacing: 8) {
             Text("Umidade \(weatherManager.humidity)")
-                .font(.system(size:15)).bold()
+                .font(.system(size:14)).bold()
                 .multilineTextAlignment(.center)
                 .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
                 .frame(width: 100)
@@ -142,7 +142,7 @@ struct Wind: View {
         VStack(alignment: .center, spacing: 8) {
             // Exibe a velocidade do vento
             Text("Vento \(weatherManager.windStatus)\n\(weatherManager.windSpeed)")
-                .font(.system(size:15)).bold()
+                .font(.system(size:14)).bold()
                 .multilineTextAlignment(.center)
                 .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
                 .frame(width: 100)

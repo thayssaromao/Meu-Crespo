@@ -2,28 +2,170 @@
   {
     "tipo": "penteados",
     "titulo": "Ideias de Penteados para Cabelos Crespos",
-    "conteudo": [
-      "Afro puff alto para dias quentes.",
-      "Tranças com lenço colorido para eventos.",
-      "Coque volumoso com gelatina capilar."
-    ]
+    "climas": {
+      "ensolarado": [
+        "Afro Puff Alto: realce o volume e deixe o couro cabeludo respirar.",
+        "Coque Abacaxi com lenço ou bandana para proteger os fios do sol.",
+        "Tranças Nagô em toda a cabeça: ideais para dias quentes e secos.",
+        "Turbante Aberto para proteger os fios da radiação UV.",
+        "Afro Puff Lateral com faixa colorida para um toque de cor.",
+        "Half Bun (Meio Coque): prenda apenas a metade de cima do cabelo.",
+        "Penteado com Viseira ou Boné para proteção solar.",
+        "Rabo de Cavalo com Elásticos coloridos para dividir mechas.",
+        "Falso Sidecut com Grampos para simular corte raspado.",
+        "Penteados com acessórios metálicos e tiaras para estilo e proteção."
+      ],
+      "chuvoso": [
+        "Twists Soltos para manter a definição mesmo com a umidade.",
+        "Bantu Knots (coquinhos): protegem e evitam o frizz.",
+        "Coque Baixo com lenço de cetim: controle do frizz em dias úmidos.",
+        "Tranças Box Braids: ideais para longos períodos de chuva.",
+        "Rabo de Cavalo Baixo com acabamento em baby hair.",
+        "Torcidinhos Laterais Presos Atrás para manter os fios organizados.",
+        "Semi-preso com Topete para proteger o cabelo parcialmente.",
+        "Coque com Lenço de Cetim para elegância e proteção extra.",
+        "Twists ajudam a manter a definição e reduzir frizz causado pela umidade.",
+        "Use fronhas de cetim à noite para proteger o cabelo durante o sono."
+      ],
+      "nublado": [
+        "Coque Duplo (Space Buns): divertido e prático.",
+        "Trança Nagô Lateral com presilhas para um visual moderno.",
+        "Rabo de Cavalo Alto e Polido: raiz alinhada, volume controlado.",
+        "Coroa de Tranças para um toque sofisticado.",
+        "Coque com Lenço de Cetim: elegância e proteção.",
+        "Afro Puff com Franja Solta: mechas frontais soltas para visual despojado.",
+        "Cabelo Solto com Tiara ou acessórios leves.",
+        "Penteado com Presilhas e Tic-Tacs para variar estilo."
+      ],
+      "frio": [
+        "Turbante Fechado: aquece e protege os fios do vento.",
+        "Coque Baixo Elegante com presilhas ou piranhas.",
+        "Cabelo Solto com Gorro ou Boina: aquece e evita ressecamento.",
+        "Twists com lenço de cetim para dormir e evitar atrito.",
+        "Faux Locs ou Box Braids para proteção prolongada.",
+        "Blowout: escove o cabelo para alongar os fios e ganhar volume.",
+        "Coque Trançado: rabo de cavalo trançado enrolado em coque.",
+        "Laterais Presas com Acabamento em Baby Hair.",
+        "Turbante Fechado para proteção completa contra frio e vento."
+      ],
+      "ventando": [
+        "Penteados Protetores (tranças, twists, coques) para evitar embaraço.",
+        "Turbante Fechado para conter os fios.",
+        "Moicano de Tranças para manter o formato sem frizz.",
+        "Rabo de Cavalo com Elásticos coloridos para fixação extra.",
+        "Coroa de Twists para segurar os fios e proteger as pontas.",
+        "Use acessórios e lenços de cetim para evitar atrito.",
+        "Prefira penteados fixos como nagô, twists e coques baixos.",
+        "Finalize com óleo selante para reduzir quebra e frizz."
+      ]
+    }
   },
   {
     "tipo": "cronograma",
     "titulo": "Cronograma Capilar Semanal",
-    "conteudo": [
-      "Segunda: Hidratação com babosa.",
-      "Quarta: Nutrição com óleo de rícino.",
-      "Sábado: Reconstrução com queratina líquida."
-    ]
+    "climas": {
+      "ensolarado": [
+        "Alta radiação UV: priorize Hidratação e produtos com filtro solar.",
+        "Use leave-in com proteção térmica e solar.",
+        "Hidratação com máscara de babosa e proteína do arroz.",
+        "Finalize com creme de pentear leve para evitar ressecamento.",
+        "Evite cremes sem proteção UV e exposição solar excessiva.",
+        "Proteção térmica: o cabelo crespo cria uma camada de ar que funciona como isolante.",
+        "Use chapéus, turbantes ou penteados para proteger os fios.",
+        "Planeje o cronograma semanal considerando a previsão do tempo.",
+        "Tempo ideal para lavar o cabelo: manhã cedo ou fim da tarde, evitando sol intenso."
+      ],
+      "chuvoso": [
+        "Alta umidade favorece o frizz — priorize Nutrição.",
+        "Use óleos vegetais (rícino, coco, abacate) e manteiga de karité.",
+        "Evite lavar o cabelo em dias muito úmidos; opte por pré-poo.",
+        "Finalize com gelatina ou óleo selante para evitar absorção de umidade.",
+        "Durma com fronha de cetim para controlar o frizz.",
+        "Produtos acidificantes e pH ácido ajudam a fechar as cutículas.",
+        "Máscaras com proteínas, queratina e lipídios reparam danos e nutrem os fios.",
+        "Se os fios estiverem ressecados, priorize hidratação; opacos, foque em nutrição; com quebra, reconstrua.",
+        "Secar com difusor usando ar frio ajuda a controlar frizz e definir cachos."
+      ],
+      "nublado": [
+        "Clima ameno: mantenha o equilíbrio entre Hidratação e Nutrição.",
+        "Máscara de Hidratação com manteiga de manga e vitamina E.",
+        "Máscara de Nutrição com 7 óleos poderosos para brilho e maleabilidade.",
+        "Condicionador Creme para Pentear com óleos e proteína do arroz.",
+        "Finalize com fitagem para definição natural.",
+        "Use pentes de dentes largos, de madeira ou garfo, evitando quebra e frizz.",
+        "Técnicas de finalização: fitagem, cremes de pentear, gelatina e água para definição.",
+        "Planeje hidratação, nutrição e reconstrução conforme necessidade do cabelo."
+      ],
+      "frio": [
+        "Baixa temperatura: evite lavar com água fria demais.",
+        "Use água morna para não abrir excessivamente as cutículas.",
+        "Priorize Hidratação Leve e Umectação com óleos nutritivos.",
+        "Finalize com difusor morno e protetor térmico.",
+        "Evite dormir com cabelo úmido e mantenha a rotina de reconstrução quinzenal.",
+        "Fronhas de cetim e toucas evitam atrito e frizz.",
+        "Máscaras nutritivas e reconstrutoras são indicadas para o frio.",
+        "Produtos com proteínas e lipídios ajudam a proteger os fios."
+      ],
+      "ventando": [
+        "Ventos fortes causam quebra — invista em Reconstrução.",
+        "Use máscaras com proteínas, queratina e lipídios.",
+        "Finalize com sérum ou óleo nas pontas para selar as cutículas.",
+        "Evite deixar o cabelo solto; prefira penteados protetores.",
+        "Use produtos antifrizz para reduzir atrito com o vento.",
+        "Prefira tranças, twists, coques baixos ou turbantes fechados.",
+        "Proteja as pontas e a raiz do vento com acessórios e óleos nutritivos."
+      ]
+    }
   },
   {
     "tipo": "dicas",
     "titulo": "Dicas para Cuidados Diários",
-    "conteudo": [
-      "Evite pentear o cabelo seco.",
-      "Use fronha de cetim para dormir.",
-      "Mantenha o couro cabeludo limpo e hidratado."
-    ]
+    "climas": {
+      "ensolarado": [
+        "Evite cremes sem proteção UV.",
+        "Use chapéus, turbantes ou penteados que cubram os fios.",
+        "Proteção térmica é essencial antes de secar ou se expor ao sol.",
+        "Mantenha a hidratação semanal com máscaras de babosa e vitamina E.",
+        "Finalize com difusor e selagem leve para evitar ressecamento.",
+        "Use produtos com filtro solar ou métodos físicos para proteger os fios.",
+        "Observe o cronograma da semana e adapte conforme a previsão do tempo.",
+        "Tempo ideal para lavar: manhã cedo ou fim da tarde, evitando sol intenso."
+      ],
+      "chuvoso": [
+        "A umidade causa frizz — mantenha o cabelo selado e nutrido.",
+        "Use acidificantes ou vinagre de maçã para fechar as cutículas.",
+        "Evite escovar o cabelo seco; use pentes de dentes largos.",
+        "Finalize com fitagem ou twists para controlar o volume.",
+        "Durma com lenço ou fronha de cetim para evitar atrito.",
+        "Pré-poo protege os fios antes da lavagem.",
+        "Máscaras nutritivas com proteínas, lipídios e óleos são essenciais.",
+        "Secar com difusor e ar frio ajuda a controlar o frizz e definir cachos."
+      ],
+      "nublado": [
+        "Momento ideal para fazer reconstrução capilar leve.",
+        "Use máscaras com queratina e manteigas vegetais.",
+        "Prefira pentes de madeira e escovas Tangle Teezer para desembaraçar.",
+        "Hidrate com máscara de manteiga de manga e vitamina E.",
+        "Finalize com gelatina para definição sem peso.",
+        "Técnicas de finalização: fitagem, cremes de pentear, gelatina e água para definição.",
+        "Planeje hidratação, nutrição e reconstrução conforme necessidade do cabelo."
+      ],
+      "frio": [
+        "Use toucas de cetim sob gorros para evitar atrito e frizz.",
+        "Evite lavar o cabelo à noite e deixá-lo úmido ao dormir.",
+        "Faça umectação com óleos vegetais e mantenha cronograma regular.",
+        "Hidratação profunda quinzenal ajuda a combater o ressecamento.",
+        "Finalize com difusor morno e selagem ácida suave.",
+        "Proteja os fios do frio com turbantes, gorros e lenços de cetim."
+      ],
+      "ventando": [
+        "O vento causa embaraço e quebra — proteja os fios com tranças ou coques.",
+        "Aplique óleo leve nas pontas antes de sair de casa.",
+        "Prefira penteados fixos (nagô, twists, coque baixo).",
+        "Use lenço de cetim ou turbante fechado para evitar atrito.",
+        "Finalize com óleo selante e evite produtos muito leves.",
+        "Cronograma deve priorizar reconstrução e proteção das cutículas."
+      ]
+    }
   }
 ]

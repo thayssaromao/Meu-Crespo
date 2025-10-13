@@ -31,7 +31,7 @@ struct HomeView: View {
                         Image("bgRecomendacao")
                         
                             CardListView()
-                                .padding(.bottom,190)
+                                .padding(.bottom,200)
                     }
                 }
                 

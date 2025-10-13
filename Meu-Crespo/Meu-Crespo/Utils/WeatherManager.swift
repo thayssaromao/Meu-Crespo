@@ -38,7 +38,8 @@ final class WeatherManager: NSObject, ObservableObject, CLLocationManagerDelegat
     
     @Published var dailyForecasts: [DayWeather] = []
 
-    
+    @Published var selectedDate: Date = Date() // NOVO: data do dia selecionado
+
     private let locationManager = CLLocationManager()
     private let weatherService = WeatherService.shared
     
@@ -119,6 +120,8 @@ final class WeatherManager: NSObject, ObservableObject, CLLocationManagerDelegat
     }
     
     func updateWeather(for date: Date) {
+           self.selectedDate = date
+
            let calendar = Calendar.current
            
            // 1. Busca o DayWeather que corresponde à data selecionada
