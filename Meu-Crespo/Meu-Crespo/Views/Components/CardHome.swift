@@ -147,7 +147,7 @@ struct CardHome: View {
                     Image(imageName)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 80)
+                        .frame(width: 80, height: 80)
                     Text(item.tipo.capitalized)
                         .font(.system(size: 20)).bold()
                         .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
@@ -157,4 +157,8 @@ struct CardHome: View {
             }
         }
     }
+}
+
+#Preview {
+    ContentView()
 }

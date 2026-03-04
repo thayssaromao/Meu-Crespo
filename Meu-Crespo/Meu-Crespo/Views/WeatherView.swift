@@ -1,10 +1,3 @@
-//
-//  WeatherView.swift
-//  Meu-Crespo
-//
-//  Created by Thayssa Romão on 09/10/25.
-//
-
 import UIKit
 import CoreLocation
 import WeatherKit

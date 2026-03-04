@@ -1,8 +1,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @Environment(\.colorScheme) private var colorScheme
-    @State var preferredScheme: ColorScheme? = nil
+    @Environment(\.colorScheme) var colorScheme
 //    @StateObject private var weatherManager = WeatherManager()
     @EnvironmentObject var weatherManager: WeatherManager
 
@@ -19,7 +18,7 @@ struct HomeView: View {
                     Text("Recomendações")
                         .bold()
                         .font(.system(size: 28))
-                        .foregroundColor(colorScheme == .light ? Color(red: 0.32, green: 0.13, blue: 0.02) : .primary)
+                        .foregroundColor(colorScheme == .light ? Color.redBrown : .primary)
                         .padding(.leading,25)
                     
                     ZStack{
@@ -30,9 +29,11 @@ struct HomeView: View {
                     }
                 }
                 
-            }.ignoresSafeArea()
+            }
+            .background(colorScheme == .light ? Color.white : Color.brownBg)
+            .ignoresSafeArea()
         }
-        .preferredColorScheme(.light)
+       // .preferredColorScheme(.light)
     }
 }
 

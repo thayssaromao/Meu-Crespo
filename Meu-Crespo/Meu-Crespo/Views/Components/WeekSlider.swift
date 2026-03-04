@@ -60,7 +60,6 @@ struct DayView: View {
 struct WeekSlider: View {
     
     @EnvironmentObject var weatherManager: WeatherManager
-
     @State private var days: [WeekDay] = []
     @State private var selectedDayId: UUID?
     

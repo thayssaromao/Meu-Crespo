@@ -1,7 +1,7 @@
 import SwiftUI
 
 enum Tabs{
-    case home, learn
+    case home, diary, learn
 }
 
 //(Injeção de Dependência)
@@ -10,26 +10,40 @@ struct ContentView: View {
     @StateObject var weatherManager = WeatherManager()
     @State var selectedTab: Tabs = .home
     @State private var showSplash = true
+    @AppStorage("hasCompletedOnboarding") var hasCompletedOnboarding: Bool = false
     
     var body: some View {
         ZStack {
-            TabView(selection:
-                        $selectedTab){
-                
-                Tab("Home", systemImage: "house", value: .home){
-                    HomeView()
-                        .environmentObject(weatherManager)
-
-                }
-                Tab("Conteúdo", systemImage: "book.fill", value: .learn){
-                    LearnView()
-                        .environmentObject(weatherManager)
-
-                }
-               
-            }.tint(Color(red: 0.95, green: 0.42, blue: 0.37))
-            .opacity(showSplash ? 0 : 1)
+            Group {
+                if hasCompletedOnboarding {
+                    TabView(selection:
+                                $selectedTab){
                         
+                        Tab("Início", systemImage: "house", value: .home){
+                            HomeView()
+                                .environmentObject(weatherManager)
+                            
+                        }
+                        
+                        Tab("Diário", systemImage: "pencil.and.scribble", value: .diary){
+                            DiaryView()
+                            
+                        }
+                        
+                        Tab("Conteúdo", systemImage: "book.fill", value: .learn){
+                            LearnView()
+                                .environmentObject(weatherManager)
+                            
+                        }
+                        
+                    }.tint(Color(red: 0.95, green: 0.42, blue: 0.37))
+                    
+                } else {
+                    OnboardingView()
+                }
+            }
+                    .opacity(showSplash ? 0 : 1)
+            
             if showSplash {
                 SplashScreen()
                     .transition(.opacity)

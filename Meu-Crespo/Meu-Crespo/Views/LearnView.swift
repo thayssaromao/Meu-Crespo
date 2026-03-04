@@ -1,43 +1,56 @@
 import SwiftUI
 
 struct LearnView: View {
-    @State var nome: String = "Fulano"
+    @Environment(\.colorScheme) var colorScheme
+    @AppStorage("userName") var userName: String = "Usuário"
     @State private var contents: [ContentModel] = []
     
     var body: some View {
         NavigationStack {
-            ScrollView(showsIndicators: false) {
-                VStack( alignment: .leading, spacing: 24){
-                    Text("Olá, \(nome)!")
-                        .font(.system(size:30, weight: .bold))
-                        .foregroundColor(.black)
-                    
-                    Text("Aqui você pode explorar diversos assuntos relacionados a cuidados com o  seu cabelo crespo!")
-                      .font(Font.custom("SF Pro", size: 18))
-                      .foregroundColor(.black)
+            ZStack{
+                (colorScheme == .light ? Color.white : Color.brownBg)
+                    .ignoresSafeArea()
+                
+                ScrollView(showsIndicators: false) {
+                    VStack( alignment: .leading, spacing: 24){
+                        Text("Olá, \(userName)!")
+                            .font(.system(size:30, weight: .bold))
+                            .foregroundColor(colorScheme == .light ? .redBrown : .white)
+                        
+                        Text("Aqui você pode explorar diversos assuntos relacionados a cuidados com o  seu cabelo crespo!")
+                          .font(Font.custom("SF Pro", size: 18))
+                          .foregroundColor(colorScheme == .light ? .redBrown : .white)
 
-                    Spacer()
-                    
-                    VStack(spacing: 25){
-                        ForEach(contents) { content in
-                           CardLearning(content: content)
-                       }
+                        Spacer()
+                        
+                        VStack(spacing: 25){
+                            ForEach(contents) { content in
+                               CardLearning(content: content)
+                           }
+                        }
                     }
-                }.padding()
-    //            .toolbar {
-    //                ToolbarItem(placement: .topBarLeading) {
-    //                    Menu {
-    //                          opçao de linguas pode ser aqui?
-    //                    } label: {
-    //                        Label("Tema", systemImage: "circle.lefthalf.filled")
-    //                    }
-    //                }
-    //            }
-            }
-            .onAppear {
-                contents = ContentService.loadContents()
+                    .padding()
+                    .background(colorScheme == .light ? .white : Color.brownBg)
+                    .ignoresSafeArea()
+        //            .toolbar {
+        //                ToolbarItem(placement: .topBarLeading) {
+        //                    Menu {
+        //                          opçao de linguas pode ser aqui?
+        //                    } label: {
+        //                        Label("Tema", systemImage: "circle.lefthalf.filled")
+        //                    }
+        //                }
+        //            }
+                }
+                .onAppear {
+                    contents = ContentService.loadContents()
+                }
             }
         }
             
     }
+}
+
+#Preview {
+    LearnView()
 }

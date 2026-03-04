@@ -3,7 +3,8 @@ import SwiftUI
 struct SheetView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var weatherManager: WeatherManager
-    
+    @Environment(\.colorScheme) var colorScheme
+
     var item: ConteudoItem
     var climaAtual: String
     var climaChave: String
@@ -17,14 +18,14 @@ struct SheetView: View {
                 VStack(alignment: .leading, spacing: 20) {
                     Text(item.titulo)
                         .font(.system(size: 25, weight: .semibold))
-                        .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
+                        .foregroundColor(colorScheme == .light ? Color.redBrown : Color.pinky)
                     
                     VStack(alignment: .leading, spacing: 6) {
                         Text(climaChave.uppercased())
                         Text("\(formatarData(weatherManager.selectedDate))")
                     }
                     .font(.system(size: 15))
-                    .foregroundColor(.gray)
+                    .foregroundColor(colorScheme == .light ? .gray : .white)
                     .padding(.bottom, 8)
                     
                     VStack(spacing: 10) {
@@ -63,6 +64,7 @@ struct SheetView: View {
 }
 
 struct GlassCardView: View {
+    @Environment(\.colorScheme) var colorScheme
     var linha: String
     private var partes: [String] {
         let componentes = linha.components(separatedBy: ": ")
@@ -76,12 +78,12 @@ struct GlassCardView: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text(partes[0])
                     .font(.system(size: 20, weight: .bold))
-                    .foregroundColor(Color(red: 0.35, green: 0.20, blue: 0.10))
+                    .foregroundColor(colorScheme == .light ? Color.redBrown : .white)
                     .padding(.top, 4)
                 
                 Text(partes[1])
                     .font(.system(size: 18))
-                    .foregroundColor(Color(red: 0.35, green: 0.20, blue: 0.10))
+                    .foregroundColor(colorScheme == .light ? Color.redBrown : .white)
                     .lineSpacing(4)
             }
             .padding(.horizontal, 24)

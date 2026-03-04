@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct CardLearning: View {
+    @Environment(\.colorScheme) var colorScheme
     @State private var showingSheet = false
     var content: ContentModel
 
@@ -29,10 +30,8 @@ struct CardLearning: View {
                             Image(systemName: "chevron.right")
                         }.frame(width: 301)
                         .font(.system(size: 20, weight: .bold))
-                          .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
-                        
-                    
-                    
+                        .foregroundColor(Color.redBrown)
+
                 }
                 .frame(width: 350)
             }
@@ -42,9 +41,11 @@ struct CardLearning: View {
                        Spacer()
                        Text(content.titulo)
                            .font(.system(size: 28, weight: .bold))
+                           .foregroundColor(colorScheme == .light ? .redBrown : .pinky)
                        Spacer()
                        Text(content.texto)
                            .font(.system(size: 22, weight: .medium))
+                           .foregroundColor(colorScheme == .light ? .redBrown : .white)
                    }
                    .foregroundStyle(Color.redBrown)
                    .padding(25)
