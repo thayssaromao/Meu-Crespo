@@ -1,15 +1,8 @@
-//
-//  WeatherManager.swift
-//  Meu-Crespo
-//
-//  Created by Thayssa Romão on 10/10/25.
-//
-
 import CoreLocation
 import WeatherKit
 internal import Combine
+import MapKit
 
-// Define o estado possível do clima
 enum WeatherStatus {
     case loading, loaded, failed
 }

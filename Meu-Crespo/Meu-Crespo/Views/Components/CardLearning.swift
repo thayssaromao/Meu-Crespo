@@ -1,15 +1,8 @@
-//
-//  CardInfo.swift
-//  Meu-Crespo
-//
-//  Created by Thayssa Romão on 09/10/25.
-//
-
 import SwiftUI
 
-struct CardInfo: View {
+struct CardLearning: View {
     @State private var showingSheet = false
-    @State private var assunto: String = "O que é Umectação?"
+    var content: ContentModel
 
         var body: some View{
             Button() {
@@ -26,24 +19,37 @@ struct CardInfo: View {
                           .frame(width: 360, height: 88)
                           .clipped()
                       )
-                      .cornerRadius(8)
+                      .cornerRadius(10)
+                      .shadow(color: Color(red: 0.32, green: 0.13, blue: 0.02).opacity(0.6), radius: 2, x: 0, y: 4)
                     
                     
                     HStack(alignment:.center){
-                            Text(assunto)
+                        Text(content.titulo)
                         Spacer()
                             Image(systemName: "chevron.right")
                         }.frame(width: 301)
-                        .font(.system(size: 18).bold())
-                          .foregroundColor(.black)
+                        .font(.system(size: 20, weight: .bold))
+                          .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
                         
                     
                     
                 }
                 .frame(width: 350)
-            }.sheet(isPresented: $showingSheet) {
-//                SheetView()
             }
+            .sheet(isPresented: $showingSheet) {
+               ScrollView {
+                   VStack(alignment: .leading, spacing: 16) {
+                       Spacer()
+                       Text(content.titulo)
+                           .font(.system(size: 28, weight: .bold))
+                       Spacer()
+                       Text(content.texto)
+                           .font(.system(size: 22, weight: .medium))
+                   }
+                   .foregroundStyle(Color.redBrown)
+                   .padding(25)
+               }
+           }
     }
 }
 

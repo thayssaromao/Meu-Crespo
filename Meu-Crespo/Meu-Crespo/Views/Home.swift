@@ -1,15 +1,10 @@
-//
-//  Home.swift
-//  Meu-Crespo
-//
-//  Created by Thayssa Romão on 08/10/25.
-//
 import SwiftUI
 
 struct HomeView: View {
     @Environment(\.colorScheme) private var colorScheme
-    @State private var preferredScheme: ColorScheme? = nil
-    @StateObject private var weatherManager = WeatherManager() // ✅ adiciona aqui
+    @State var preferredScheme: ColorScheme? = nil
+//    @StateObject private var weatherManager = WeatherManager()
+    @EnvironmentObject var weatherManager: WeatherManager
 
     var body: some View {
         NavigationStack {
@@ -30,28 +25,17 @@ struct HomeView: View {
                     ZStack{
                         Image("bgRecomendacao")
                         
-                            CardListView()
-                                .padding(.bottom,200)
+                        CardListView()
+                          .padding(.bottom,200)
                     }
                 }
                 
             }.ignoresSafeArea()
-            // The .toolbar modifier must be applied to the content *inside* the NavigationStack
-//            .toolbar {
-//                ToolbarItem(placement: .topBarLeading) {
-//                    Menu {
-//                        Button("Automático") { preferredScheme = nil }
-//                        Button("Claro") { preferredScheme = .light }
-//                        Button("Escuro") { preferredScheme = .dark }
-//                    } label: {
-//                        Label("Tema", systemImage: "circle.lefthalf.filled")
-//                    }
-//                }
-//            }
         }
         .preferredColorScheme(.light)
     }
 }
+
 #Preview {
     ContentView()
 }

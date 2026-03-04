@@ -1,10 +1,3 @@
-//
-//  CalendarView.swift
-//  Meu-Crespo
-//
-//  Created by Thayssa Romão on 09/10/25.
-//
-
 import SwiftUI
 
 struct WeekDay: Identifiable {
@@ -48,7 +41,7 @@ struct DayView: View {
             ZStack {
                 if isSelected {
                     Capsule()
-                        .fill(Color(red: 0.95, green: 0.42, blue: 0.37))
+                        .fill(Color.pinky)
                         .matchedGeometryEffect(id: "selectedBackground", in: namespace)
                 }
                 
@@ -66,7 +59,7 @@ struct DayView: View {
 
 struct WeekSlider: View {
     
-    @EnvironmentObject var weatherManager: WeatherManager // NOVO
+    @EnvironmentObject var weatherManager: WeatherManager
 
     @State private var days: [WeekDay] = []
     @State private var selectedDayId: UUID?
@@ -76,7 +69,6 @@ struct WeekSlider: View {
     
     var body: some View {
         VStack {
-
             ScrollViewReader { proxy in
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 20) {
@@ -116,7 +108,7 @@ struct WeekSlider: View {
                     }
                 }
             }
-            .frame(height: 90) // Altura da barra de rolagem
+            .frame(height: 90)
         }
     }
     
@@ -125,7 +117,7 @@ struct WeekSlider: View {
         let today = Date()
         var tempDays: [WeekDay] = []
         
-        // Gera 30 dias no passado e 30 dias no futuro
+        // Gera 9 dias no futuro
         for i in -0...9 {
             if let date = calendar.date(byAdding: .day, value: i, to: today) {
                 tempDays.append(WeekDay(date: date))

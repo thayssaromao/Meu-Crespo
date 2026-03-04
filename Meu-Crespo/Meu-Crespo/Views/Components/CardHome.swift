@@ -1,25 +1,5 @@
-//
-//  CardSheet.swift
-//  Meu-Crespo
-//
-//  Created by Thayssa Romão on 08/10/25.
-//
-
 import SwiftUI
 
-// MARK: - Modelo de dados (para o JSON)
-struct ConteudoItem: Codable, Identifiable {
-    var id = UUID()
-    var tipo: String
-    var titulo: String
-    var climas: [String: [String]]
-
-    private enum CodingKeys: String, CodingKey {
-        case tipo, titulo, climas
-    }
-}
-
-// MARK: - Lista de Cards
 struct CardListView: View {
     @EnvironmentObject var weatherManager: WeatherManager
     
@@ -34,7 +14,7 @@ struct CardListView: View {
     var body: some View {
         VStack(spacing: 20) {
             ForEach(dadosFiltrados) { item in
-                CardSheet(item: item) {
+                CardHome(item: item) {
                     selectedItem = item
                 }
             }
@@ -43,10 +23,10 @@ struct CardListView: View {
             carregarJSON()
             atualizarConteudoConformeClima()
         }
-        .onChange(of: weatherManager.condition) { _ in
+        .onChange(of: weatherManager.condition) {
             atualizarConteudoConformeClima()
         }
-        .onChange(of: weatherManager.temperature) { _ in
+        .onChange(of: weatherManager.temperature) { 
             atualizarConteudoConformeClima()
         }
         .sheet(item: $selectedItem) { item in
@@ -88,7 +68,6 @@ struct CardListView: View {
         var chave: String = "nublado"
         var climaLabel: String = "Dia nublado"
 
-        // 🔹 Lógica refinada
         if clima.contains("chuva") || clima.contains("rain") {
             chave = "chuvoso"
             climaLabel = "Dia chuvoso"
@@ -141,7 +120,7 @@ struct CardListView: View {
 }
 
 // MARK: - Card que aparece na Home
-struct CardSheet: View {
+struct CardHome: View {
     var item: ConteudoItem
     var onTap: () -> Void
     
@@ -170,7 +149,7 @@ struct CardSheet: View {
                         .scaledToFit()
                         .frame(width: 80)
                     Text(item.tipo.capitalized)
-                        .font(.system(size: 18)).bold()
+                        .font(.system(size: 20)).bold()
                         .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
                         .frame(width: 150)
                 }
@@ -178,76 +157,4 @@ struct CardSheet: View {
             }
         }
     }
-}
-
-// MARK: - Sheet (abre ao clicar no card)
-struct SheetView: View {
-    @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var weatherManager: WeatherManager
-    
-    var item: ConteudoItem
-    var climaAtual: String
-    var climaChave: String
-    var temperatura: String
-    var vento: String
-    var dataSelecionada: Date
-    
-    var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
-                HStack {
-                    Spacer()
-                    Button("Fechar") {
-                        dismiss()
-                    }
-                    .padding(.top, 10)
-                }
-                
-                Text(item.titulo)
-                    .font(.title3)
-                    .bold()
-                    .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
-                    .padding(.bottom, 5)
-                
-                // 🔍 Informações de debug
-                VStack(alignment: .leading, spacing: 6) {
-                    Text("🌦️ \(climaAtual) (\(climaChave))")
-                    Text("🌡️ Temperatura: \(temperatura)")
-                    Text("💨 Vento: \(vento)")
-                    Text("📅 Data: \(formatarData(weatherManager.selectedDate))")
-                }
-                .font(.footnote)
-                .foregroundColor(.gray)
-                .padding(.bottom, 8)
-                
-                if let conteudo = item.climas.values.first {
-                    ForEach(conteudo, id: \.self) { linha in
-                        Text("• \(linha)")
-                            .font(.body)
-                            .foregroundColor(.black)
-                            .padding(.bottom, 4)
-                    }
-                } else {
-                    Text("Sem informações disponíveis para este clima.")
-                        .foregroundColor(.gray)
-                }
-                
-                Spacer()
-            }
-            .padding()
-        }
-    }
-    
-    func formatarData(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .full
-        formatter.locale = Locale(identifier: "pt_BR")
-        return formatter.string(from: date)
-    }
-}
-
-#Preview {
-    CardListView()
-        .environmentObject(WeatherManager())
-        .padding()
 }
