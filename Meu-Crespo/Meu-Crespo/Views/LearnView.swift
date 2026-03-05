@@ -32,15 +32,6 @@ struct LearnView: View {
                     .padding()
                     .background(colorScheme == .light ? .white : Color.brownBg)
                     .ignoresSafeArea()
-        //            .toolbar {
-        //                ToolbarItem(placement: .topBarLeading) {
-        //                    Menu {
-        //                          opçao de linguas pode ser aqui?
-        //                    } label: {
-        //                        Label("Tema", systemImage: "circle.lefthalf.filled")
-        //                    }
-        //                }
-        //            }
                 }
                 .onAppear {
                     contents = ContentService.loadContents()

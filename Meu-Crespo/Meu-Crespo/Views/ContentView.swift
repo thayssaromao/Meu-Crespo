@@ -1,13 +1,14 @@
 import SwiftUI
 
 enum Tabs{
-    case home, diary, learn
+    case home, timeline, learn
 }
 
 //(Injeção de Dependência)
 
 struct ContentView: View {
-    @StateObject var weatherManager = WeatherManager()
+//    @StateObject var weatherManager = WeatherManager()
+    @EnvironmentObject var weatherManager: WeatherManager
     @State var selectedTab: Tabs = .home
     @State private var showSplash = true
     @AppStorage("hasCompletedOnboarding") var hasCompletedOnboarding: Bool = false
@@ -25,10 +26,10 @@ struct ContentView: View {
                             
                         }
                         
-//                        Tab("Diário", systemImage: "pencil.and.scribble", value: .diary){
-//                            DiaryView()
-//                            
-//                        }
+                        Tab("Diário", systemImage: "pencil.and.scribble", value: .timeline){
+                            TimelineView()
+                            
+                        }
                         
                         Tab("Conteúdo", systemImage: "book.fill", value: .learn){
                             LearnView()
@@ -55,7 +56,7 @@ struct ContentView: View {
         .onChange(of: weatherManager.status) { oldValue, newValue in
             if newValue == .loaded || newValue == .failed {
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     showSplash = false
                 }
             }
@@ -65,4 +66,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environmentObject(WeatherManager())
 }

@@ -39,4 +39,5 @@ struct HomeView: View {
 
 #Preview {
     ContentView()
+        .environmentObject(WeatherManager())
 }
