@@ -25,10 +25,10 @@ struct ContentView: View {
                             
                         }
                         
-                        Tab("Diário", systemImage: "pencil.and.scribble", value: .diary){
-                            DiaryView()
-                            
-                        }
+//                        Tab("Diário", systemImage: "pencil.and.scribble", value: .diary){
+//                            DiaryView()
+//                            
+//                        }
                         
                         Tab("Conteúdo", systemImage: "book.fill", value: .learn){
                             LearnView()
@@ -40,6 +40,7 @@ struct ContentView: View {
                     
                 } else {
                     OnboardingView()
+                        .transition(.opacity)
                 }
             }
                     .opacity(showSplash ? 0 : 1)
