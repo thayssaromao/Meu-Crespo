@@ -4,12 +4,13 @@ struct HomeView: View {
     @Environment(\.colorScheme) var colorScheme
 //    @StateObject private var weatherManager = WeatherManager()
     @EnvironmentObject var weatherManager: WeatherManager
+    @State private var selectedDate: Date = Date()
 
     var body: some View {
         NavigationStack {
             VStack(spacing:30){
                 VStack(spacing:30){
-                    WeekSlider()
+                    WeekSlider(selectedDate: $selectedDate)
                     CardHead()
                 }.padding(.top,200)
                     .padding(.bottom,10)

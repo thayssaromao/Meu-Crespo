@@ -26,7 +26,7 @@ struct ContentView: View {
                             
                         }
                         
-                        Tab("Diário", systemImage: "pencil.and.scribble", value: .timeline){
+                        Tab("Cronograma", systemImage: "calendar", value: .timeline){
                             TimelineView()
                             
                         }

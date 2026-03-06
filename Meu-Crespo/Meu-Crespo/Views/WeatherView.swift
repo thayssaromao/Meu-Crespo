@@ -1,7 +1,7 @@
 import UIKit
 import CoreLocation
 import WeatherKit
-import SwiftUI // Importar SwiftUI é crucial para usar UIHostingController
+import SwiftUI
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
@@ -164,7 +164,6 @@ struct WeatherInfoView: View {
 }
 
 // MARK: - Preview (Requer um mock do EnvironmentObject)
-
 struct WeatherInfoView_Previews: PreviewProvider {
     static var previews: some View {
         // Para que o Preview funcione, ele precisa de um WeatherManager
@@ -173,5 +172,4 @@ struct WeatherInfoView_Previews: PreviewProvider {
     }
 }
 
-// MARK: - Preview (Apenas para o Xcode)
 

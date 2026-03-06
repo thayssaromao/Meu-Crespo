@@ -78,12 +78,10 @@ struct GlassCardView: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text(partes[0])
                     .font(.system(size: 20, weight: .bold))
-                    .foregroundColor(colorScheme == .light ? Color.redBrown : .white)
                     .padding(.top, 4)
                 
                 Text(partes[1])
                     .font(.system(size: 18))
-                    .foregroundColor(colorScheme == .light ? Color.redBrown : .white)
                     .lineSpacing(4)
             }
             .padding(.horizontal, 24)
@@ -94,6 +92,8 @@ struct GlassCardView: View {
                 .thinMaterial,
                 in: RoundedRectangle(cornerRadius: 32)
             )
+            .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 4)
+            .foregroundColor(colorScheme == .light ? Color.redBrown : .white)
             .overlay(
                 RoundedRectangle(cornerRadius: 32)
                     .stroke(Color.black.opacity(0.03), lineWidth: 1)
@@ -101,7 +101,6 @@ struct GlassCardView: View {
             
             Spacer()
         }
-        .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 4)
 
 
     }

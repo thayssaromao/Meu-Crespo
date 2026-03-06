@@ -11,6 +11,11 @@ struct OnboardingView: View {
     @State private var hasChemical: Bool = false
     @State private var dryness: HairDryness = .medium
     
+    @AppStorage("hairPorosity") private var storedPorosity: String = HairPorosity.medium.rawValue
+    @AppStorage("washFrequency") private var storedWashFrequency: WashFrequency = .three
+    @AppStorage("hasChemical") private var storedChemical: Bool = false
+    @AppStorage("hairDryness") private var storedDryness: String = HairDryness.medium.rawValue
+    
     var body: some View {
         ZStack {
             
@@ -43,10 +48,14 @@ struct OnboardingView: View {
                 
             case 4:
                 DrynessStep(dryness: $dryness) {
-                    hasCompletedOnboarding = true
-                    print(tempName,porosity,washFrequency, hasChemical, dryness)
 
-                }
+                        storedPorosity = porosity.rawValue
+                        storedWashFrequency = washFrequency
+                        storedChemical = hasChemical
+                        storedDryness = dryness.rawValue
+
+                        hasCompletedOnboarding = true
+                    }
                 
             default:
                 EmptyView()
@@ -61,11 +70,11 @@ struct DrynessStep: View {
     var next: () -> Void
     
     var body: some View {
-        VStack(spacing: 30) {
+        VStack(spacing: 60) {
             
             Text("Seu cabelo é ressecado?")
-                .font(.title3)
-                .fontWeight(.semibold)
+                .font(.system(size: 26, weight: .semibold))
+                .multilineTextAlignment(.center)
                 .foregroundColor(.redBrown)
             
             Picker("Ressecamento", selection: $dryness) {
@@ -76,10 +85,21 @@ struct DrynessStep: View {
             .pickerStyle(.segmented)
             .padding(.horizontal)
             
-            Button("Finalizar") {
+            Button(action: {
                 next()
+            }) {
+                Text("Continuar")
+                    .font(.system(size: 20, weight: .semibold))
+                    .fontWeight(.bold)
+                    .foregroundColor(.pink)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 20)
+                    .background {
+                        RoundedRectangle(cornerRadius: 20)
+                            .fill(.ultraThinMaterial)
+                    }
             }
-            .buttonStyle(.borderedProminent)
+            .padding(.horizontal, 40)
             
         }
         .padding()
@@ -92,11 +112,11 @@ struct ChemicalStep: View {
     var next: () -> Void
     
     var body: some View {
-        VStack(spacing: 30) {
+        VStack(spacing: 60) {
             
             Text("Seu cabelo possui química?")
-                .font(.title3)
-                .fontWeight(.semibold)
+                .font(.system(size: 26, weight: .semibold))
+                .multilineTextAlignment(.center)
                 .foregroundColor(.redBrown)
             
             Picker("Química", selection: $hasChemical) {
@@ -106,10 +126,21 @@ struct ChemicalStep: View {
             .pickerStyle(.segmented)
             .padding(.horizontal)
             
-            Button("Continuar") {
+            Button(action: {
                 next()
+            }) {
+                Text("Continuar")
+                    .font(.system(size: 20, weight: .semibold))
+                    .fontWeight(.bold)
+                    .foregroundColor(.pink)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 20)
+                    .background {
+                        RoundedRectangle(cornerRadius: 20)
+                            .fill(.ultraThinMaterial)
+                    }
             }
-            .buttonStyle(.borderedProminent)
+            .padding(.horizontal, 40)
             
         }
         .padding()
@@ -125,8 +156,8 @@ struct PorosityStep: View {
         VStack(spacing: 30) {
             
             Text("Qual a porosidade do seu cabelo?")
-                .font(.title3)
-                .fontWeight(.semibold)
+                .font(.system(size: 26, weight: .semibold))
+                .multilineTextAlignment(.center)
                 .foregroundColor(.redBrown)
             
             Picker("Porosidade", selection: $porosity) {
@@ -136,10 +167,21 @@ struct PorosityStep: View {
             }
             .pickerStyle(.wheel)
             
-            Button("Continuar") {
+            Button(action: {
                 next()
+            }) {
+                Text("Continuar")
+                    .font(.system(size: 20, weight: .semibold))
+                    .fontWeight(.bold)
+                    .foregroundColor(.pink)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 20)
+                    .background {
+                        RoundedRectangle(cornerRadius: 20)
+                            .fill(.ultraThinMaterial)
+                    }
             }
-            .buttonStyle(.borderedProminent)
+            .padding(.horizontal, 40)
         }
         .padding()
     }
@@ -154,8 +196,8 @@ struct WashFrequencyStep: View {
         VStack(spacing: 30) {
             
             Text("Quantas vezes você lava o cabelo por semana?")
-                .font(.title3)
-                .fontWeight(.semibold)
+                .font(.system(size: 26, weight: .semibold))
+                .multilineTextAlignment(.center)
                 .foregroundColor(.redBrown)
             
             Picker("Frequência", selection: $washFrequency) {
@@ -165,10 +207,21 @@ struct WashFrequencyStep: View {
             }
             .pickerStyle(.wheel)
             
-            Button("Continuar") {
+            Button(action: {
                 next()
+            }) {
+                Text("Continuar")
+                    .font(.system(size: 20, weight: .semibold))
+                    .fontWeight(.bold)
+                    .foregroundColor(.pink)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 20)
+                    .background {
+                        RoundedRectangle(cornerRadius: 20)
+                            .fill(.ultraThinMaterial)
+                    }
             }
-            .buttonStyle(.borderedProminent)
+            .padding(.horizontal, 40)
         }
         .padding()
     }
@@ -212,7 +265,7 @@ struct NameStep: View {
                     Text("Continuar")
                         .font(.system(size: 20, weight: .semibold))
                         .fontWeight(.bold)
-                        .foregroundColor(.redBrown)
+                        .foregroundColor(.pink)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 20)
                         .background {
@@ -229,6 +282,6 @@ struct NameStep: View {
     }
 }
 
-#Preview {
-    OnboardingView()
-}
+//#Preview {
+//    OnboardingView()
+//}
