@@ -16,7 +16,7 @@ struct CardWheather: View {
         ZStack {
             Image(cardName)
                 .resizable()
-                .frame(height: 115)
+                .frame(height:  UIDevice.current.userInterfaceIdiom == .phone ? 115 : 180)
             
             VStack(alignment: .center, spacing: 10) {
                 
@@ -31,7 +31,7 @@ struct CardWheather: View {
                 }
             }
         }
-        .frame(width: 115)
+        .frame(width: UIDevice.current.userInterfaceIdiom == .phone ? 115 : 180)
         .opacity(weatherManager.status == .loaded ? 1 : 0.6)
     }
 }
@@ -44,14 +44,14 @@ struct Weather: View {
         VStack(alignment: .center,  spacing: 8){
             Text(weatherManager.condition)
                 .lineLimit(2)
-                .font(.system(size:14)).bold()
+                .font(.system(size: UIDevice.current.userInterfaceIdiom == .phone ? 14 : 24)).bold()
                 .multilineTextAlignment(.center)
                 .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
                 .frame(width:100)
                 .padding(.top,3)
             
             Image(systemName:  weatherManager.symbolName)
-                .font(Font.custom("SF Pro", size: 40)).bold()
+                .font(Font.custom("SF Pro", size:  UIDevice.current.userInterfaceIdiom == .phone ? 40 : 60)).bold()
                 .multilineTextAlignment(.center)
                 .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
                 
@@ -65,7 +65,8 @@ struct Temp: View {
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
             Text(weatherManager.cityName)
-                .font(.system(size:16)).bold()
+                .font(.system(size: UIDevice.current.userInterfaceIdiom == .phone ? 16 : 26)).bold()
+                .lineLimit(1)
                 .multilineTextAlignment(.center)
                 .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
                
@@ -76,7 +77,7 @@ struct Temp: View {
                 .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
                 
         }
-        .frame(width: 80)
+        .frame(width: 120)
     }
 }
 
@@ -88,10 +89,10 @@ struct Wind: View {
             Text(
                 "Vento \(weatherManager.windStatus)\n\(weatherManager.windSpeed)"
             )
-            .font(.system(size:14)).bold()
+            .font(.system(size: UIDevice.current.userInterfaceIdiom == .phone ? 14 : 24 )).bold()
             .multilineTextAlignment(.center)
             .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
-            .frame(width: 100)
+            .frame(width: 120)
             
             Image(systemName: weatherManager.windSymbol)
                 .font(Font.custom("SF Pro", size: 40))
@@ -143,11 +144,12 @@ struct Uv: View {
 
 struct CardHead: View {
     var body: some View {
-        HStack{
+        HStack(spacing: 10){
             CardWheather(cardName: "cardGrau", isTemp: true)
             CardWheather(cardName: "cardClima", isWeather: true)
             CardWheather(cardName: "cardUv", isWind: true)
         }
+        .frame(maxWidth: .infinity)
     }
 }
 

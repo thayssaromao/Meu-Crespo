@@ -12,7 +12,7 @@ struct LearnView: View {
                     .ignoresSafeArea()
                 
                 ScrollView(showsIndicators: false) {
-                    VStack( alignment: .leading, spacing: 24){
+                    VStack( alignment: .center, spacing: 24){
                         Text("Olá, \(userName)!")
                             .font(.system(size:30, weight: .bold))
                             .foregroundColor(colorScheme == .light ? .redBrown : .white)

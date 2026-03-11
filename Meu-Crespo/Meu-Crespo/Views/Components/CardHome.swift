@@ -138,7 +138,7 @@ struct CardHome: View {
             ZStack {
                 Rectangle()
                     .foregroundColor(.clear)
-                    .frame(width: 323, height: 105)
+                    .frame(width: UIDevice.current.userInterfaceIdiom == .phone ? 323 : 450, height: 105)
                     .background(.white)
                     .cornerRadius(10)
                     .shadow(color: .black.opacity(0.25), radius: 1.8, x: 0, y: 3.6)
@@ -161,4 +161,5 @@ struct CardHome: View {
 
 #Preview {
     ContentView()
+        .environmentObject(WeatherManager())
 }

@@ -12,28 +12,29 @@ struct CardLearning: View {
                 ZStack {
                     Rectangle()
                       .foregroundColor(.clear)
-                      .frame(width: 360, height: 88)
+//                      .frame(width: 30, height: 88)
                       .background(
                         Image("cardInfoBg")
                           .resizable()
                           .aspectRatio(contentMode: .fill)
-                          .frame(width: 360, height: 88)
                           .clipped()
                       )
                       .cornerRadius(10)
                       .shadow(color: Color(red: 0.32, green: 0.13, blue: 0.02).opacity(0.6), radius: 2, x: 0, y: 4)
                     
-                    
                     HStack(alignment:.center){
                         Text(content.titulo)
                         Spacer()
                             Image(systemName: "chevron.right")
-                        }.frame(width: 301)
+                        }
+                        .padding(20)
                         .font(.system(size: 20, weight: .bold))
                         .foregroundColor(Color.redBrown)
 
                 }
-                .frame(width: 350)
+                //.frame(width: 350)
+                .frame(width: UIDevice.current.userInterfaceIdiom == .phone ? 360 : 700, height: 88)
+
             }
             .sheet(isPresented: $showingSheet) {
                ScrollView {

@@ -3,6 +3,10 @@ import SwiftUI
 struct OnboardingView: View {
     @AppStorage("userName") var userName: String = ""
     @AppStorage("hasCompletedOnboarding") var hasCompletedOnboarding: Bool = false
+    @AppStorage("hairPorosity") private var storedPorosity: String = HairPorosity.medium.rawValue
+    @AppStorage("washFrequency") private var storedWashFrequency: WashFrequency = .three
+    @AppStorage("hasChemical") private var storedChemical: Bool = false
+    @AppStorage("hairDryness") private var storedDryness: String = HairDryness.medium.rawValue
     
     @State private var tempName: String = ""
     @State private var step = 0
@@ -10,11 +14,6 @@ struct OnboardingView: View {
     @State private var washFrequency: WashFrequency = .three
     @State private var hasChemical: Bool = false
     @State private var dryness: HairDryness = .medium
-    
-    @AppStorage("hairPorosity") private var storedPorosity: String = HairPorosity.medium.rawValue
-    @AppStorage("washFrequency") private var storedWashFrequency: WashFrequency = .three
-    @AppStorage("hasChemical") private var storedChemical: Bool = false
-    @AppStorage("hairDryness") private var storedDryness: String = HairDryness.medium.rawValue
     
     var body: some View {
         ZStack {
@@ -282,6 +281,6 @@ struct NameStep: View {
     }
 }
 
-//#Preview {
-//    OnboardingView()
-//}
+#Preview {
+    OnboardingView()
+}
