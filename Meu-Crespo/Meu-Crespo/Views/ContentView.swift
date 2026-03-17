@@ -4,10 +4,7 @@ enum Tabs{
     case home, timeline, learn
 }
 
-//(Injeção de Dependência)
-
 struct ContentView: View {
-//    @StateObject var weatherManager = WeatherManager()
     @EnvironmentObject var weatherManager: WeatherManager
     @State var selectedTab: Tabs = .home
     @State private var showSplash = true

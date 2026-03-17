@@ -42,6 +42,6 @@ struct LearnView: View {
     }
 }
 
-#Preview {
-    LearnView()
-}
+//#Preview {
+//    LearnView()
+//}

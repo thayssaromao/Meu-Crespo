@@ -4,42 +4,89 @@ struct TimelineView: View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var weatherManager: WeatherManager
     @StateObject private var viewModel = TimelineViewModel()
+    @State private var showFullCalendar = false
   
     var body: some View {
-        
         NavigationStack {
-            
-            ZStack {
                 
+            ZStack {
+                    
                 (colorScheme == .light ? Color.white : Color.brownBg)
                     .ignoresSafeArea()
-                
-                VStack(alignment: .leading, spacing: 26) {
-                    
-                    Text("Cronograma Capilar")
-                        .font(.system(size:30, weight: .bold))
-                        .foregroundColor(colorScheme == .light ? .pinky : .white)
-                    
-                    Text("Edite \(Image(systemName: "pencil.circle.fill")) seu cronograma capilar e mantenha-se bem cuidado!")
-                        .font(Font.custom("SF Pro", size: 18))
-                        .foregroundColor(colorScheme == .light ? .redBrown : .white)
+                ScrollView (.vertical, showsIndicators: false){
+                    VStack {
+                        VStack(alignment: .leading, spacing: 26) {
+                            
+                            Text("Cronograma Capilar")
+                                .font(.system(size:30, weight: .bold))
+                                .foregroundColor(
+                                    colorScheme == .light ? .pinky : .white
+                                )
+                            
+                            Text(
+                                "Edite \(Image(systemName: "pencil.circle.fill")) seu cronograma capilar e mantenha-se bem cuidado!"
+                            )
+                            .font(Font.custom("SF Pro", size: 18))
+                            .foregroundColor(
+                                colorScheme == .light ? .redBrown : .white
+                            )
 
-                    WeekSlider(selectedDate: $viewModel.selectedDate)
-                    
-                    cardRecomendation
+                            HStack {
+                                Text(
+                                    showFullCalendar ? "Calendário Completo" : "Calendário Semanal"
+                                )
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                                Spacer()
+                                Button(action: {
+                                    withAnimation {
+                                        showFullCalendar.toggle()
+                                    }
+                                }) {
+                                    Image(
+                                        systemName: showFullCalendar ? "calendar" : "calendar.circle"
+                                    )
+                                    .font(.title2)
+                                    .foregroundColor(.pinky)
+                                }
+                            }
+                            .padding(.bottom, 2)
 
-                    Spacer()
+                            if showFullCalendar {
+                                DatePicker(
+                                    "Selecionar data",
+                                    selection: $viewModel.selectedDate,
+                                    displayedComponents: [.date]
+                                )
+                                .datePickerStyle(.graphical)
+                                .accentColor(.pinky)
+                                .onChange(
+                                    of: viewModel.selectedDate
+                                ) { oldDate, newDate in
+                                    weatherManager.updateWeather(for: newDate)
+                                }
+                            } else {
+                                WeekSlider(
+                                    selectedDate: $viewModel.selectedDate
+                                )
+                            }
+                            
+                            cardRecomendation
+
+                        }
+                        .padding()
+                        //                .toolbar {
+                        //                    ToolbarItem(placement: .topBarLeading) {
+                        //                        Menu {
+                        //
+                        //                        } label: {
+                        //                            Label("Tema", systemImage: "questionmark")
+                        //                        }
+                        //                    }
+                        //                }
+                        
+                    }
                 }
-                .padding()
-//                .toolbar {
-//                    ToolbarItem(placement: .topBarLeading) {
-//                        Menu {
-//                            
-//                        } label: {
-//                            Label("Tema", systemImage: "questionmark")
-//                        }
-//                    }
-//                }
             }
         }
                 
@@ -58,7 +105,9 @@ extension TimelineView {
             Text("Recomendação")
                 .bold()
                 .font(.system(size: 28))
-                .foregroundColor(colorScheme == .light ? Color.redBrown : .primary)
+                .foregroundColor(
+                    colorScheme == .light ? Color.redBrown : .primary
+                )
             
             Text("\(formatarData(weatherManager.selectedDate))")
                 .foregroundColor(colorScheme == .light ? Color.gray : .primary)
@@ -80,8 +129,11 @@ extension TimelineView {
                         ], id: \.self) { option in
                             
                             Button(option.rawValue) {
-                                let normalizedDate = Calendar.current.startOfDay(for: viewModel.selectedDate)
-                                    viewModel.customTreatments[normalizedDate] = option
+                                let normalizedDate = Calendar.current.startOfDay(
+                                    for: viewModel.selectedDate
+                                )
+                                viewModel
+                                    .customTreatments[normalizedDate] = option
                             }
                         }
                         
@@ -91,7 +143,9 @@ extension TimelineView {
                     }
                 }
                 
-                Text("Tratamento ideal para hoje baseado no seu perfil capilar.")
+                Text(
+                    "Tratamento ideal para hoje baseado no seu perfil capilar."
+                )
                 
                 
             }
@@ -114,7 +168,7 @@ extension TimelineView {
     }
 }
 
-//#Preview {
-//    TimelineView()
-//        .environmentObject(WeatherManager())
-//}
+#Preview {
+    TimelineView()
+        .environmentObject(WeatherManager())
+}

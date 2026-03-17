@@ -12,7 +12,6 @@ struct CardLearning: View {
                 ZStack {
                     Rectangle()
                       .foregroundColor(.clear)
-//                      .frame(width: 30, height: 88)
                       .background(
                         Image("cardInfoBg")
                           .resizable()
@@ -32,7 +31,6 @@ struct CardLearning: View {
                         .foregroundColor(Color.redBrown)
 
                 }
-                //.frame(width: 350)
                 .frame(width: UIDevice.current.userInterfaceIdiom == .phone ? 360 : 700, height: 88)
 
             }
@@ -54,7 +52,7 @@ struct CardLearning: View {
            }
     }
 }
-
-#Preview {
-    LearnView()
-}
+//
+//#Preview {
+//    LearnView()
+//}

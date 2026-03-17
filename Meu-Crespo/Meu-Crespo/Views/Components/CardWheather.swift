@@ -153,7 +153,7 @@ struct CardHead: View {
     }
 }
 
-#Preview {
-    CardHead()
-        .environmentObject(WeatherManager())
-}
+//#Preview {
+//    CardHead()
+//        .environmentObject(WeatherManager())
+//}

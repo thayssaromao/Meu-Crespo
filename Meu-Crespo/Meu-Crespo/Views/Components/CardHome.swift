@@ -159,7 +159,3 @@ struct CardHome: View {
     }
 }
 
-#Preview {
-    ContentView()
-        .environmentObject(WeatherManager())
-}
