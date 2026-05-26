@@ -1,4 +1,5 @@
 import SwiftUI
+import PostHog
 
 enum Tabs {
     case home, timeline, learn, settings
@@ -54,6 +55,16 @@ struct ContentView: View {
         }
         .preferredColorScheme(preferredScheme)
         .animation(.easeInOut(duration: 0.5), value: showSplash)
+        .onChange(of: selectedTab) { _, newTab in
+            let tabName: String
+            switch newTab {
+            case .home: tabName = "home"
+            case .timeline: tabName = "timeline"
+            case .learn: tabName = "learn"
+            case .settings: tabName = "settings"
+            }
+            PostHogSDK.shared.capture("tab_viewed", properties: ["tab": tabName])
+        }
         .onChange(of: languageManager.currentLanguage) { _, _ in
             NotificationManager.shared.scheduleDailyNotification()
             if weatherManager.status == .loaded {

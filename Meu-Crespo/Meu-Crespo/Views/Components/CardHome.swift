@@ -1,4 +1,5 @@
 import SwiftUI
+import PostHog
 
 struct CardListView: View {
     @EnvironmentObject var weatherManager: WeatherManager
@@ -16,6 +17,12 @@ struct CardListView: View {
         VStack(spacing: 20) {
             ForEach(dadosFiltrados) { item in
                 CardHome(item: item) {
+                    // PostHog: Track recommendation card tap
+                    PostHogSDK.shared.capture("home_recommendation_opened", properties: [
+                        "card_type": item.tipo,
+                        "weather_condition": climaChave,
+                        "temperature": temperaturaAtual,
+                    ])
                     selectedItem = item
                 }
             }

@@ -1,6 +1,7 @@
 import Foundation
 import SwiftUI
 internal import Combine
+import PostHog
 
 enum AppLanguage: String, CaseIterable, Identifiable {
     case portuguese = "pt-BR"
@@ -36,9 +37,15 @@ final class LanguageManager: ObservableObject {
 
     func setLanguage(_ language: AppLanguage) {
         guard language != currentLanguage else { return }
+        let previous = currentLanguage
         storedLanguage = language.rawValue
         currentLanguage = language
         bundle = Self.makeBundle(for: language)
+        // PostHog: Track language change
+        PostHogSDK.shared.capture("language_changed", properties: [
+            "language": language.rawValue,
+            "previous_language": previous.rawValue,
+        ])
     }
 
     private static func makeBundle(for language: AppLanguage) -> Bundle {

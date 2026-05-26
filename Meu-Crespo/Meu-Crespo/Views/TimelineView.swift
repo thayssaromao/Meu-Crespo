@@ -1,4 +1,5 @@
 import SwiftUI
+import PostHog
 
 struct TimelineView: View {
     @Environment(\.colorScheme) var colorScheme
@@ -36,6 +37,10 @@ struct TimelineView: View {
                                 Spacer()
                                 Button(action: {
                                     withAnimation { showFullCalendar.toggle() }
+                                    // PostHog: Track calendar view toggle
+                                    PostHogSDK.shared.capture("calendar_view_toggled", properties: [
+                                        "view": showFullCalendar ? "full" : "week",
+                                    ])
                                 }) {
                                     Image(systemName: showFullCalendar ? "calendar" : "calendar.circle")
                                         .font(.title2)
@@ -99,6 +104,15 @@ extension TimelineView {
                             Button(option.localizedLabel) {
                                 let normalizedDate = Calendar.current.startOfDay(for: viewModel.selectedDate)
                                 viewModel.customTreatments[normalizedDate] = option
+                                // PostHog: Track manual treatment override
+                                let selectedDate = viewModel.selectedDate
+                                let isToday = Calendar.current.isDateInToday(selectedDate)
+                                let isPast = selectedDate < Calendar.current.startOfDay(for: Date())
+                                PostHogSDK.shared.capture("hair_treatment_changed", properties: [
+                                    "treatment": option.rawValue,
+                                    "previous_treatment": treatment.rawValue,
+                                    "date_type": isToday ? "today" : (isPast ? "past" : "future"),
+                                ])
                             }
                         }
                     } label: {

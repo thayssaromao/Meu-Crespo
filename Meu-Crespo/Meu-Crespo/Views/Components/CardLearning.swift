@@ -1,4 +1,5 @@
 import SwiftUI
+import PostHog
 
 struct CardLearning: View {
     @Environment(\.colorScheme) var colorScheme
@@ -7,6 +8,10 @@ struct CardLearning: View {
 
         var body: some View{
             Button() {
+                // PostHog: Track learn content opened
+                PostHogSDK.shared.capture("learn_content_opened", properties: [
+                    "content_title": content.titulo,
+                ])
                 showingSheet.toggle()
             }label:{
                 ZStack {

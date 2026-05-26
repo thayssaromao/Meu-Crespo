@@ -1,4 +1,5 @@
 import SwiftUI
+import PostHog
 
 enum AppearanceMode: String, CaseIterable, Identifiable {
     case system = "system"
@@ -33,21 +34,33 @@ struct SettingsView: View {
     private var selectedPorosity: Binding<HairPorosity> {
         Binding(
             get: { HairPorosity(rawValue: storedPorosity) ?? .medium },
-            set: { storedPorosity = $0.rawValue }
+            set: {
+                storedPorosity = $0.rawValue
+                PostHogSDK.shared.capture("hair_profile_updated", properties: ["field": "porosity", "value": $0.rawValue])
+                PostHogSDK.shared.identify(PostHogSDK.shared.getDistinctId(), userProperties: ["hair_porosity": $0.rawValue])
+            }
         )
     }
 
     private var selectedAppearance: Binding<AppearanceMode> {
         Binding(
             get: { AppearanceMode(rawValue: storedAppearance) ?? .system },
-            set: { storedAppearance = $0.rawValue }
+            set: {
+                storedAppearance = $0.rawValue
+                // PostHog: Track appearance change
+                PostHogSDK.shared.capture("appearance_changed", properties: ["appearance": $0.rawValue])
+            }
         )
     }
 
     private var selectedDryness: Binding<HairDryness> {
         Binding(
             get: { HairDryness(rawValue: storedDryness) ?? .medium },
-            set: { storedDryness = $0.rawValue }
+            set: {
+                storedDryness = $0.rawValue
+                PostHogSDK.shared.capture("hair_profile_updated", properties: ["field": "dryness", "value": $0.rawValue])
+                PostHogSDK.shared.identify(PostHogSDK.shared.getDistinctId(), userProperties: ["hair_dryness": $0.rawValue])
+            }
         )
     }
 
@@ -105,14 +118,28 @@ struct SettingsView: View {
                     }
                     .pickerStyle(.menu)
 
-                    Picker(L("settings.profile.washFrequency"), selection: $storedWashFrequency) {
+                    Picker(L("settings.profile.washFrequency"), selection: Binding(
+                        get: { storedWashFrequency },
+                        set: {
+                            storedWashFrequency = $0
+                            PostHogSDK.shared.capture("hair_profile_updated", properties: ["field": "wash_frequency", "value": $0.rawValue])
+                            PostHogSDK.shared.identify(PostHogSDK.shared.getDistinctId(), userProperties: ["wash_frequency": $0.rawValue])
+                        }
+                    )) {
                         ForEach(WashFrequency.allCases, id: \.self) { option in
                             Text(option.label).tag(option)
                         }
                     }
                     .pickerStyle(.menu)
 
-                    Toggle(L("settings.profile.chemical"), isOn: $hasChemical)
+                    Toggle(L("settings.profile.chemical"), isOn: Binding(
+                        get: { hasChemical },
+                        set: {
+                            hasChemical = $0
+                            PostHogSDK.shared.capture("hair_profile_updated", properties: ["field": "has_chemical", "value": $0])
+                            PostHogSDK.shared.identify(PostHogSDK.shared.getDistinctId(), userProperties: ["has_chemical_treatment": $0])
+                        }
+                    ))
                         .tint(Color(red: 0.95, green: 0.42, blue: 0.37))
                 }
 
@@ -132,6 +159,8 @@ struct SettingsView: View {
                     .tint(Color(red: 0.95, green: 0.42, blue: 0.37))
 
                     Button(role: .destructive) {
+                        PostHogSDK.shared.capture("onboarding_reset")
+                        PostHogSDK.shared.reset()
                         hasCompletedOnboarding = false
                     } label: {
                         Text(L("settings.resetOnboarding"))

@@ -2,6 +2,7 @@ import CoreLocation
 import WeatherKit
 internal import Combine
 import MapKit
+import PostHog
 
 enum WeatherStatus {
     case loading, loaded, failed
@@ -49,10 +50,29 @@ final class WeatherManager: NSObject, ObservableObject, CLLocationManagerDelegat
         fetchWeather(for: location)
     }
 
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        switch manager.authorizationStatus {
+        case .denied:
+            status = .failed
+            condition = L("weather.errorLocation")
+            PostHogSDK.shared.capture("weather_failed", properties: ["reason": "location_denied"])
+        case .restricted:
+            status = .failed
+            condition = L("weather.errorLocation")
+            PostHogSDK.shared.capture("weather_failed", properties: ["reason": "location_restricted"])
+        default:
+            break
+        }
+    }
+
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("❌ Erro ao obter localização: \(error.localizedDescription)")
         status = .failed
         condition = L("weather.errorLocation")
+        PostHogSDK.shared.capture("weather_failed", properties: [
+            "reason": "location_error",
+            "error": error.localizedDescription,
+        ])
     }
 
     private func formatWindStatus(for speed: Measurement<UnitSpeed>) -> String {
@@ -127,6 +147,7 @@ final class WeatherManager: NSObject, ObservableObject, CLLocationManagerDelegat
             condition = L("weather.unavailable")
             symbolName = "xmark.circle"
             status = .failed
+            PostHogSDK.shared.capture("weather_failed", properties: ["reason": "no_forecast_for_date"])
         }
     }
 
@@ -157,9 +178,13 @@ final class WeatherManager: NSObject, ObservableObject, CLLocationManagerDelegat
                 }
             } catch {
                 print("❌ Erro ao buscar o clima com WeatherKit: \(error.localizedDescription)")
-                DispatchQueue.main.async {
+                await MainActor.run {
                     self.status = .failed
                     self.condition = L("weather.errorLoad")
+                    PostHogSDK.shared.capture("weather_failed", properties: [
+                        "reason": "weatherkit_error",
+                        "error": error.localizedDescription,
+                    ])
                 }
             }
         }

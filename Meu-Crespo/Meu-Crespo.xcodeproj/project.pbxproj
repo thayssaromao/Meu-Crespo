@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		AA000001000000000000000A /* PostHog in Frameworks */ = {isa = PBXBuildFile; productRef = AA000002000000000000000A /* PostHog */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		560C732D2E9710ED00D2D30F /* Meu-Crespo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meu-Crespo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA200001000000000000000A /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -36,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA000001000000000000000A /* PostHog in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +53,7 @@
 			children = (
 				560C732F2E9710ED00D2D30F /* Meu-Crespo */,
 				560C732E2E9710ED00D2D30F /* Products */,
+				AA200001000000000000000A /* Secrets.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,6 +85,7 @@
 			);
 			name = "Meu-Crespo";
 			packageProductDependencies = (
+				AA000002000000000000000A /* PostHog */,
 			);
 			productName = "Meu-Crespo";
 			productReference = 560C732D2E9710ED00D2D30F /* Meu-Crespo.app */;
@@ -110,6 +118,9 @@
 			);
 			mainGroup = 560C73242E9710ED00D2D30F;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				AA000003000000000000000A /* XCRemoteSwiftPackageReference "posthog-ios" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 560C732E2E9710ED00D2D30F /* Products */;
 			projectDirPath = "";
@@ -264,6 +275,7 @@
 		};
 		560C73392E9710EE00D2D30F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA200001000000000000000A /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -305,6 +317,7 @@
 		};
 		560C733A2E9710EE00D2D30F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA200001000000000000000A /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -366,6 +379,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AA000003000000000000000A /* XCRemoteSwiftPackageReference "posthog-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/PostHog/posthog-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.59.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AA000002000000000000000A /* PostHog */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA000003000000000000000A /* XCRemoteSwiftPackageReference "posthog-ios" */;
+			productName = PostHog;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 560C73252E9710ED00D2D30F /* Project object */;
 }
