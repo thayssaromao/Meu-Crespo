@@ -1,0 +1,117 @@
+/* Tabs */
+"tab.home" = "Início";
+"tab.timeline" = "Cronograma";
+"tab.learn" = "Conteúdo";
+"tab.settings" = "Configurações";
+
+/* Common */
+"common.continue" = "Continuar";
+"common.yes" = "Sim";
+"common.no" = "Não";
+
+/* Home */
+"home.recommendations" = "Recomendações";
+"home.weatherAttribution" = "Dados climáticos fornecidos por  Weather";
+"home.legalAttribution" = "Atribuição Legal";
+
+/* Timeline */
+"timeline.title" = "Cronograma Capilar";
+"timeline.editPrefix" = "Edite";
+"timeline.editSuffix" = "seu cronograma capilar e mantenha-se bem cuidado!";
+"timeline.fullCalendar" = "Calendário Completo";
+"timeline.weekCalendar" = "Calendário Semanal";
+"timeline.selectDate" = "Selecionar data";
+"timeline.recommendation" = "Recomendação";
+"timeline.treatmentDescription" = "Tratamento ideal para hoje baseado no seu perfil capilar.";
+
+/* Learn */
+"learn.hello" = "Olá";
+"learn.subtitle" = "Aqui você pode explorar diversos assuntos relacionados a cuidados com o seu cabelo crespo!";
+"learn.defaultUser" = "Usuário";
+
+/* Onboarding */
+"onboarding.name.question" = "Como podemos te chamar?";
+"onboarding.name.placeholder" = "Digite seu nome...";
+"onboarding.porosity.question" = "Qual a porosidade do seu cabelo?";
+"onboarding.porosity.pickerLabel" = "Porosidade";
+"onboarding.washFrequency.question" = "Quantas vezes você lava o cabelo por semana?";
+"onboarding.washFrequency.pickerLabel" = "Frequência";
+"onboarding.chemical.question" = "Seu cabelo possui química?";
+"onboarding.chemical.pickerLabel" = "Química";
+"onboarding.dryness.question" = "Seu cabelo é ressecado?";
+"onboarding.dryness.pickerLabel" = "Ressecamento";
+
+/* Settings */
+"settings.title" = "Configurações";
+"settings.section.language" = "Idioma";
+"settings.section.hairProfile" = "Perfil Capilar";
+"settings.section.appInfo" = "Informações do App";
+"settings.language.label" = "Idioma do App";
+"settings.profile.name" = "Nome";
+"settings.profile.porosity" = "Porosidade";
+"settings.profile.dryness" = "Ressecamento";
+"settings.profile.washFrequency" = "Frequência de Lavagem";
+"settings.profile.chemical" = "Tratamento Químico";
+"settings.appVersion" = "Versão";
+"settings.resetOnboarding" = "Reiniciar Tutorial";
+
+/* Hair Profile Enums */
+"porosity.low" = "Baixa";
+"porosity.medium" = "Média";
+"porosity.high" = "Alta";
+"dryness.low" = "Pouco";
+"dryness.medium" = "Moderado";
+"dryness.high" = "Muito";
+
+/* Treatments */
+"treatment.hydration" = "Hidratação";
+"treatment.nutrition" = "Nutrição";
+"treatment.reconstruction" = "Reconstrução";
+"treatment.umectation" = "Umectação";
+
+/* Weather */
+"weather.fetchingLocation" = "Buscando localização...";
+"weather.fetchingCity" = "Buscando cidade...";
+"weather.errorLocation" = "Erro de Localização";
+"weather.unknownLocation" = "Localização Desconhecida";
+"weather.unavailable" = "Dados indisponíveis";
+"weather.errorLoad" = "Erro ao carregar o clima";
+"weather.loading" = "Carregando clima...";
+"weather.noInfo" = "Sem informações específicas para este clima.";
+"weather.humidity" = "Umidade";
+"weather.uvIndex" = "Índice UV";
+"weather.wind" = "Vento";
+"weather.wind.alert" = "Alerta";
+"weather.wind.moderate" = "Moderado";
+"weather.wind.low" = "Baixo";
+"weather.uv.extreme" = "EXTREMO";
+"weather.uv.high" = "ALTO";
+"weather.uv.moderate" = "MODERADO";
+"weather.uv.low" = "BAIXO";
+"weather.condition.cloudy" = "Dia nublado";
+"weather.condition.rainy" = "Dia chuvoso";
+"weather.condition.sunny" = "Dia ensolarado";
+"weather.condition.partlyCloudy" = "Dia parcialmente ensolarado";
+"weather.condition.windy" = "Dia ventando";
+"weather.condition.cold" = "Dia frio";
+"sheet.noWeatherInfo" = "Sem informações disponíveis para este clima.";
+
+/* Notifications */
+"settings.section.notifications" = "Notificações";
+"settings.notifications.daily" = "Lembrete matinal";
+"notification.title" = "Meu Crespo";
+"notification.body" = "Hora de cuidar do seu cabelo! Veja suas recomendações de hoje.";
+"notification.smart.title" = "Seu dia capilar";
+"notification.smart.body" = "Hoje é dia de %@! Umidade em %@";
+
+/* Appearance */
+"settings.section.appearance" = "Aparência";
+"settings.appearance.label" = "Tema";
+"settings.appearance.system" = "Sistema";
+"settings.appearance.light" = "Claro";
+"settings.appearance.dark" = "Escuro";
+
+/* Card tipo labels */
+"card.tipo.penteados" = "Penteados";
+"card.tipo.cronograma" = "Cronograma";
+"card.tipo.dicas" = "Dicas";

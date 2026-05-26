@@ -1,0 +1,171 @@
+[
+  {
+    "tipo": "penteados",
+    "titulo": "Frisuren-Ideen",
+    "climas": {
+      "ensolarado": [
+        "Hoher Afro Puff: Volumen betonen und die Kopfhaut atmen lassen.",
+        "Ananas-Haarknoten mit Schal oder Haarband zum Schutz vor der Sonne.",
+        "Cornrow-Zöpfe auf dem gesamten Kopf: ideal für heiße, trockene Tage.",
+        "Geschlossener Turban zum Schutz der Haare vor UV-Strahlung.",
+        "Seitlicher Afro Puff mit buntem Haarband für einen Farbakzent.",
+        "Half Bun: nur die obere Hälfte der Haare hochstecken.",
+        "Frisur mit Visier oder Mütze zum Sonnenschutz.",
+        "Pferdeschwanz mit bunten Gummibändern zum Teilen der Strähnen.",
+        "Falscher Sidecut mit Haarnadeln zur Simulation eines rasierten Aussehens.",
+        "Frisuren mit metallischen Accessoires und Stirnbändern für Stil und Schutz."
+      ],
+      "chuvoso": [
+        "Lockere Twists, um die Definition auch bei Feuchtigkeit zu erhalten.",
+        "Bantu Knots: schützen und verhindern Frizz.",
+        "Niedrig getragenes Haarknötchen mit Satinschal: Frizz-Kontrolle an feuchten Tagen.",
+        "Box Braids: ideal für längere Regenperioden.",
+        "Niedriger Pferdeschwanz mit Baby-Hair-Finish.",
+        "Seitliche Twists nach hinten gesteckt, um die Haare zu organisieren.",
+        "Halb hochgesteckt mit Oberteil zum teilweisen Schutz der Haare.",
+        "Knoten mit Satinschal für Eleganz und zusätzlichen Schutz.",
+        "Twists helfen, die Definition zu erhalten und Frizz durch Feuchtigkeit zu reduzieren.",
+        "Verwenden Sie nachts Satinkissenbezüge, um die Haare beim Schlafen zu schützen."
+      ],
+      "nublado": [
+        "Doppelknoten (Space Buns): lustig und praktisch.",
+        "Seitlicher Cornrow-Zopf mit Clips für einen modernen Look.",
+        "Hoher, glatter Pferdeschwanz: ausgerichtete Wurzeln, kontrolliertes Volumen.",
+        "Zopfkrone für eine elegante Note.",
+        "Haarknoten mit Satinschal: Eleganz und Schutz.",
+        "Afro Puff mit losem Pony: Frontsträhnen offen für einen lässigen Look.",
+        "Offene Haare mit Haarreif oder leichten Accessoires.",
+        "Frisur mit Haarnadeln und Tic-Tacs zur Stilvariation."
+      ],
+      "frio": [
+        "Geschlossener Turban: wärmt und schützt Strähnen vor dem Wind.",
+        "Eleganter niedriger Haarknoten mit Clips oder Klemmen.",
+        "Offene Haare mit Mütze oder Baskenmütze: wärmt und verhindert Austrocknung.",
+        "Twists mit Satinschal zum Schlafen und Vermeiden von Reibung.",
+        "Faux Locs oder Box Braids für langanhaltenden Schutz.",
+        "Blowout: Haare bürsten, um Strähnen zu verlängern und Volumen hinzuzufügen.",
+        "Geflochtener Knoten: geflochtener Pferdeschwanz zu einem Knoten gerollt.",
+        "Seitliche Strähnen mit Baby-Hair-Finish befestigt.",
+        "Geschlossener Turban für vollständigen Schutz vor Kälte und Wind."
+      ],
+      "ventando": [
+        "Schutzfrisuren (Zöpfe, Twists, Knoten) zum Vermeiden von Verwicklungen.",
+        "Geschlossener Turban, um Strähnen zu halten.",
+        "Zopf-Mohawk, um die Form ohne Frizz zu erhalten.",
+        "Pferdeschwanz mit bunten Gummibändern für extra Halt.",
+        "Twist-Krone zum Halten der Strähnen und Schützen der Spitzen.",
+        "Accessoires und Satinschals verwenden, um Reibung zu vermeiden.",
+        "Feste Frisuren wie Cornrows, Twists und niedrige Knoten bevorzugen.",
+        "Mit Versiegelungsöl fertigstellen, um Bruch und Frizz zu reduzieren."
+      ]
+    }
+  },
+  {
+    "tipo": "cronograma",
+    "titulo": "Wöchentlicher Haarpflegeplan",
+    "climas": {
+      "ensolarado": [
+        "Hohe UV-Strahlung: Feuchtigkeitspflege und Produkte mit Sonnenschutz priorisieren.",
+        "Leave-in mit Wärme- und Sonnenschutz verwenden.",
+        "Feuchtigkeitspflege mit Aloe-vera-Maske und Reisprotein.",
+        "Mit leichter Styling-Creme abschließen, um Austrocknung zu vermeiden.",
+        "Cremes ohne UV-Schutz und übermäßige Sonneneinstrahlung vermeiden.",
+        "Wärmeschutz: krauses Haar erzeugt eine Luftschicht, die als Isolierung wirkt.",
+        "Hüte, Turbane oder Frisuren zum Schutz der Strähnen verwenden.",
+        "Wochenplan unter Berücksichtigung der Wettervorhersage planen.",
+        "Beste Zeit zum Haarwaschen: früh morgens oder am späten Nachmittag, intensiver Sonne meidend."
+      ],
+      "chuvoso": [
+        "Hohe Luftfeuchtigkeit begünstigt Frizz — Nutrition priorisieren.",
+        "Pflanzliche Öle (Rizinus, Kokos, Avocado) und Sheabutter verwenden.",
+        "Haarwaschen an sehr feuchten Tagen vermeiden; Vorwäschebehandlung wählen.",
+        "Mit Haargel oder Versiegelungsöl abschließen, um Feuchtigkeitsaufnahme zu vermeiden.",
+        "Mit einem Satinkissenbezug schlafen, um Frizz zu kontrollieren.",
+        "Säuernde Produkte und saurer pH-Wert helfen, die Schuppen zu schließen.",
+        "Masken mit Proteinen, Keratin und Lipiden reparieren Schäden und nähren Strähnen.",
+        "Bei trockenen Strähnen Feuchtigkeitspflege priorisieren; bei glanzlosen auf Nutrition fokussieren; bei Bruch rekonstruieren.",
+        "Trocknen mit Diffusor bei kühler Luft hilft, Frizz zu kontrollieren und Locken zu definieren."
+      ],
+      "nublado": [
+        "Mildes Wetter: Balance zwischen Feuchtigkeitspflege und Nutrition halten.",
+        "Feuchtigkeitsmaske mit Mangobutter und Vitamin E.",
+        "Nutritionsmaske mit 7 kraftvollen Ölen für Glanz und Handhabbarkeit.",
+        "Pflegespülung mit Ölen und Reisprotein.",
+        "Mit Finger-Coiling-Technik für natürliche Definition abschließen.",
+        "Breite Kämme, Holzkämme oder Afro-Picks verwenden und Bruch und Frizz vermeiden.",
+        "Finishing-Techniken: Stylingcremes, Haargel und Wasser für Definition.",
+        "Feuchtigkeitspflege, Nutrition und Rekonstruktion je nach Haarbedarf planen."
+      ],
+      "frio": [
+        "Niedrige Temperatur: Haare nicht mit zu kaltem Wasser waschen.",
+        "Warmes Wasser verwenden, um die Schuppen nicht übermäßig zu öffnen.",
+        "Leichte Feuchtigkeitspflege und Befeuchtung mit nährenden Ölen priorisieren.",
+        "Mit warmem Diffusor und Hitzeschutz abschließen.",
+        "Mit nassen Haaren schlafen vermeiden und zweiwöchentliche Rekonstruktionsroutine einhalten.",
+        "Satinkissenbezüge und Hauben verhindern Reibung und Frizz.",
+        "Nährende und rekonstruierende Masken werden für kaltes Wetter empfohlen.",
+        "Produkte mit Proteinen und Lipiden helfen, die Strähnen zu schützen."
+      ],
+      "ventando": [
+        "Starke Winde verursachen Bruch — in Rekonstruktion investieren.",
+        "Masken mit Proteinen, Keratin und Lipiden verwenden.",
+        "Mit Serum oder Öl an den Spitzen abschließen, um die Schuppen zu versiegeln.",
+        "Haare nicht offen tragen; Schutzfrisuren bevorzugen.",
+        "Anti-Frizz-Produkte verwenden, um Reibung durch den Wind zu reduzieren.",
+        "Zöpfe, Twists, niedrige Knoten oder geschlossene Turbane bevorzugen.",
+        "Spitzen und Wurzeln mit Accessoires und nährenden Ölen vor dem Wind schützen."
+      ]
+    }
+  },
+  {
+    "tipo": "dicas",
+    "titulo": "Tägliche Haarpflegetipps",
+    "climas": {
+      "ensolarado": [
+        "Cremes ohne UV-Schutz vermeiden.",
+        "Hüte, Turbane oder Frisuren verwenden, die die Strähnen bedecken.",
+        "Hitzeschutz ist vor dem Trocknen oder bei Sonnenexposition unerlässlich.",
+        "Wöchentliche Feuchtigkeitspflege mit Aloe-vera- und Vitamin-E-Masken beibehalten.",
+        "Mit Diffusor und leichter Versiegelung abschließen, um Austrocknung zu vermeiden.",
+        "Produkte mit Sonnenschutz oder physische Methoden zum Schutz der Strähnen verwenden.",
+        "Wochenplan prüfen und gemäß Wettervorhersage anpassen.",
+        "Beste Zeit zum Waschen: früh morgens oder am späten Nachmittag, intensiver Sonne meidend."
+      ],
+      "chuvoso": [
+        "Feuchtigkeit verursacht Frizz — Haare versiegelt und genährt halten.",
+        "Säuernde Mittel oder verdünnten Apfelessig verwenden, um Schuppen zu schließen.",
+        "Trockene Haare nicht bürsten; Kämme mit weiten Zähnen verwenden.",
+        "Mit Finger-Coiling oder Twists abschließen, um das Volumen zu kontrollieren.",
+        "Mit einem Schal oder Satinkissenbezug schlafen, um Reibung zu vermeiden.",
+        "Vorwäschebehandlung schützt Strähnen vor dem Waschen.",
+        "Nährende Masken mit Proteinen, Lipiden und Ölen sind unerlässlich.",
+        "Trocknen mit Diffusor bei kühler Luft hilft, Frizz zu kontrollieren und Locken zu definieren."
+      ],
+      "nublado": [
+        "Idealer Zeitpunkt für leichte Haarrekonstruktion.",
+        "Masken mit Keratin und pflanzlichen Buttern verwenden.",
+        "Holzkämme und Tangle-Teezer-Bürsten zum Entwirren bevorzugen.",
+        "Mit Mangobutter- und Vitamin-E-Maske feuchtigkeitspflegen.",
+        "Mit Haargel für Definition ohne Gewicht abschließen.",
+        "Finishing-Techniken: Stylingcremes, Haargel und Wasser für Definition.",
+        "Feuchtigkeitspflege, Nutrition und Rekonstruktion je nach Haarbedarf planen."
+      ],
+      "frio": [
+        "Satinhauben unter Wintermützen tragen, um Reibung und Frizz zu vermeiden.",
+        "Haare abends nicht waschen und nass ins Bett gehen vermeiden.",
+        "Mit pflanzlichen Ölen befeuchten und einen regelmäßigen Plan einhalten.",
+        "Intensive Feuchtigkeitspflege zweimal im Monat hilft, Trockenheit zu bekämpfen.",
+        "Mit warmem Diffusor und sanfter saurer Versiegelung abschließen.",
+        "Strähnen vor Kälte mit Turbanen, Mützen und Satinschals schützen."
+      ],
+      "ventando": [
+        "Wind verursacht Verwicklungen und Bruch — Strähnen mit Zöpfen oder Knoten schützen.",
+        "Leichtes Öl vor dem Ausgehen auf die Spitzen auftragen.",
+        "Feste Frisuren bevorzugen (Cornrows, Twists, niedrige Knoten).",
+        "Satinschal oder geschlossenen Turban verwenden, um Reibung zu vermeiden.",
+        "Mit Versiegelungsöl abschließen und sehr leichte Produkte meiden.",
+        "Plan sollte Rekonstruktion und Schuppenschutz priorisieren."
+      ]
+    }
+  }
+]

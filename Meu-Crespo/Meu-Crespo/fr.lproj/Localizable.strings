@@ -1,0 +1,117 @@
+/* Tabs */
+"tab.home" = "Accueil";
+"tab.timeline" = "Programme";
+"tab.learn" = "Apprendre";
+"tab.settings" = "Paramètres";
+
+/* Common */
+"common.continue" = "Continuer";
+"common.yes" = "Oui";
+"common.no" = "Non";
+
+/* Home */
+"home.recommendations" = "Recommandations";
+"home.weatherAttribution" = "Données météo fournies par  Weather";
+"home.legalAttribution" = "Attribution Légale";
+
+/* Timeline */
+"timeline.title" = "Programme Capillaire";
+"timeline.editPrefix" = "Modifiez";
+"timeline.editSuffix" = "votre programme capillaire et prenez soin de vous!";
+"timeline.fullCalendar" = "Calendrier Complet";
+"timeline.weekCalendar" = "Calendrier Hebdomadaire";
+"timeline.selectDate" = "Sélectionner une date";
+"timeline.recommendation" = "Recommandation";
+"timeline.treatmentDescription" = "Traitement idéal pour aujourd'hui basé sur votre profil capillaire.";
+
+/* Learn */
+"learn.hello" = "Bonjour";
+"learn.subtitle" = "Ici, vous pouvez explorer divers sujets liés aux soins de vos cheveux crépus!";
+"learn.defaultUser" = "Utilisateur";
+
+/* Onboarding */
+"onboarding.name.question" = "Comment pouvons-nous vous appeler?";
+"onboarding.name.placeholder" = "Entrez votre prénom...";
+"onboarding.porosity.question" = "Quelle est la porosité de vos cheveux?";
+"onboarding.porosity.pickerLabel" = "Porosité";
+"onboarding.washFrequency.question" = "Combien de fois lavez-vous vos cheveux par semaine?";
+"onboarding.washFrequency.pickerLabel" = "Fréquence";
+"onboarding.chemical.question" = "Vos cheveux ont-ils subi un traitement chimique?";
+"onboarding.chemical.pickerLabel" = "Traitement chimique";
+"onboarding.dryness.question" = "Vos cheveux sont-ils secs?";
+"onboarding.dryness.pickerLabel" = "Sécheresse";
+
+/* Settings */
+"settings.title" = "Paramètres";
+"settings.section.language" = "Langue";
+"settings.section.hairProfile" = "Profil Capillaire";
+"settings.section.appInfo" = "Informations sur l'App";
+"settings.language.label" = "Langue de l'App";
+"settings.profile.name" = "Prénom";
+"settings.profile.porosity" = "Porosité";
+"settings.profile.dryness" = "Sécheresse";
+"settings.profile.washFrequency" = "Fréquence de Lavage";
+"settings.profile.chemical" = "Traitement Chimique";
+"settings.appVersion" = "Version";
+"settings.resetOnboarding" = "Réinitialiser le Tutoriel";
+
+/* Hair Profile Enums */
+"porosity.low" = "Faible";
+"porosity.medium" = "Moyenne";
+"porosity.high" = "Haute";
+"dryness.low" = "Légère";
+"dryness.medium" = "Modérée";
+"dryness.high" = "Sévère";
+
+/* Treatments */
+"treatment.hydration" = "Hydratation";
+"treatment.nutrition" = "Nutrition";
+"treatment.reconstruction" = "Reconstruction";
+"treatment.umectation" = "Humectation";
+
+/* Weather */
+"weather.fetchingLocation" = "Recherche de localisation...";
+"weather.fetchingCity" = "Recherche de la ville...";
+"weather.errorLocation" = "Erreur de Localisation";
+"weather.unknownLocation" = "Localisation Inconnue";
+"weather.unavailable" = "Données indisponibles";
+"weather.errorLoad" = "Erreur de chargement météo";
+"weather.loading" = "Chargement de la météo...";
+"weather.noInfo" = "Aucune information spécifique pour ce temps.";
+"weather.humidity" = "Humidité";
+"weather.uvIndex" = "Indice UV";
+"weather.wind" = "Vent";
+"weather.wind.alert" = "Alerte";
+"weather.wind.moderate" = "Modéré";
+"weather.wind.low" = "Faible";
+"weather.uv.extreme" = "EXTRÊME";
+"weather.uv.high" = "ÉLEVÉ";
+"weather.uv.moderate" = "MODÉRÉ";
+"weather.uv.low" = "FAIBLE";
+"weather.condition.cloudy" = "Jour nuageux";
+"weather.condition.rainy" = "Jour pluvieux";
+"weather.condition.sunny" = "Jour ensoleillé";
+"weather.condition.partlyCloudy" = "Jour partiellement ensoleillé";
+"weather.condition.windy" = "Jour venteux";
+"weather.condition.cold" = "Jour froid";
+"sheet.noWeatherInfo" = "Aucune information disponible pour ce temps.";
+
+/* Notifications */
+"settings.section.notifications" = "Notifications";
+"settings.notifications.daily" = "Rappel matinal";
+"notification.title" = "Meu Crespo";
+"notification.body" = "Il est temps de prendre soin de vos cheveux! Consultez vos recommandations du jour.";
+"notification.smart.title" = "Votre journée capillaire";
+"notification.smart.body" = "Aujourd'hui c'est jour de %@! Humidité à %@";
+
+/* Appearance */
+"settings.section.appearance" = "Apparence";
+"settings.appearance.label" = "Thème";
+"settings.appearance.system" = "Système";
+"settings.appearance.light" = "Clair";
+"settings.appearance.dark" = "Sombre";
+
+/* Card tipo labels */
+"card.tipo.penteados" = "Coiffures";
+"card.tipo.cronograma" = "Programme";
+"card.tipo.dicas" = "Conseils";

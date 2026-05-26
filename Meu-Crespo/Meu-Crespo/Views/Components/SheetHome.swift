@@ -11,7 +11,7 @@ struct SheetView: View {
     var temperatura: String
     var vento: String
     var dataSelecionada: Date
-    
+
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -19,30 +19,31 @@ struct SheetView: View {
                     Text(item.titulo)
                         .font(.system(size: 25, weight: .semibold))
                         .foregroundColor(colorScheme == .light ? Color.redBrown : Color.pinky)
-                    
+
                     VStack(alignment: .leading, spacing: 6) {
                         Text(climaChave.uppercased())
-                        Text("\(formatarData(weatherManager.selectedDate))")
+                        Text(formatarData(weatherManager.selectedDate))
                     }
                     .font(.system(size: 15))
                     .foregroundColor(colorScheme == .light ? .gray : .white)
                     .padding(.bottom, 8)
-                    
+
                     VStack(spacing: 10) {
                         if let conteudo = item.climas.values.first {
                             ForEach(conteudo, id: \.self) { linha in
                                 GlassCardView(linha: linha)
                             }
                         } else {
-                            Text("Sem informações disponíveis para este clima.")
+                            Text(L("sheet.noWeatherInfo"))
                                 .foregroundColor(.gray)
                         }
                     }
-                    
+
                     Spacer()
                 }
                 .padding()
-            }.toolbar {
+            }
+            .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         dismiss()
@@ -54,11 +55,11 @@ struct SheetView: View {
             }
         }
     }
-    
+
     func formatarData(_ date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = .full
-        formatter.locale = Locale(identifier: "pt_BR")
+        formatter.locale = Locale(identifier: LanguageManager.shared.currentLanguage.rawValue)
         return formatter.string(from: date)
     }
 }
@@ -70,16 +71,16 @@ struct GlassCardView: View {
         let componentes = linha.components(separatedBy: ": ")
         return componentes.count > 1 ? componentes : [linha, ""]
     }
-    
+
     var body: some View {
         VStack {
             Spacer()
-            
+
             VStack(alignment: .leading, spacing: 8) {
                 Text(partes[0])
                     .font(.system(size: 20, weight: .bold))
                     .padding(.top, 4)
-                
+
                 Text(partes[1])
                     .font(.system(size: 18))
                     .lineSpacing(4)
@@ -88,32 +89,22 @@ struct GlassCardView: View {
             .padding(.vertical, 20)
             .frame(maxWidth: .infinity, alignment: .leading)
             .frame(minHeight: 140)
-            .background(
-                .thinMaterial,
-                in: RoundedRectangle(cornerRadius: 32)
-            )
+            .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 32))
             .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 4)
             .foregroundColor(colorScheme == .light ? Color.redBrown : .white)
             .overlay(
                 RoundedRectangle(cornerRadius: 32)
                     .stroke(Color.black.opacity(0.03), lineWidth: 1)
             )
-            
+
             Spacer()
         }
-
-
     }
 }
-
-//struct GlassCardView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        GlassCardView()
-//    }
-//}
 
 #Preview {
     CardListView()
         .environmentObject(WeatherManager())
+        .environmentObject(LanguageManager.shared)
         .padding()
 }

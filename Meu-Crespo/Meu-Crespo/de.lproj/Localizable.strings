@@ -1,0 +1,117 @@
+/* Tabs */
+"tab.home" = "Start";
+"tab.timeline" = "Zeitplan";
+"tab.learn" = "Lernen";
+"tab.settings" = "Einstellungen";
+
+/* Common */
+"common.continue" = "Weiter";
+"common.yes" = "Ja";
+"common.no" = "Nein";
+
+/* Home */
+"home.recommendations" = "Empfehlungen";
+"home.weatherAttribution" = "Wetterdaten bereitgestellt von  Weather";
+"home.legalAttribution" = "Rechtlicher Hinweis";
+
+/* Timeline */
+"timeline.title" = "Haarpflegeplan";
+"timeline.editPrefix" = "Bearbeiten Sie";
+"timeline.editSuffix" = "Ihren Haarpflegeplan und bleiben Sie gut gepflegt!";
+"timeline.fullCalendar" = "Vollständiger Kalender";
+"timeline.weekCalendar" = "Wochenkalender";
+"timeline.selectDate" = "Datum auswählen";
+"timeline.recommendation" = "Empfehlung";
+"timeline.treatmentDescription" = "Ideale Behandlung für heute basierend auf Ihrem Haarprofil.";
+
+/* Learn */
+"learn.hello" = "Hallo";
+"learn.subtitle" = "Hier können Sie verschiedene Themen rund um die Pflege Ihres krausen Haares erkunden!";
+"learn.defaultUser" = "Benutzer";
+
+/* Onboarding */
+"onboarding.name.question" = "Wie sollen wir Sie nennen?";
+"onboarding.name.placeholder" = "Geben Sie Ihren Namen ein...";
+"onboarding.porosity.question" = "Wie ist die Porosität Ihrer Haare?";
+"onboarding.porosity.pickerLabel" = "Porosität";
+"onboarding.washFrequency.question" = "Wie oft waschen Sie Ihre Haare pro Woche?";
+"onboarding.washFrequency.pickerLabel" = "Häufigkeit";
+"onboarding.chemical.question" = "Wurden Ihre Haare chemisch behandelt?";
+"onboarding.chemical.pickerLabel" = "Chemisch";
+"onboarding.dryness.question" = "Sind Ihre Haare trocken?";
+"onboarding.dryness.pickerLabel" = "Trockenheit";
+
+/* Settings */
+"settings.title" = "Einstellungen";
+"settings.section.language" = "Sprache";
+"settings.section.hairProfile" = "Haarprofil";
+"settings.section.appInfo" = "App-Informationen";
+"settings.language.label" = "App-Sprache";
+"settings.profile.name" = "Name";
+"settings.profile.porosity" = "Porosität";
+"settings.profile.dryness" = "Trockenheit";
+"settings.profile.washFrequency" = "Waschhäufigkeit";
+"settings.profile.chemical" = "Chemische Behandlung";
+"settings.appVersion" = "Version";
+"settings.resetOnboarding" = "Tutorial zurücksetzen";
+
+/* Hair Profile Enums */
+"porosity.low" = "Niedrig";
+"porosity.medium" = "Mittel";
+"porosity.high" = "Hoch";
+"dryness.low" = "Leicht";
+"dryness.medium" = "Mäßig";
+"dryness.high" = "Stark";
+
+/* Treatments */
+"treatment.hydration" = "Feuchtigkeitspflege";
+"treatment.nutrition" = "Ernährung";
+"treatment.reconstruction" = "Rekonstruktion";
+"treatment.umectation" = "Befeuchtung";
+
+/* Weather */
+"weather.fetchingLocation" = "Standort wird gesucht...";
+"weather.fetchingCity" = "Stadt wird gesucht...";
+"weather.errorLocation" = "Standortfehler";
+"weather.unknownLocation" = "Unbekannter Standort";
+"weather.unavailable" = "Daten nicht verfügbar";
+"weather.errorLoad" = "Fehler beim Laden des Wetters";
+"weather.loading" = "Wetter wird geladen...";
+"weather.noInfo" = "Keine spezifischen Informationen für dieses Wetter.";
+"weather.humidity" = "Luftfeuchtigkeit";
+"weather.uvIndex" = "UV-Index";
+"weather.wind" = "Wind";
+"weather.wind.alert" = "Warnung";
+"weather.wind.moderate" = "Mäßig";
+"weather.wind.low" = "Niedrig";
+"weather.uv.extreme" = "EXTREM";
+"weather.uv.high" = "HOCH";
+"weather.uv.moderate" = "MÄSSIG";
+"weather.uv.low" = "NIEDRIG";
+"weather.condition.cloudy" = "Bewölkter Tag";
+"weather.condition.rainy" = "Regnerischer Tag";
+"weather.condition.sunny" = "Sonniger Tag";
+"weather.condition.partlyCloudy" = "Teilweise bewölkter Tag";
+"weather.condition.windy" = "Windiger Tag";
+"weather.condition.cold" = "Kalter Tag";
+"sheet.noWeatherInfo" = "Keine Informationen für dieses Wetter verfügbar.";
+
+/* Notifications */
+"settings.section.notifications" = "Benachrichtigungen";
+"settings.notifications.daily" = "Morgenerinnerung";
+"notification.title" = "Meu Crespo";
+"notification.body" = "Zeit, sich um Ihr Haar zu kümmern! Schauen Sie sich die heutigen Empfehlungen an.";
+"notification.smart.title" = "Ihr Haarpflegetag";
+"notification.smart.body" = "Heute ist %@-Tag! Luftfeuchtigkeit: %@";
+
+/* Appearance */
+"settings.section.appearance" = "Darstellung";
+"settings.appearance.label" = "Thema";
+"settings.appearance.system" = "System";
+"settings.appearance.light" = "Hell";
+"settings.appearance.dark" = "Dunkel";
+
+/* Card tipo labels */
+"card.tipo.penteados" = "Frisuren";
+"card.tipo.cronograma" = "Zeitplan";
+"card.tipo.dicas" = "Tipps";

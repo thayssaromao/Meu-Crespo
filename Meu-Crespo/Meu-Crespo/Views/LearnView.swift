@@ -2,31 +2,32 @@ import SwiftUI
 
 struct LearnView: View {
     @Environment(\.colorScheme) var colorScheme
-    @AppStorage("userName") var userName: String = "Usuário"
+    @EnvironmentObject var languageManager: LanguageManager
+    @AppStorage("userName") var userName: String = ""
     @State private var contents: [ContentModel] = []
-    
+
     var body: some View {
         NavigationStack {
-            ZStack{
+            ZStack {
                 (colorScheme == .light ? Color.white : Color.brownBg)
                     .ignoresSafeArea()
-                
+
                 ScrollView(showsIndicators: false) {
-                    VStack( alignment: .center, spacing: 24){
-                        Text("Olá, \(userName)!")
-                            .font(.system(size:30, weight: .bold))
+                    VStack(alignment: .center, spacing: 24) {
+                        Text("\(L("learn.hello")), \(userName.isEmpty ? L("learn.defaultUser") : userName)!")
+                            .font(.system(size: 30, weight: .bold))
                             .foregroundColor(colorScheme == .light ? .redBrown : .white)
-                        
-                        Text("Aqui você pode explorar diversos assuntos relacionados a cuidados com o  seu cabelo crespo!")
-                          .font(Font.custom("SF Pro", size: 18))
-                          .foregroundColor(colorScheme == .light ? .redBrown : .white)
+
+                        Text(L("learn.subtitle"))
+                            .font(Font.custom("SF Pro", size: 18))
+                            .foregroundColor(colorScheme == .light ? .redBrown : .white)
 
                         Spacer()
-                        
-                        VStack(spacing: 25){
+
+                        VStack(spacing: 25) {
                             ForEach(contents) { content in
-                               CardLearning(content: content)
-                           }
+                                CardLearning(content: content)
+                            }
                         }
                     }
                     .padding()
@@ -38,10 +39,5 @@ struct LearnView: View {
                 }
             }
         }
-            
     }
 }
-
-//#Preview {
-//    LearnView()
-//}

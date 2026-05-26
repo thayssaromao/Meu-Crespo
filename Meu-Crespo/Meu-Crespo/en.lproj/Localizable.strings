@@ -1,0 +1,117 @@
+/* Tabs */
+"tab.home" = "Home";
+"tab.timeline" = "Timeline";
+"tab.learn" = "Learn";
+"tab.settings" = "Settings";
+
+/* Common */
+"common.continue" = "Continue";
+"common.yes" = "Yes";
+"common.no" = "No";
+
+/* Home */
+"home.recommendations" = "Recommendations";
+"home.weatherAttribution" = "Weather data provided by  Weather";
+"home.legalAttribution" = "Legal Attribution";
+
+/* Timeline */
+"timeline.title" = "Hair Timeline";
+"timeline.editPrefix" = "Edit";
+"timeline.editSuffix" = "your hair timeline and stay well-cared for!";
+"timeline.fullCalendar" = "Full Calendar";
+"timeline.weekCalendar" = "Weekly Calendar";
+"timeline.selectDate" = "Select date";
+"timeline.recommendation" = "Recommendation";
+"timeline.treatmentDescription" = "Ideal treatment for today based on your hair profile.";
+
+/* Learn */
+"learn.hello" = "Hello";
+"learn.subtitle" = "Here you can explore various topics related to caring for your curly hair!";
+"learn.defaultUser" = "User";
+
+/* Onboarding */
+"onboarding.name.question" = "What should we call you?";
+"onboarding.name.placeholder" = "Enter your name...";
+"onboarding.porosity.question" = "What is your hair porosity?";
+"onboarding.porosity.pickerLabel" = "Porosity";
+"onboarding.washFrequency.question" = "How many times do you wash your hair per week?";
+"onboarding.washFrequency.pickerLabel" = "Frequency";
+"onboarding.chemical.question" = "Does your hair have chemical treatment?";
+"onboarding.chemical.pickerLabel" = "Chemical";
+"onboarding.dryness.question" = "Is your hair dry?";
+"onboarding.dryness.pickerLabel" = "Dryness";
+
+/* Settings */
+"settings.title" = "Settings";
+"settings.section.language" = "Language";
+"settings.section.hairProfile" = "Hair Profile";
+"settings.section.appInfo" = "App Information";
+"settings.language.label" = "App Language";
+"settings.profile.name" = "Name";
+"settings.profile.porosity" = "Porosity";
+"settings.profile.dryness" = "Dryness";
+"settings.profile.washFrequency" = "Wash Frequency";
+"settings.profile.chemical" = "Chemical Treatment";
+"settings.appVersion" = "Version";
+"settings.resetOnboarding" = "Reset Tutorial";
+
+/* Hair Profile Enums */
+"porosity.low" = "Low";
+"porosity.medium" = "Medium";
+"porosity.high" = "High";
+"dryness.low" = "Slight";
+"dryness.medium" = "Moderate";
+"dryness.high" = "Severe";
+
+/* Treatments */
+"treatment.hydration" = "Hydration";
+"treatment.nutrition" = "Nutrition";
+"treatment.reconstruction" = "Reconstruction";
+"treatment.umectation" = "Umectation";
+
+/* Weather */
+"weather.fetchingLocation" = "Fetching location...";
+"weather.fetchingCity" = "Fetching city...";
+"weather.errorLocation" = "Location Error";
+"weather.unknownLocation" = "Unknown Location";
+"weather.unavailable" = "Data unavailable";
+"weather.errorLoad" = "Error loading weather";
+"weather.loading" = "Loading weather...";
+"weather.noInfo" = "No specific info for this weather.";
+"weather.humidity" = "Humidity";
+"weather.uvIndex" = "UV Index";
+"weather.wind" = "Wind";
+"weather.wind.alert" = "Alert";
+"weather.wind.moderate" = "Moderate";
+"weather.wind.low" = "Low";
+"weather.uv.extreme" = "EXTREME";
+"weather.uv.high" = "HIGH";
+"weather.uv.moderate" = "MODERATE";
+"weather.uv.low" = "LOW";
+"weather.condition.cloudy" = "Cloudy day";
+"weather.condition.rainy" = "Rainy day";
+"weather.condition.sunny" = "Sunny day";
+"weather.condition.partlyCloudy" = "Partly cloudy day";
+"weather.condition.windy" = "Windy day";
+"weather.condition.cold" = "Cold day";
+"sheet.noWeatherInfo" = "No information available for this weather.";
+
+/* Notifications */
+"settings.section.notifications" = "Notifications";
+"settings.notifications.daily" = "Morning reminder";
+"notification.title" = "Meu Crespo";
+"notification.body" = "Time to care for your hair! Check today's recommendations.";
+"notification.smart.title" = "Your hair day";
+"notification.smart.body" = "Today is %@ day! Humidity at %@";
+
+/* Appearance */
+"settings.section.appearance" = "Appearance";
+"settings.appearance.label" = "Theme";
+"settings.appearance.system" = "System";
+"settings.appearance.light" = "Light";
+"settings.appearance.dark" = "Dark";
+
+/* Card tipo labels */
+"card.tipo.penteados" = "Hairstyles";
+"card.tipo.cronograma" = "Schedule";
+"card.tipo.dicas" = "Tips";

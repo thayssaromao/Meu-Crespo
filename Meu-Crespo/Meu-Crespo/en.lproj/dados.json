@@ -1,0 +1,171 @@
+[
+  {
+    "tipo": "penteados",
+    "titulo": "Hairstyle Ideas",
+    "climas": {
+      "ensolarado": [
+        "High Afro Puff: enhance volume and let the scalp breathe.",
+        "Pineapple Bun with scarf or bandana to protect hair from the sun.",
+        "Cornrow braids all over: ideal for hot, dry days.",
+        "Closed Turban to protect strands from UV radiation.",
+        "Side Afro Puff with colorful headband for a pop of color.",
+        "Half Bun: pin just the top half of your hair.",
+        "Hairstyle with Visor or Cap for sun protection.",
+        "Ponytail with colorful elastics to divide sections.",
+        "Faux Sidecut with hairpins to simulate a shaved look.",
+        "Hairstyles with metallic accessories and headbands for style and protection."
+      ],
+      "chuvoso": [
+        "Loose Twists to maintain definition even with humidity.",
+        "Bantu Knots: protect and prevent frizz.",
+        "Low Bun with satin scarf: frizz control on humid days.",
+        "Box Braids: ideal for extended rainy periods.",
+        "Low Ponytail with baby hair finish.",
+        "Side Twists Pinned Back to keep hair organized.",
+        "Half-up with Top section to partially protect hair.",
+        "Bun with Satin Scarf for elegance and extra protection.",
+        "Twists help maintain definition and reduce frizz caused by humidity.",
+        "Use satin pillowcases at night to protect hair while sleeping."
+      ],
+      "nublado": [
+        "Double Bun (Space Buns): fun and practical.",
+        "Side Cornrow Braid with clips for a modern look.",
+        "High, Sleek Ponytail: aligned roots, controlled volume.",
+        "Braided Crown for a sophisticated touch.",
+        "Bun with Satin Scarf: elegance and protection.",
+        "Afro Puff with Loose Fringe: front strands loose for a casual look.",
+        "Loose Hair with Headband or light accessories.",
+        "Hairstyle with Hairpins and Tic-Tacs to vary your style."
+      ],
+      "frio": [
+        "Closed Turban: warms and protects strands from the wind.",
+        "Elegant Low Bun with clips or hair clamps.",
+        "Loose Hair with Hat or Beret: keeps warm and prevents dryness.",
+        "Twists with satin scarf for sleeping and avoiding friction.",
+        "Faux Locs or Box Braids for extended protection.",
+        "Blowout: brush hair to elongate strands and add volume.",
+        "Braided Bun: braided ponytail coiled into a bun.",
+        "Side Sections Pinned with Baby Hair Finish.",
+        "Closed Turban for full protection against cold and wind."
+      ],
+      "ventando": [
+        "Protective Hairstyles (braids, twists, buns) to avoid tangles.",
+        "Closed Turban to contain strands.",
+        "Mohawk of Braids to maintain shape without frizz.",
+        "Ponytail with colorful elastics for extra hold.",
+        "Twist Crown to hold strands and protect ends.",
+        "Use accessories and satin scarves to avoid friction.",
+        "Prefer fixed styles like cornrows, twists, and low buns.",
+        "Finish with sealing oil to reduce breakage and frizz."
+      ]
+    }
+  },
+  {
+    "tipo": "cronograma",
+    "titulo": "Weekly Hair Schedule",
+    "climas": {
+      "ensolarado": [
+        "High UV radiation: prioritize Hydration and products with sun protection.",
+        "Use leave-in with thermal and sun protection.",
+        "Hydration with aloe vera mask and rice protein.",
+        "Finish with light styling cream to prevent dryness.",
+        "Avoid creams without UV protection and excessive sun exposure.",
+        "Thermal protection: curly hair creates an air layer that acts as insulation.",
+        "Use hats, turbans, or hairstyles to protect your strands.",
+        "Plan your weekly schedule considering the weather forecast.",
+        "Best time to wash hair: early morning or late afternoon, avoiding intense sun."
+      ],
+      "chuvoso": [
+        "High humidity favors frizz — prioritize Nutrition.",
+        "Use vegetable oils (castor, coconut, avocado) and shea butter.",
+        "Avoid washing hair on very humid days; opt for pre-poo treatment.",
+        "Finish with hair gel or sealing oil to avoid moisture absorption.",
+        "Sleep with a satin pillowcase to control frizz.",
+        "Acidifying products and acidic pH help close the cuticles.",
+        "Masks with proteins, keratin, and lipids repair damage and nourish strands.",
+        "If strands are dry, prioritize hydration; dull, focus on nutrition; breaking, reconstruct.",
+        "Drying with a diffuser on cool air helps control frizz and define curls."
+      ],
+      "nublado": [
+        "Mild weather: maintain balance between Hydration and Nutrition.",
+        "Hydration Mask with mango butter and vitamin E.",
+        "Nutrition Mask with 7 powerful oils for shine and manageability.",
+        "Styling Cream Conditioner with oils and rice protein.",
+        "Finish with finger coiling for natural definition.",
+        "Use wide-tooth combs, wooden combs, or afro picks, avoiding breakage and frizz.",
+        "Finishing techniques: finger coiling, styling creams, hair gel, and water for definition.",
+        "Plan hydration, nutrition, and reconstruction according to your hair's needs."
+      ],
+      "frio": [
+        "Low temperature: avoid washing with very cold water.",
+        "Use warm water to avoid excessively opening the cuticles.",
+        "Prioritize Light Hydration and Moisturizing with nourishing oils.",
+        "Finish with warm diffuser and heat protectant.",
+        "Avoid sleeping with wet hair and maintain bi-weekly reconstruction routine.",
+        "Satin pillowcases and hair bonnets prevent friction and frizz.",
+        "Nourishing and reconstructing masks are recommended for cold weather.",
+        "Products with proteins and lipids help protect the strands."
+      ],
+      "ventando": [
+        "Strong winds cause breakage — invest in Reconstruction.",
+        "Use masks with proteins, keratin, and lipids.",
+        "Finish with serum or oil on the ends to seal the cuticles.",
+        "Avoid wearing hair loose; prefer protective hairstyles.",
+        "Use anti-frizz products to reduce friction from the wind.",
+        "Prefer braids, twists, low buns, or closed turbans.",
+        "Protect the ends and roots from the wind with accessories and nourishing oils."
+      ]
+    }
+  },
+  {
+    "tipo": "dicas",
+    "titulo": "Daily Hair Care Tips",
+    "climas": {
+      "ensolarado": [
+        "Avoid creams without UV protection.",
+        "Use hats, turbans, or hairstyles that cover your strands.",
+        "Heat protection is essential before drying or sun exposure.",
+        "Maintain weekly hydration with aloe vera and vitamin E masks.",
+        "Finish with diffuser and light sealing to avoid dryness.",
+        "Use products with sun protection or physical methods to protect strands.",
+        "Check your weekly schedule and adjust according to the weather forecast.",
+        "Best time to wash: early morning or late afternoon, avoiding intense sun."
+      ],
+      "chuvoso": [
+        "Humidity causes frizz — keep hair sealed and nourished.",
+        "Use acidifiers or diluted apple cider vinegar to close cuticles.",
+        "Avoid brushing dry hair; use wide-tooth combs.",
+        "Finish with finger coiling or twists to control volume.",
+        "Sleep with a scarf or satin pillowcase to avoid friction.",
+        "Pre-poo protects strands before washing.",
+        "Nourishing masks with proteins, lipids, and oils are essential.",
+        "Drying with diffuser and cool air helps control frizz and define curls."
+      ],
+      "nublado": [
+        "Ideal time for light hair reconstruction.",
+        "Use masks with keratin and vegetable butters.",
+        "Prefer wooden combs and Tangle Teezer brushes for detangling.",
+        "Hydrate with mango butter and vitamin E mask.",
+        "Finish with hair gel for definition without weight.",
+        "Finishing techniques: finger coiling, styling creams, hair gel, and water for definition.",
+        "Plan hydration, nutrition, and reconstruction according to your hair's needs."
+      ],
+      "frio": [
+        "Use satin bonnets under beanies to prevent friction and frizz.",
+        "Avoid washing hair at night and sleeping with it wet.",
+        "Moisturize with vegetable oils and maintain a regular schedule.",
+        "Deep hydration twice a month helps combat dryness.",
+        "Finish with warm diffuser and gentle acid sealing.",
+        "Protect strands from cold with turbans, beanies, and satin scarves."
+      ],
+      "ventando": [
+        "Wind causes tangles and breakage — protect strands with braids or buns.",
+        "Apply light oil to ends before going out.",
+        "Prefer fixed hairstyles (cornrows, twists, low buns).",
+        "Use satin scarf or closed turban to prevent friction.",
+        "Finish with sealing oil and avoid very light products.",
+        "Schedule should prioritize reconstruction and protection of cuticles."
+      ]
+    }
+  }
+]

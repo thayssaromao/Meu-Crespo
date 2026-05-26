@@ -3,20 +3,20 @@ import SwiftUI
 struct WeekDay: Identifiable {
     let id = UUID()
     let date: Date
-    
+
     var dayNumber: String {
         let formatter = DateFormatter()
         formatter.dateFormat = "d"
         return formatter.string(from: date)
     }
-    
+
     var dayLetter: String {
         let formatter = DateFormatter()
         formatter.dateFormat = "E"
-        formatter.locale = Locale(identifier: "pt_BR")
+        formatter.locale = Locale(identifier: LanguageManager.shared.currentLanguage.rawValue)
         return String(formatter.string(from: date).prefix(1)).capitalized
     }
-    
+
     var isToday: Bool {
         Calendar.current.isDateInToday(date)
     }
@@ -25,13 +25,13 @@ struct WeekDay: Identifiable {
 struct DayView: View {
     let day: WeekDay
     let isSelected: Bool
-    
+
     var body: some View {
         VStack(spacing: 15) {
             Text(day.dayLetter)
                 .font(.system(size: 18, weight: .medium))
                 .foregroundStyle(isSelected ? .white : .secondary)
-            
+
             Text(day.dayNumber)
                 .font(.system(size: 18, weight: .medium))
                 .foregroundStyle(isSelected ? .white : .primary)
@@ -44,7 +44,7 @@ struct DayView: View {
                         .fill(Color.pinky)
                         .matchedGeometryEffect(id: "selectedBackground", in: namespace)
                 }
-                
+
                 if day.isToday {
                     Circle()
                         .fill(isSelected ? .clear : Color(red: 0.95, green: 0.42, blue: 0.37).opacity(0.5))
@@ -53,19 +53,17 @@ struct DayView: View {
             }
         )
     }
+
     var namespace: Namespace.ID
 }
 
-
 struct WeekSlider: View {
-    
     @EnvironmentObject var weatherManager: WeatherManager
     @State private var days: [WeekDay] = []
     @State private var selectedDayId: UUID?
     @Binding var selectedDate: Date
-    // Namespace para a animação suave da seleção
     @Namespace private var namespace
-    
+
     var body: some View {
         VStack {
             ScrollViewReader { proxy in
@@ -83,7 +81,6 @@ struct WeekSlider: View {
                                     selectedDayId = day.id
                                     selectedDate = day.date
                                     weatherManager.updateWeather(for: day.date)
-
                                 }
                             }
                         }
@@ -91,17 +88,16 @@ struct WeekSlider: View {
                     .padding(.horizontal)
                 }
                 .onAppear {
-                    self.days = generateDays()
-                    
+                    days = generateDays()
                     let todayId = days.first(where: { $0.isToday })?.id
-                    self.selectedDayId = todayId
-                    
+                    selectedDayId = todayId
+
                     if let today = days.first(where: { $0.isToday }) {
                         selectedDayId = today.id
                         selectedDate = today.date
                         weatherManager.updateWeather(for: today.date)
                     }
-                    
+
                     DispatchQueue.main.async {
                         withAnimation {
                             proxy.scrollTo(todayId, anchor: .center)
@@ -112,14 +108,12 @@ struct WeekSlider: View {
             .frame(height: 90)
         }
     }
-    
+
     private func generateDays() -> [WeekDay] {
         let calendar = Calendar.current
         let today = Date()
         var tempDays: [WeekDay] = []
-        
-        // Gera 9 dias no futuro
-        for i in -0...9 {
+        for i in 0...9 {
             if let date = calendar.date(byAdding: .day, value: i, to: today) {
                 tempDays.append(WeekDay(date: date))
             }
@@ -127,5 +121,3 @@ struct WeekSlider: View {
         return tempDays
     }
 }
-
-

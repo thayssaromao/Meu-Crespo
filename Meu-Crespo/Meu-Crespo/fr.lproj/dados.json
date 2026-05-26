@@ -1,0 +1,171 @@
+[
+  {
+    "tipo": "penteados",
+    "titulo": "Idées de Coiffures",
+    "climas": {
+      "ensolarado": [
+        "Afro Puff Haut: mettez en valeur le volume et laissez le cuir chevelu respirer.",
+        "Chignon Ananas avec foulard ou bandeau pour protéger les cheveux du soleil.",
+        "Tresses Collées sur toute la tête: idéales pour les journées chaudes et sèches.",
+        "Turban Fermé pour protéger les mèches des rayons UV.",
+        "Afro Puff Latéral avec bandeau coloré pour une touche de couleur.",
+        "Demi-Chignon: attachez seulement la moitié supérieure des cheveux.",
+        "Coiffure avec Visière ou Casquette pour la protection solaire.",
+        "Queue de Cheval avec élastiques colorés pour diviser les mèches.",
+        "Faux Sidecut avec épingles pour simuler une coupe rasée.",
+        "Coiffures avec accessoires métalliques et bandeaux pour style et protection."
+      ],
+      "chuvoso": [
+        "Twists Détachés pour maintenir la définition même par temps humide.",
+        "Bantu Knots: protègent et évitent le frisottis.",
+        "Chignon Bas avec foulard en satin: contrôle du frisottis par temps humide.",
+        "Box Braids: idéales pour les longues périodes de pluie.",
+        "Queue de Cheval Basse avec finition baby hair.",
+        "Twists Latéraux Attachés en Arrière pour garder les cheveux organisés.",
+        "Mi-attaché avec Toupet pour protéger partiellement les cheveux.",
+        "Chignon avec Foulard en Satin pour élégance et protection supplémentaire.",
+        "Les twists aident à maintenir la définition et réduire le frisottis causé par l'humidité.",
+        "Utilisez des taies d'oreiller en satin la nuit pour protéger les cheveux pendant le sommeil."
+      ],
+      "nublado": [
+        "Double Chignon (Space Buns): amusant et pratique.",
+        "Tresse Latérale avec barrettes pour un look moderne.",
+        "Queue de Cheval Haute et Lisse: racines alignées, volume contrôlé.",
+        "Couronne de Tresses pour une touche sophistiquée.",
+        "Chignon avec Foulard en Satin: élégance et protection.",
+        "Afro Puff avec Frange Détachée: mèches frontales libres pour un look décontracté.",
+        "Cheveux Détachés avec Serre-tête ou accessoires légers.",
+        "Coiffure avec Épingles et Tic-Tacs pour varier le style."
+      ],
+      "frio": [
+        "Turban Fermé: réchauffe et protège les mèches du vent.",
+        "Chignon Bas Élégant avec épingles ou pinces.",
+        "Cheveux Détachés avec Bonnet ou Béret: réchauffe et évite le dessèchement.",
+        "Twists avec foulard en satin pour dormir et éviter les frottements.",
+        "Faux Locs ou Box Braids pour une protection prolongée.",
+        "Blowout: lissez les cheveux pour allonger les mèches et gagner du volume.",
+        "Chignon Tressé: queue de cheval tressée enroulée en chignon.",
+        "Côtés Attachés avec Finition Baby Hair.",
+        "Turban Fermé pour une protection complète contre le froid et le vent."
+      ],
+      "ventando": [
+        "Coiffures Protectrices (tresses, twists, chignons) pour éviter l'emmêlement.",
+        "Turban Fermé pour contenir les mèches.",
+        "Mohawk de Tresses pour maintenir la forme sans frisottis.",
+        "Queue de Cheval avec élastiques colorés pour une fixation supplémentaire.",
+        "Couronne de Twists pour maintenir les mèches et protéger les pointes.",
+        "Utilisez accessoires et foulards en satin pour éviter les frottements.",
+        "Préférez les coiffures fixées comme les tresses collées, twists et chignons bas.",
+        "Terminez avec de l'huile scellante pour réduire la casse et le frisottis."
+      ]
+    }
+  },
+  {
+    "tipo": "cronograma",
+    "titulo": "Programme Capillaire Hebdomadaire",
+    "climas": {
+      "ensolarado": [
+        "Forte radiation UV: privilégiez l'Hydratation et les produits avec protection solaire.",
+        "Utilisez un leave-in avec protection thermique et solaire.",
+        "Hydratation avec masque à l'aloe vera et protéine de riz.",
+        "Terminez avec une crème légère pour éviter le dessèchement.",
+        "Évitez les crèmes sans protection UV et l'exposition excessive au soleil.",
+        "Protection thermique: les cheveux crépus créent une couche d'air isolante.",
+        "Utilisez chapeaux, turbans ou coiffures pour protéger vos mèches.",
+        "Planifiez le programme hebdomadaire en tenant compte des prévisions météo.",
+        "Meilleur moment pour laver: tôt le matin ou en fin d'après-midi, en évitant le soleil intense."
+      ],
+      "chuvoso": [
+        "Forte humidité favorise le frisottis — privilégiez la Nutrition.",
+        "Utilisez des huiles végétales (ricin, coco, avocat) et du beurre de karité.",
+        "Évitez de laver les cheveux par temps très humide; optez pour un pré-poo.",
+        "Terminez avec de la gelée capillaire ou une huile scellante pour éviter l'absorption d'humidité.",
+        "Dormez avec une taie d'oreiller en satin pour contrôler le frisottis.",
+        "Les produits acidifiants et le pH acide aident à fermer les cuticules.",
+        "Les masques avec protéines, kératine et lipides réparent les dommages et nourrissent les mèches.",
+        "Si les mèches sont sèches, privilégiez l'hydratation; ternes, focalisez-vous sur la nutrition; avec casse, reconstruisez.",
+        "Sécher avec un diffuseur à air froid aide à contrôler le frisottis et définir les boucles."
+      ],
+      "nublado": [
+        "Temps doux: maintenez l'équilibre entre Hydratation et Nutrition.",
+        "Masque d'Hydratation au beurre de mangue et vitamine E.",
+        "Masque de Nutrition aux 7 huiles puissantes pour brillance et maniabilité.",
+        "Après-shampooing Crème Coiffante aux huiles et protéine de riz.",
+        "Terminez avec la technique du fitagem pour une définition naturelle.",
+        "Utilisez des peignes à larges dents, en bois ou à afro pour éviter la casse et le frisottis.",
+        "Techniques de finition: crèmes coiffantes, gelée et eau pour la définition.",
+        "Planifiez hydratation, nutrition et reconstruction selon les besoins de vos cheveux."
+      ],
+      "frio": [
+        "Basse température: évitez de laver avec de l'eau trop froide.",
+        "Utilisez de l'eau tiède pour ne pas ouvrir excessivement les cuticules.",
+        "Privilégiez l'Hydratation Légère et l'Humectation avec des huiles nourrissantes.",
+        "Terminez avec un diffuseur tiède et un protecteur thermique.",
+        "Évitez de dormir avec les cheveux mouillés et maintenez la routine de reconstruction bimensuelle.",
+        "Les taies d'oreiller en satin et les bonnets évitent les frottements et le frisottis.",
+        "Les masques nourrissants et reconstructeurs sont recommandés pour le froid.",
+        "Les produits avec des protéines et des lipides aident à protéger les mèches."
+      ],
+      "ventando": [
+        "Les vents forts causent la casse — investissez dans la Reconstruction.",
+        "Utilisez des masques avec protéines, kératine et lipides.",
+        "Terminez avec du sérum ou de l'huile sur les pointes pour sceller les cuticules.",
+        "Évitez de laisser les cheveux détachés; préférez les coiffures protectrices.",
+        "Utilisez des produits anti-frisottis pour réduire les frottements avec le vent.",
+        "Préférez les tresses, twists, chignons bas ou turbans fermés.",
+        "Protégez les pointes et la racine du vent avec des accessoires et des huiles nourrissantes."
+      ]
+    }
+  },
+  {
+    "tipo": "dicas",
+    "titulo": "Conseils de Soin Quotidien",
+    "climas": {
+      "ensolarado": [
+        "Évitez les crèmes sans protection UV.",
+        "Utilisez chapeaux, turbans ou coiffures qui couvrent vos mèches.",
+        "La protection thermique est essentielle avant de sécher ou s'exposer au soleil.",
+        "Maintenez l'hydratation hebdomadaire avec des masques à l'aloe vera et à la vitamine E.",
+        "Terminez avec un diffuseur et un scellement léger pour éviter le dessèchement.",
+        "Utilisez des produits avec protection solaire ou des méthodes physiques pour protéger les mèches.",
+        "Vérifiez le programme de la semaine et adaptez selon les prévisions météo.",
+        "Meilleur moment pour laver: tôt le matin ou en fin d'après-midi, en évitant le soleil intense."
+      ],
+      "chuvoso": [
+        "L'humidité cause le frisottis — gardez les cheveux scellés et nourris.",
+        "Utilisez des acidifiants ou du vinaigre de cidre dilué pour fermer les cuticules.",
+        "Évitez de brosser les cheveux secs; utilisez des peignes à larges dents.",
+        "Terminez avec la technique du fitagem ou des twists pour contrôler le volume.",
+        "Dormez avec un foulard ou une taie d'oreiller en satin pour éviter les frottements.",
+        "Le pré-poo protège les mèches avant le lavage.",
+        "Les masques nourrissants avec protéines, lipides et huiles sont essentiels.",
+        "Sécher avec un diffuseur à air froid aide à contrôler le frisottis et définir les boucles."
+      ],
+      "nublado": [
+        "Moment idéal pour faire une reconstruction capillaire légère.",
+        "Utilisez des masques à la kératine et aux beurres végétaux.",
+        "Préférez les peignes en bois et les brosses Tangle Teezer pour démêler.",
+        "Hydratez avec un masque au beurre de mangue et à la vitamine E.",
+        "Terminez avec de la gelée capillaire pour une définition sans poids.",
+        "Techniques de finition: crèmes coiffantes, gelée et eau pour la définition.",
+        "Planifiez hydratation, nutrition et reconstruction selon les besoins de vos cheveux."
+      ],
+      "frio": [
+        "Utilisez des bonnets en satin sous les bonnets en laine pour éviter les frottements et le frisottis.",
+        "Évitez de laver les cheveux le soir et de les laisser mouillés pour dormir.",
+        "Humectez avec des huiles végétales et maintenez un programme régulier.",
+        "Une hydratation profonde bimensuelle aide à combattre le dessèchement.",
+        "Terminez avec un diffuseur tiède et un scellement acide doux.",
+        "Protégez les mèches du froid avec turbans, bonnets et foulards en satin."
+      ],
+      "ventando": [
+        "Le vent cause l'emmêlement et la casse — protégez les mèches avec des tresses ou des chignons.",
+        "Appliquez de l'huile légère sur les pointes avant de sortir.",
+        "Préférez les coiffures fixées (tresses collées, twists, chignons bas).",
+        "Utilisez un foulard en satin ou un turban fermé pour éviter les frottements.",
+        "Terminez avec une huile scellante et évitez les produits trop légers.",
+        "Le programme doit prioriser la reconstruction et la protection des cuticules."
+      ]
+    }
+  }
+]

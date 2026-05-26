@@ -2,10 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>pt-BR</string>
 	<key>CFBundleLocalizations</key>
 	<array>
+		<string>pt-BR</string>
 		<string>en</string>
 		<string>fr</string>
+		<string>de</string>
 	</array>
 </dict>
 </plist>

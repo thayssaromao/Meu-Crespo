@@ -1,0 +1,52 @@
+[
+    {
+      "id": 1,
+      "titulo": "Técnicas de Finalização",
+      "texto": "A finalização é essencial para garantir definição e durabilidade no cabelo crespo. Técnicas como a fitagem consistem em separar o cabelo em mechas finas e aplicar o produto da raiz às pontas, formando cachos mais definidos. O uso de gelatina ajuda a criar um filme protetor leve que mantém a definição sem pesar. Manter o cabelo bem úmido durante a aplicação dos produtos melhora a distribuição e o resultado final."
+    },
+    {
+      "id": 2,
+      "titulo": "Pentes e Acessórios Ideais",
+      "texto": "Para cabelos crespos, os pentes de dentes largos são ideais, pois reduzem a quebra e evitam o embaraço excessivo. Pentes de madeira ajudam a diminuir o frizz, enquanto o pente garfo é excelente para dar volume na raiz. Escovas com cerdas flexíveis também são boas opções para desembaraçar sem danificar os fios. Penteados como turbantes, afro puff, tranças e bantu knots ajudam na proteção e valorização do cabelo."
+    },
+  {
+    "id": 3,
+    "titulo": "O que é Umectação?",
+    "texto": "A umectação é um tratamento capilar feito com óleos vegetais que nutrem profundamente os fios, sendo ideal para cabelos crespos que naturalmente possuem menos oleosidade. O processo consiste em aplicar o óleo no cabelo seco, deixar agir por algumas horas ou durante a noite, e depois lavar normalmente. Esse tratamento ajuda a combater o ressecamento, reduzir o frizz e devolver brilho e maciez. Óleos como coco, rícino e abacate são excelentes opções para fortalecer e restaurar os fios."
+  },
+  {
+    "id": 4,
+    "titulo": "Acidificação Capilar",
+    "texto": "A acidificação é um tratamento que ajuda a equilibrar o pH dos fios e selar as cutículas, sendo ideal para cabelos porosos e danificados. Ela pode ser feita com produtos acidificantes específicos ou até mesmo com vinagre de maçã diluído em água. Quando as cutículas estão seladas, o cabelo perde menos água e nutrientes, ficando mais alinhado e com menos frizz. Esse processo também potencializa os resultados das máscaras de tratamento aplicadas depois."
+  },
+  {
+    "id": 5,
+    "titulo": "Cabelo Poroso",
+    "texto": "O cabelo poroso possui cutículas abertas, o que facilita a perda de água e nutrientes, deixando os fios ásperos, opacos e com frizz. Para tratar a porosidade, é importante usar produtos com pH ácido, como acidificantes e séruns selantes. Máscaras com proteínas, queratina e lipídios ajudam a preencher as falhas na fibra capilar. Óleos nutritivos também auxiliam na reposição lipídica e na recuperação dos fios."
+  },
+  {
+    "id": 6,
+    "titulo": "Cronograma Capilar",
+    "texto": "O cronograma capilar é uma rotina de cuidados dividida entre hidratação, nutrição e reconstrução para repor água, óleos e proteínas aos fios. A hidratação devolve água e maciez, a nutrição repõe lipídios e controla o frizz, e a reconstrução fortalece a estrutura do cabelo com proteínas. A escolha da etapa deve considerar as necessidades atuais do cabelo e até mesmo a previsão do tempo. Em semanas mais úmidas, por exemplo, pode ser interessante focar em nutrição para reduzir o frizz."
+  },
+  {
+    "id": 7,
+    "titulo": "Umidade e Frizz",
+    "texto": "A umidade pode causar frizz em cabelos crespos porque a estrutura do fio é mais porosa e absorve facilmente a água do ambiente. Quando isso acontece, as cutículas se expandem e o cabelo perde definição. Para evitar esse efeito, é essencial manter o cabelo bem hidratado e nutrido. Técnicas de finalização como fitagem, além do uso de cremes antifrizz e penteados protetores como tranças e coques, ajudam a manter os fios controlados."
+  },
+  {
+    "id": 8,
+    "titulo": "Proteção contra Radiação UV",
+    "texto": "Apesar do cabelo crespo criar uma camada que ajuda na proteção térmica natural, a radiação ultravioleta pode danificar os fios ao longo do tempo. A exposição solar excessiva pode causar ressecamento, perda de cor e enfraquecimento da fibra capilar. Por isso, é fundamental usar cremes com proteção UV ou adotar métodos físicos como chapéus e turbantes. Evitar produtos sem proteção solar também ajuda a manter os fios mais saudáveis."
+  },
+  {
+    "id": 9,
+    "titulo": "Pré-Poo e Lavagem Correta",
+    "texto": "O pré-poo é uma técnica feita antes da lavagem, aplicando creme ou óleos nos fios para protegê-los da ação agressiva do shampoo. Essa prática reduz o ressecamento e ajuda a manter a hidratação natural do cabelo crespo. Durante a lavagem, prefira água morna para evitar que as cutículas se abram excessivamente. Após o shampoo, utilize a máscara adequada à etapa do cronograma e finalize com condicionador para selar os fios."
+  },
+  {
+    "id": 9,
+    "titulo": "Fator Encolhimento",
+    "texto": "O fator encolhimento é a diferença entre o comprimento real e o comprimento aparente do cabelo crespo, causada pela curvatura do fio ao secar. Para reduzir esse efeito, é possível usar técnicas como banding, tranças ou secador com difusor e proteção térmica. O pente garfo também ajuda a soltar a raiz e aumentar o volume. Além disso, dormir com fronha de cetim reduz o atrito e ajuda a preservar o comprimento."
+  }
+]

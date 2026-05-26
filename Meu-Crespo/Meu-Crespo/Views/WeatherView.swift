@@ -35,7 +35,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         self.view.subviews.forEach { $0.removeFromSuperview() }
         
         let label = UILabel()
-        label.text = "Buscando o clima..."
+        label.text = L("weather.loading")
         label.textAlignment = .center
         label.frame = view.bounds
         view.addSubview(label)

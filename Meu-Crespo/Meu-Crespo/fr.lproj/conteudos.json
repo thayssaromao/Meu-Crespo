@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "titulo": "Techniques de Finition",
+    "texto": "La finition est essentielle pour garantir la définition et la durabilité des cheveux crépus. La technique du fitagem consiste à séparer les cheveux en petites mèches et à appliquer le produit de la racine aux pointes, formant des boucles plus définies. L'utilisation de gel capillaire aide à créer un film protecteur léger qui maintient la définition sans alourdir. Garder les cheveux bien humides pendant l'application des produits améliore la distribution et le résultat final."
+  },
+  {
+    "id": 2,
+    "titulo": "Peignes et Accessoires Idéaux",
+    "texto": "Pour les cheveux crépus, les peignes à larges dents sont idéaux car ils réduisent la casse et évitent l'emmêlement excessif. Les peignes en bois aident à diminuer le frisottis, tandis que le peigne afro est excellent pour donner du volume à la racine. Les brosses à poils flexibles sont également de bonnes options pour démêler sans abîmer les mèches. Les coiffures comme les turbans, afro puffs, tresses et bantu knots aident à protéger et valoriser les cheveux."
+  },
+  {
+    "id": 3,
+    "titulo": "Qu'est-ce que l'Humectation?",
+    "texto": "L'humectation est un traitement capillaire réalisé avec des huiles végétales qui nourrissent profondément les mèches, idéal pour les cheveux crépus qui ont naturellement moins de sébum. Le processus consiste à appliquer l'huile sur les cheveux secs, laisser agir quelques heures ou toute la nuit, puis laver normalement. Ce traitement aide à lutter contre le dessèchement, réduire le frisottis et redonner brillance et douceur. Des huiles comme le coco, le ricin et l'avocat sont d'excellentes options pour renforcer et restaurer les mèches."
+  },
+  {
+    "id": 4,
+    "titulo": "Acidification Capillaire",
+    "texto": "L'acidification est un traitement qui aide à équilibrer le pH des mèches et à sceller les cuticules, idéal pour les cheveux poreux et abîmés. Elle peut être réalisée avec des produits acidifiants spécifiques ou même avec du vinaigre de cidre dilué dans de l'eau. Lorsque les cuticules sont scellées, les cheveux perdent moins d'eau et de nutriments, devenant plus lisses et avec moins de frisottis. Ce processus potentialise également les résultats des masques de traitement appliqués ensuite."
+  },
+  {
+    "id": 5,
+    "titulo": "Cheveux Poreux",
+    "texto": "Les cheveux poreux ont des cuticules ouvertes, ce qui facilite la perte d'eau et de nutriments, laissant les mèches rugueuses, ternes et avec du frisottis. Pour traiter la porosité, il est important d'utiliser des produits à pH acide, comme les acidifiants et les sérums scellants. Les masques avec des protéines, de la kératine et des lipides aident à combler les manques dans la fibre capillaire. Les huiles nourrissantes aident également dans la réapprovisionnement lipidique et la récupération des mèches."
+  },
+  {
+    "id": 6,
+    "titulo": "Programme Capillaire",
+    "texto": "Le programme capillaire est une routine de soins divisée entre hydratation, nutrition et reconstruction pour redonner eau, huiles et protéines aux mèches. L'hydratation restitue l'eau et la douceur, la nutrition réapprovisionne les lipides et contrôle le frisottis, et la reconstruction renforce la structure des cheveux avec des protéines. Le choix de l'étape doit considérer les besoins actuels des cheveux et même les prévisions météo. Lors de semaines plus humides, il peut être intéressant de se concentrer sur la nutrition pour réduire le frisottis."
+  },
+  {
+    "id": 7,
+    "titulo": "Humidité et Frisottis",
+    "texto": "L'humidité peut causer du frisottis dans les cheveux crépus car la structure du cheveu est plus poreuse et absorbe facilement l'eau de l'environnement. Quand cela se produit, les cuticules se dilatent et les cheveux perdent leur définition. Pour éviter cet effet, il est essentiel de garder les cheveux bien hydratés et nourris. Les techniques de finition comme le fitagem, ainsi que l'utilisation de crèmes anti-frisottis et de coiffures protectrices comme les tresses et les chignons, aident à maintenir les mèches sous contrôle."
+  },
+  {
+    "id": 8,
+    "titulo": "Protection contre les Rayons UV",
+    "texto": "Bien que les cheveux crépus créent une couche qui aide à la protection thermique naturelle, les rayons ultraviolets peuvent abîmer les mèches au fil du temps. L'exposition solaire excessive peut causer le dessèchement, la perte de couleur et l'affaiblissement de la fibre capillaire. Il est donc essentiel d'utiliser des crèmes avec protection UV ou d'adopter des méthodes physiques comme les chapeaux et les turbans. Éviter les produits sans protection solaire aide également à maintenir les mèches plus saines."
+  },
+  {
+    "id": 9,
+    "titulo": "Pré-Poo et Lavage Correct",
+    "texto": "Le pré-poo est une technique réalisée avant le lavage, en appliquant de la crème ou des huiles sur les mèches pour les protéger de l'action agressive du shampoing. Cette pratique réduit le dessèchement et aide à maintenir l'hydratation naturelle des cheveux crépus. Pendant le lavage, préférez de l'eau tiède pour éviter que les cuticules ne s'ouvrent excessivement. Après le shampoing, utilisez le masque adapté à l'étape du programme et finissez avec un après-shampoing pour sceller les mèches."
+  },
+  {
+    "id": 10,
+    "titulo": "Facteur de Rétrécissement",
+    "texto": "Le facteur de rétrécissement est la différence entre la longueur réelle et la longueur apparente des cheveux crépus, causée par la courbure du cheveu lors du séchage. Pour réduire cet effet, il est possible d'utiliser des techniques comme le banding, les tresses ou le sèche-cheveux avec diffuseur et protection thermique. Le peigne afro aide également à décoller la racine et augmenter le volume. De plus, dormir avec une taie d'oreiller en satin réduit les frottements et aide à préserver la longueur."
+  }
+]

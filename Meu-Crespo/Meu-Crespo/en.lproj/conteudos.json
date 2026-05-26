@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "titulo": "Finishing Techniques",
+    "texto": "Finishing is essential for definition and longevity in curly hair. The finger coiling technique involves separating hair into thin sections and applying product from root to tip, forming more defined curls. Using hair gel creates a light protective film that maintains definition without weighing hair down. Keeping hair well moisturized during product application improves distribution and the final result."
+  },
+  {
+    "id": 2,
+    "titulo": "Ideal Combs and Accessories",
+    "texto": "For curly hair, wide-tooth combs are ideal as they reduce breakage and prevent excessive tangling. Wooden combs help minimize frizz, while the afro pick is excellent for adding volume at the roots. Brushes with flexible bristles are also good options for detangling without damaging the strands. Hairstyles such as turbans, afro puffs, braids, and bantu knots help protect and enhance the hair."
+  },
+  {
+    "id": 3,
+    "titulo": "What is Moisturizing (Umectação)?",
+    "texto": "Moisturizing is a hair treatment done with vegetable oils that deeply nourish the strands, ideal for curly hair which naturally has less oiliness. The process involves applying oil to dry hair, leaving it to act for a few hours or overnight, then washing normally. This treatment helps combat dryness, reduce frizz, and restore shine and softness. Oils such as coconut, castor, and avocado are excellent options for strengthening and restoring the strands."
+  },
+  {
+    "id": 4,
+    "titulo": "Hair Acidification",
+    "texto": "Acidification is a treatment that helps balance the pH of the strands and seal the cuticles, ideal for porous and damaged hair. It can be done with specific acidifying products or even with diluted apple cider vinegar. When cuticles are sealed, the hair loses less water and nutrients, becoming more aligned and with less frizz. This process also enhances the results of treatment masks applied afterward."
+  },
+  {
+    "id": 5,
+    "titulo": "Porous Hair",
+    "texto": "Porous hair has open cuticles, which makes it easier to lose water and nutrients, leaving strands rough, dull, and with frizz. To treat porosity, it is important to use products with an acidic pH, such as acidifiers and sealing serums. Masks with proteins, keratin, and lipids help fill gaps in the hair fiber. Nourishing oils also help with lipid replenishment and fiber recovery."
+  },
+  {
+    "id": 6,
+    "titulo": "Hair Schedule",
+    "texto": "The hair schedule is a care routine divided between hydration, nutrition, and reconstruction to replenish water, oils, and proteins to the strands. Hydration restores water and softness, nutrition replenishes lipids and controls frizz, and reconstruction strengthens the hair structure with proteins. The choice of step should consider the current needs of the hair and even the weather forecast. In wetter weeks, for example, it may be interesting to focus on nutrition to reduce frizz."
+  },
+  {
+    "id": 7,
+    "titulo": "Humidity and Frizz",
+    "texto": "Humidity can cause frizz in curly hair because the strand structure is more porous and easily absorbs water from the environment. When this happens, the cuticles expand and the hair loses definition. To avoid this effect, it is essential to keep hair well hydrated and nourished. Finishing techniques such as finger coiling, along with the use of anti-frizz creams and protective hairstyles like braids and buns, help keep strands under control."
+  },
+  {
+    "id": 8,
+    "titulo": "Protection Against UV Radiation",
+    "texto": "Although curly hair creates a layer that helps with natural thermal protection, ultraviolet radiation can damage strands over time. Excessive sun exposure can cause dryness, color loss, and weakening of the hair fiber. Therefore, it is essential to use creams with UV protection or adopt physical methods such as hats and turbans. Avoiding products without sun protection also helps keep strands healthier."
+  },
+  {
+    "id": 9,
+    "titulo": "Pre-Poo and Correct Washing",
+    "texto": "Pre-poo is a technique done before washing, applying cream or oils to the strands to protect them from the aggressive action of shampoo. This practice reduces dryness and helps maintain the natural moisture of curly hair. During washing, prefer warm water to avoid excessively opening the cuticles. After shampooing, use the mask appropriate to the schedule step and finish with conditioner to seal the strands."
+  },
+  {
+    "id": 10,
+    "titulo": "Shrinkage Factor",
+    "texto": "The shrinkage factor is the difference between the actual length and the apparent length of curly hair, caused by the curvature of the strand when drying. To reduce this effect, techniques such as banding, braids, or a diffuser with heat protection can be used. The afro pick also helps to loosen the roots and increase volume. Additionally, sleeping with a satin pillowcase reduces friction and helps preserve length."
+  }
+]

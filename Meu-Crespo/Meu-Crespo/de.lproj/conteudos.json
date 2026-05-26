@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "titulo": "Finishing-Techniken",
+    "texto": "Das Finishing ist entscheidend für die Definition und Langlebigkeit bei krausem Haar. Die Finger-Coiling-Technik besteht darin, das Haar in dünne Abschnitte zu teilen und das Produkt von der Wurzel bis zu den Spitzen aufzutragen, um besser definierte Locken zu bilden. Die Verwendung von Haargel hilft, einen leichten Schutzfilm zu erzeugen, der die Definition beibehält, ohne das Haar zu beschweren. Das Haar während der Produktanwendung gut feucht zu halten, verbessert die Verteilung und das Endergebnis."
+  },
+  {
+    "id": 2,
+    "titulo": "Ideale Kämme und Accessoires",
+    "texto": "Für krauses Haar sind Kämme mit weiten Zähnen ideal, da sie Bruch reduzieren und übermäßiges Verknoten vermeiden. Holzkämme helfen, Frizz zu minimieren, während der Afro-Pick hervorragend ist, um an der Wurzel Volumen zu geben. Bürsten mit flexiblen Borsten sind ebenfalls gute Optionen zum Entwirren, ohne die Strähnen zu beschädigen. Frisuren wie Turbane, Afro Puffs, Zöpfe und Bantu Knots helfen dabei, das Haar zu schützen und aufzuwerten."
+  },
+  {
+    "id": 3,
+    "titulo": "Was ist Befeuchtung (Umectação)?",
+    "texto": "Die Befeuchtung ist eine Haarbehandlung, die mit pflanzlichen Ölen durchgeführt wird und die Strähnen tief nährt. Sie ist ideal für krauses Haar, das von Natur aus weniger Talg produziert. Der Prozess besteht darin, das Öl auf trockenes Haar aufzutragen, es einige Stunden oder über Nacht einwirken zu lassen und dann normal zu waschen. Diese Behandlung hilft, Trockenheit zu bekämpfen, Frizz zu reduzieren und Glanz und Weichheit zurückzugeben. Öle wie Kokos, Rizinus und Avocado sind ausgezeichnete Optionen zum Stärken und Wiederherstellen der Strähnen."
+  },
+  {
+    "id": 4,
+    "titulo": "Haar-Ansäuerung",
+    "texto": "Die Ansäuerung ist eine Behandlung, die hilft, den pH-Wert der Strähnen auszugleichen und die Schuppen zu versiegeln. Sie ist ideal für poröses und beschädigtes Haar. Sie kann mit spezifischen ansäuernden Produkten oder sogar mit in Wasser verdünntem Apfelessig durchgeführt werden. Wenn die Schuppen versiegelt sind, verlieren die Haare weniger Wasser und Nährstoffe und werden geschmeidiger mit weniger Frizz. Dieser Prozess verstärkt auch die Ergebnisse der danach aufgetragenen Behandlungsmasken."
+  },
+  {
+    "id": 5,
+    "titulo": "Poröses Haar",
+    "texto": "Poröses Haar hat offene Schuppen, was den Verlust von Wasser und Nährstoffen erleichtert und die Strähnen rau, stumpf und mit Frizz hinterlässt. Um die Porosität zu behandeln, ist es wichtig, Produkte mit saurem pH-Wert zu verwenden, wie Ansäuerungsmittel und versiegelnde Seren. Masken mit Proteinen, Keratin und Lipiden helfen, Lücken in der Haarfaser zu füllen. Nährende Öle helfen auch bei der Lipidauffüllung und der Wiederherstellung der Strähnen."
+  },
+  {
+    "id": 6,
+    "titulo": "Haarpflegeplan",
+    "texto": "Der Haarpflegeplan ist eine Pflegeroutine, die zwischen Feuchtigkeitspflege, Nutrition und Rekonstruktion aufgeteilt ist, um Wasser, Öle und Proteine in die Strähnen zurückzubringen. Die Feuchtigkeitspflege stellt Wasser und Weichheit wieder her, die Nutrition füllt Lipide auf und kontrolliert Frizz, und die Rekonstruktion stärkt die Haarstruktur mit Proteinen. Die Wahl des Schritts sollte die aktuellen Bedürfnisse des Haares und sogar die Wettervorhersage berücksichtigen. In feuchteren Wochen kann es zum Beispiel interessant sein, sich auf Nutrition zu konzentrieren, um Frizz zu reduzieren."
+  },
+  {
+    "id": 7,
+    "titulo": "Feuchtigkeit und Frizz",
+    "texto": "Feuchtigkeit kann bei krausem Haar Frizz verursachen, weil die Strähnenstruktur poröser ist und leicht Wasser aus der Umgebung aufnimmt. Wenn dies geschieht, dehnen sich die Schuppen aus und das Haar verliert seine Definition. Um diesen Effekt zu vermeiden, ist es wichtig, das Haar gut hydratisiert und genährt zu halten. Finishing-Techniken wie Finger Coiling sowie die Verwendung von Anti-Frizz-Cremes und Schutzfrisuren wie Zöpfe und Knoten helfen, die Strähnen unter Kontrolle zu halten."
+  },
+  {
+    "id": 8,
+    "titulo": "Schutz vor UV-Strahlung",
+    "texto": "Obwohl krauses Haar eine Schicht erzeugt, die beim natürlichen Wärmeschutz hilft, kann ultraviolette Strahlung die Strähnen im Laufe der Zeit beschädigen. Übermäßige Sonnenexposition kann Austrocknung, Farbverlust und Schwächung der Haarfaser verursachen. Daher ist es unerlässlich, Cremes mit UV-Schutz zu verwenden oder physische Methoden wie Hüte und Turbane anzuwenden. Das Vermeiden von Produkten ohne Sonnenschutz hilft ebenfalls, die Strähnen gesünder zu erhalten."
+  },
+  {
+    "id": 9,
+    "titulo": "Vorwäsche und richtiges Waschen",
+    "texto": "Die Vorwäsche ist eine Technik, die vor dem Waschen durchgeführt wird, indem Creme oder Öle auf die Strähnen aufgetragen werden, um sie vor der aggressiven Wirkung des Shampoos zu schützen. Diese Praxis reduziert die Austrocknung und hilft, die natürliche Feuchtigkeit des krausen Haares zu erhalten. Beim Waschen bevorzugen Sie warmes Wasser, um die Schuppen nicht übermäßig zu öffnen. Nach dem Shampoo verwenden Sie die zum Planschritt passende Maske und schließen mit Conditioner ab, um die Strähnen zu versiegeln."
+  },
+  {
+    "id": 10,
+    "titulo": "Einschrumpffaktor",
+    "texto": "Der Einschrumpffaktor ist der Unterschied zwischen der tatsächlichen Länge und der scheinbaren Länge des krausen Haares, der durch die Krümmung der Strähne beim Trocknen verursacht wird. Um diesen Effekt zu reduzieren, können Techniken wie Banding, Zöpfe oder ein Diffusor mit Hitzeschutz verwendet werden. Der Afro-Pick hilft auch, die Wurzel zu lockern und das Volumen zu erhöhen. Außerdem reduziert das Schlafen mit einem Satinkissenbezug die Reibung und hilft, die Länge zu erhalten."
+  }
+]

@@ -2,15 +2,16 @@ import SwiftUI
 
 struct CardListView: View {
     @EnvironmentObject var weatherManager: WeatherManager
-    
+    @EnvironmentObject var languageManager: LanguageManager
+
     @State private var selectedItem: ConteudoItem? = nil
     @State private var dadosOriginais: [ConteudoItem] = []
     @State private var dadosFiltrados: [ConteudoItem] = []
-    @State private var climaAtualLabel: String = "Carregando clima..."
+    @State private var climaAtualLabel: String = L("weather.loading")
     @State private var climaChave: String = "nublado"
     @State private var temperaturaAtual: String = "--"
     @State private var ventoAtual: String = "--"
-    
+
     var body: some View {
         VStack(spacing: 20) {
             ForEach(dadosFiltrados) { item in
@@ -21,13 +22,15 @@ struct CardListView: View {
         }
         .onAppear {
             carregarJSON()
-            atualizarConteudoConformeClima()
         }
         .onChange(of: weatherManager.condition) {
             atualizarConteudoConformeClima()
         }
-        .onChange(of: weatherManager.temperature) { 
+        .onChange(of: weatherManager.temperature) {
             atualizarConteudoConformeClima()
+        }
+        .onChange(of: languageManager.currentLanguage) {
+            carregarJSON()
         }
         .sheet(item: $selectedItem) { item in
             SheetView(
@@ -41,89 +44,86 @@ struct CardListView: View {
             .environmentObject(weatherManager)
         }
     }
-    
-    // MARK: - Carrega o JSON inicial
+
+    // MARK: - Carrega o JSON localizado
     func carregarJSON() {
-        guard let url = Bundle.main.url(forResource: "dados", withExtension: "json") else {
+        let bundle = LanguageManager.shared.bundle
+        let url: URL?
+        if let localizedUrl = bundle.url(forResource: "dados", withExtension: "json") {
+            url = localizedUrl
+        } else {
+            url = Bundle.main.url(forResource: "dados", withExtension: "json")
+        }
+        guard let resolvedUrl = url else {
             print("⚠️ Arquivo dados.json não encontrado.")
             return
         }
         do {
-            let data = try Data(contentsOf: url)
+            let data = try Data(contentsOf: resolvedUrl)
             let decoded = try JSONDecoder().decode([ConteudoItem].self, from: data)
-            self.dadosOriginais = decoded
+            dadosOriginais = decoded
             atualizarConteudoConformeClima()
         } catch {
             print("❌ Erro ao carregar JSON: \(error)")
         }
     }
-    
+
     // MARK: - Atualiza conteúdo conforme o clima atual
     func atualizarConteudoConformeClima() {
         let clima = weatherManager.condition.lowercased()
         let temperatura = Int(weatherManager.temperature.filter("0123456789".contains)) ?? 0
-        let vento = weatherManager.windStatus.lowercased()
-        let dataSelecionada = weatherManager.selectedDate
+        let ventoKey = weatherManager.windStatusKey
 
         var chave: String = "nublado"
-        var climaLabel: String = "Dia nublado"
+        var climaLabel: String = L("weather.condition.cloudy")
 
         if clima.contains("chuva") || clima.contains("rain") {
             chave = "chuvoso"
-            climaLabel = "Dia chuvoso"
-        }
-        else if clima.contains("sol") || clima.contains("ensolarado") || clima.contains("clear") {
+            climaLabel = L("weather.condition.rainy")
+        } else if clima.contains("sol") || clima.contains("ensolarado") || clima.contains("clear") {
             chave = "ensolarado"
-            climaLabel = "Dia ensolarado"
-        }
-        else if clima.contains("mostly clear") || clima.contains("partly cloudy") || clima.contains("parcialmente") {
+            climaLabel = L("weather.condition.sunny")
+        } else if clima.contains("mostly clear") || clima.contains("partly cloudy") || clima.contains("parcialmente") {
             chave = "nublado"
-            climaLabel = "Dia parcialmente ensolarado"
-        }
-        else if clima.contains("drizzle") || clima.contains("thunderstorm") {
+            climaLabel = L("weather.condition.partlyCloudy")
+        } else if clima.contains("drizzle") || clima.contains("thunderstorm") {
             chave = "chuvoso"
-            climaLabel = "Dia chuvoso"
-        }
-        else if vento.contains("vento") || vento.contains("moderado") || vento.contains("alerta") {
+            climaLabel = L("weather.condition.rainy")
+        } else if ventoKey == "alert" || ventoKey == "moderate" {
             chave = "ventando"
-            climaLabel = "Dia ventando"
-        }
-        else if temperatura < 16 {
+            climaLabel = L("weather.condition.windy")
+        } else if temperatura < 16 {
             chave = "frio"
-            climaLabel = "Dia frio"
-        }
-        else if clima.contains("nublado") || clima.contains("cloud") || clima.contains("nuvens") {
+            climaLabel = L("weather.condition.cold")
+        } else if clima.contains("nublado") || clima.contains("cloud") || clima.contains("nuvens") {
             chave = "nublado"
-            climaLabel = "Dia nublado"
+            climaLabel = L("weather.condition.cloudy")
         }
 
-        // Atualiza labels
         climaAtualLabel = climaLabel
         climaChave = chave
         temperaturaAtual = weatherManager.temperature
         ventoAtual = "\(weatherManager.windStatus) (\(weatherManager.windSpeed))"
 
-        print("🔍 Condição detectada: \(climaLabel) | Clima: \(clima) | Temp: \(temperatura) | Vento: \(vento) | Data: \(dataSelecionada)")
+        print("🔍 Condição detectada: \(climaLabel) | Clima: \(clima) | Temp: \(temperatura) | Vento: \(ventoKey)")
 
-        // Filtra conteúdo com base no clima
-        self.dadosFiltrados = self.dadosOriginais.map { item in
+        dadosFiltrados = dadosOriginais.map { item in
             var novoItem = item
             if let conteudoDoClima = item.climas[chave] {
                 novoItem.climas = [chave: conteudoDoClima]
             } else {
-                novoItem.climas = [chave: ["Sem informações específicas para este clima."]]
+                novoItem.climas = [chave: [L("weather.noInfo")]]
             }
             return novoItem
         }
     }
-
 }
 
 // MARK: - Card que aparece na Home
 struct CardHome: View {
     var item: ConteudoItem
     var onTap: () -> Void
-    
+
     var imageName: String {
         switch item.tipo {
         case "penteados": return "garfo"
@@ -132,7 +132,7 @@ struct CardHome: View {
         default: return "garfo"
         }
     }
-    
+
     var body: some View {
         Button { onTap() } label: {
             ZStack {
@@ -142,13 +142,13 @@ struct CardHome: View {
                     .background(.white)
                     .cornerRadius(10)
                     .shadow(color: .black.opacity(0.25), radius: 1.8, x: 0, y: 3.6)
-                
+
                 HStack(spacing: 20) {
                     Image(imageName)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 80, height: 80)
-                    Text(item.tipo.capitalized)
+                    Text(L("card.tipo.\(item.tipo)"))
                         .font(.system(size: 20)).bold()
                         .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
                         .frame(width: 150)
@@ -158,4 +158,3 @@ struct CardHome: View {
         }
     }
 }
-
