@@ -10,7 +10,7 @@ struct Meu_CrespoApp: App {
         let info = Bundle.main.infoDictionary
         let token = info?["POSTHOG_PROJECT_TOKEN"] as? String ?? ""
         let host = info?["POSTHOG_HOST"] as? String ?? "https://us.i.posthog.com"
-        let config = PostHogConfig(apiKey: token, host: host)
+        let config = PostHogConfig(projectToken: token, host: host)
         config.captureApplicationLifecycleEvents = true
         config.sessionReplay = true
         config.sessionReplayConfig.maskAllTextInputs = true

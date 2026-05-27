@@ -2,12 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleDevelopmentRegion</key>
-	<string>pt-BR</string>
-	<key>POSTHOG_PROJECT_TOKEN</key>
-	<string>$(POSTHOG_PROJECT_TOKEN)</string>
-	<key>POSTHOG_HOST</key>
-	<string>$(POSTHOG_HOST)</string>
 	<key>CFBundleLocalizations</key>
 	<array>
 		<string>pt-BR</string>
@@ -15,5 +9,9 @@
 		<string>fr</string>
 		<string>de</string>
 	</array>
+	<key>POSTHOG_HOST</key>
+	<string>$(POSTHOG_HOST)</string>
+	<key>POSTHOG_PROJECT_TOKEN</key>
+	<string>$(POSTHOG_PROJECT_TOKEN)</string>
 </dict>
 </plist>

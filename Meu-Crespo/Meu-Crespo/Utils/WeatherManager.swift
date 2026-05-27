@@ -26,7 +26,6 @@ final class WeatherManager: NSObject, ObservableObject, CLLocationManagerDelegat
     @Published var condition: String = L("weather.fetchingLocation")
 
     @Published var cityName: String = L("weather.fetchingCity")
-    private let geocoder = CLGeocoder()
 
     @Published var dailyForecasts: [DayWeather] = []
     @Published var selectedDate: Date = Date()
@@ -94,14 +93,11 @@ final class WeatherManager: NSObject, ObservableObject, CLLocationManagerDelegat
     }
 
     private func fetchCityName(for location: CLLocation) {
-        geocoder.reverseGeocodeLocation(location) { [weak self] (placemarks, error) in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                if let city = placemarks?.first?.locality {
-                    self.cityName = city
-                } else {
-                    self.cityName = L("weather.unknownLocation")
-                }
+        Task {
+            let request = MKReverseGeocodingRequest(location: location)
+            let city = (try? await request?.mapItems)?.first?.addressRepresentations?.cityName
+            await MainActor.run {
+                cityName = city ?? L("weather.unknownLocation")
             }
         }
     }

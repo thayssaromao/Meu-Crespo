@@ -22,13 +22,9 @@ struct TimelineView: View {
                                 .font(.system(size: 30, weight: .bold))
                                 .foregroundColor(colorScheme == .light ? .pinky : .white)
 
-                            (
-                                Text(L("timeline.editPrefix") + " ")
-                                + Text(Image(systemName: "pencil.circle.fill"))
-                                + Text(" " + L("timeline.editSuffix"))
-                            )
-                            .font(Font.custom("SF Pro", size: 18))
-                            .foregroundColor(colorScheme == .light ? .redBrown : .white)
+                            Text("\(L("timeline.editPrefix")) \(Image(systemName: "pencil.circle.fill")) \(L("timeline.editSuffix"))")
+                                .font(Font.custom("SF Pro", size: 18))
+                                .foregroundColor(colorScheme == .light ? .redBrown : .white)
 
                             HStack {
                                 Text(showFullCalendar ? L("timeline.fullCalendar") : L("timeline.weekCalendar"))
