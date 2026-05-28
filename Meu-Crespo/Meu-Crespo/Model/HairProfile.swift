@@ -31,3 +31,12 @@ enum WashFrequency: Int, CaseIterable, Codable {
 
     var label: String { "\(rawValue)x" }
 }
+
+enum ChemicalTreatment: String, Codable, CaseIterable, Equatable {
+    case full = "full"
+    case none = "none"
+    case partial = "partial"
+
+    var localizedLabel: String { L("onboarding.chemical.\(rawValue)") }
+    var hasTreatment: Bool { self != .none }
+}

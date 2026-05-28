@@ -93,11 +93,19 @@ final class WeatherManager: NSObject, ObservableObject, CLLocationManagerDelegat
     }
 
     private func fetchCityName(for location: CLLocation) {
-        Task {
-            let request = MKReverseGeocodingRequest(location: location)
-            let city = (try? await request?.mapItems)?.first?.addressRepresentations?.cityName
-            await MainActor.run {
-                cityName = city ?? L("weather.unknownLocation")
+        if #available(iOS 26.0, *) {
+            Task {
+                let request = MKReverseGeocodingRequest(location: location)
+                let city = (try? await request?.mapItems)?.first?.addressRepresentations?.cityName
+                await MainActor.run {
+                    cityName = city ?? L("weather.unknownLocation")
+                }
+            }
+        } else {
+            CLGeocoder().reverseGeocodeLocation(location) { [weak self] placemarks, _ in
+                DispatchQueue.main.async {
+                    self?.cityName = placemarks?.first?.locality ?? L("weather.unknownLocation")
+                }
             }
         }
     }

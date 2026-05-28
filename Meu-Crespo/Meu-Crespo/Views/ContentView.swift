@@ -22,21 +22,19 @@ struct ContentView: View {
             Group {
                 if hasCompletedOnboarding {
                     TabView(selection: $selectedTab) {
+                        HomeView()
+                            .environmentObject(weatherManager)
+                            .tabItem { Label(L("tab.home"), systemImage: "house") }
+                            .tag(Tabs.home)
 
-                        Tab(L("tab.home"), systemImage: "house", value: .home) {
-                            HomeView()
-                                .environmentObject(weatherManager)
-                        }
+                        TimelineView()
+                            .environmentObject(weatherManager)
+                            .tabItem { Label(L("tab.timeline"), systemImage: "calendar") }
+                            .tag(Tabs.timeline)
 
-                        Tab(L("tab.timeline"), systemImage: "calendar", value: .timeline) {
-                            TimelineView()
-                                .environmentObject(weatherManager)
-                        }
-
-                        Tab(L("tab.settings"), systemImage: "gearshape.fill", value: .settings) {
-                            SettingsView()
-                        }
-
+                        SettingsView()
+                            .tabItem { Label(L("tab.settings"), systemImage: "gearshape.fill") }
+                            .tag(Tabs.settings)
                     }
                     .tint(Color(red: 0.95, green: 0.42, blue: 0.37))
                     .id(languageManager.currentLanguage)
