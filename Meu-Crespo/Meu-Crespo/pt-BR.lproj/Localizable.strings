@@ -34,17 +34,23 @@
 "onboarding.skip" = "Pular";
 "onboarding.name.question" = "Como podemos te chamar?";
 "onboarding.name.placeholder" = "Meu nome é...";
-"onboarding.porosity.question" = "Qual a porosidade do seu cabelo?";
+"onboarding.porosity.question" = "Qual o Nível De **Porosidade** Do Seu Cabelo?";
 "onboarding.porosity.pickerLabel" = "Porosidade";
-"onboarding.washFrequency.question" = "Quantas vezes você lava o cabelo por semana?";
+"onboarding.porosity.low" = "Baixa porosidade";
+"onboarding.porosity.medium" = "Média porosidade";
+"onboarding.porosity.high" = "Alta porosidade";
+"onboarding.washFrequency.question" = "Quantas Vezes Você **Lava** o Cabelo Na **Semana**?";
 "onboarding.washFrequency.pickerLabel" = "Frequência";
-"onboarding.chemical.question" = "Seu cabelo possui **química**?";
+"onboarding.chemical.question" = "Seu Cabelo Possui **Química**?";
 "onboarding.chemical.pickerLabel" = "Química";
 "onboarding.chemical.full" = "Sim, tenho química no cabelo todo";
 "onboarding.chemical.none" = "Não, meu cabelo não tem química";
 "onboarding.chemical.partial" = "Sim, tenho um pouco de química";
-"onboarding.dryness.question" = "Seu cabelo é ressecado?";
+"onboarding.dryness.question" = "Qual o Nível De **Ressecamento** Do Seu Cabelo?";
 "onboarding.dryness.pickerLabel" = "Ressecamento";
+"onboarding.dryness.low" = "Baixo Ressecamento";
+"onboarding.dryness.medium" = "Médio Ressecamento";
+"onboarding.dryness.high" = "Alto Ressecamento";
 
 /* Settings */
 "settings.title" = "Configurações";

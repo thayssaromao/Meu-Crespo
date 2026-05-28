@@ -30,7 +30,7 @@ struct OnboardingView: View {
 
     var body: some View {
         ZStack {
-            if step < 3 {
+            if step < 5 {
                 OnboardingBackground()
             } else {
                 Image("bgRecomendacao")
@@ -243,36 +243,76 @@ struct DrynessStep: View {
     @Binding var dryness: HairDryness
     var next: () -> Void
 
-    var body: some View {
-        VStack(spacing: 60) {
-            Text(L("onboarding.dryness.question"))
-                .font(.system(size: 26, weight: .semibold))
-                .multilineTextAlignment(.center)
-                .foregroundColor(.redBrown)
+    @State private var selected: HairDryness? = nil
 
-            Picker(L("onboarding.dryness.pickerLabel"), selection: $dryness) {
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            OnboardingProgressDots(currentStep: 5)
+                .padding(.horizontal, 24)
+                .padding(.top, 16)
+
+            titleView
+                .padding(.horizontal, 28)
+                .padding(.top, 40)
+
+            VStack(spacing: 16) {
                 ForEach(HairDryness.allCases, id: \.self) { option in
-                    Text(option.localizedLabel).tag(option)
+                    Button {
+                        selected = option
+                        dryness = option
+                    } label: {
+                        Text(option.onboardingLabel)
+                            .font(.system(size: 17, weight: .medium))
+                            .foregroundColor(obActiveColor)
+                            .multilineTextAlignment(.center)
+                            .frame(maxWidth: .infinity)
+                            .padding(.horizontal, 20)
+                            .padding(.vertical, 18)
+                            .background(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .fill(selected == option ? .white.opacity(0.65) : .white.opacity(0.4))
+                            )
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .strokeBorder(obActiveColor.opacity(selected == option ? 0.35 : 0), lineWidth: 1.5)
+                            )
+                            .animation(.spring(response: 0.25, dampingFraction: 0.7), value: selected)
+                    }
                 }
             }
-            .pickerStyle(.segmented)
-            .padding(.horizontal)
+            .padding(.horizontal, 24)
+            .padding(.top, 36)
 
-            Button(action: { next() }) {
+            Spacer()
+
+            Button(action: next) {
                 Text(L("common.continue"))
-                    .font(.system(size: 20, weight: .semibold))
-                    .fontWeight(.bold)
-                    .foregroundColor(.pink)
+                    .font(.system(size: 20, weight: .medium))
+                    .foregroundColor(obActiveColor)
                     .frame(maxWidth: .infinity)
-                    .padding(.vertical, 20)
-                    .background {
-                        RoundedRectangle(cornerRadius: 20)
-                            .fill(.ultraThinMaterial)
-                    }
+                    .frame(height: 52)
+                    .background(.white.opacity(0.4), in: Capsule())
             }
-            .padding(.horizontal, 40)
+            .padding(.horizontal, 48)
+            .padding(.bottom, 40)
+            .opacity(selected == nil ? 0 : 1)
+            .scaleEffect(selected == nil ? 0.92 : 1, anchor: .bottom)
+            .animation(.spring(response: 0.35, dampingFraction: 0.8), value: selected == nil)
+            .disabled(selected == nil)
+            .allowsHitTesting(selected != nil)
         }
-        .padding()
+    }
+
+    @ViewBuilder private var titleView: some View {
+        if let attributed = try? AttributedString(markdown: L("onboarding.dryness.question")) {
+            Text(attributed)
+                .font(.system(size: 32, weight: .regular))
+                .foregroundColor(obActiveColor)
+        } else {
+            Text(L("onboarding.dryness.question"))
+                .font(.system(size: 32, weight: .regular))
+                .foregroundColor(obActiveColor)
+        }
     }
 }
 
@@ -357,35 +397,76 @@ struct PorosityStep: View {
     @Binding var porosity: HairPorosity
     var next: () -> Void
 
-    var body: some View {
-        VStack(spacing: 30) {
-            Text(L("onboarding.porosity.question"))
-                .font(.system(size: 26, weight: .semibold))
-                .multilineTextAlignment(.center)
-                .foregroundColor(.redBrown)
+    @State private var selected: HairPorosity? = nil
 
-            Picker(L("onboarding.porosity.pickerLabel"), selection: $porosity) {
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            OnboardingProgressDots(currentStep: 3)
+                .padding(.horizontal, 24)
+                .padding(.top, 16)
+
+            titleView
+                .padding(.horizontal, 28)
+                .padding(.top, 40)
+
+            VStack(spacing: 16) {
                 ForEach(HairPorosity.allCases, id: \.self) { option in
-                    Text(option.localizedLabel).tag(option)
+                    Button {
+                        selected = option
+                        porosity = option
+                    } label: {
+                        Text(option.onboardingLabel)
+                            .font(.system(size: 17, weight: .medium))
+                            .foregroundColor(obActiveColor)
+                            .multilineTextAlignment(.center)
+                            .frame(maxWidth: .infinity)
+                            .padding(.horizontal, 20)
+                            .padding(.vertical, 18)
+                            .background(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .fill(selected == option ? .white.opacity(0.65) : .white.opacity(0.4))
+                            )
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .strokeBorder(obActiveColor.opacity(selected == option ? 0.35 : 0), lineWidth: 1.5)
+                            )
+                            .animation(.spring(response: 0.25, dampingFraction: 0.7), value: selected)
+                    }
                 }
             }
-            .pickerStyle(.wheel)
+            .padding(.horizontal, 24)
+            .padding(.top, 36)
 
-            Button(action: { next() }) {
+            Spacer()
+
+            Button(action: next) {
                 Text(L("common.continue"))
-                    .font(.system(size: 20, weight: .semibold))
-                    .fontWeight(.bold)
-                    .foregroundColor(.pink)
+                    .font(.system(size: 20, weight: .medium))
+                    .foregroundColor(obActiveColor)
                     .frame(maxWidth: .infinity)
-                    .padding(.vertical, 20)
-                    .background {
-                        RoundedRectangle(cornerRadius: 20)
-                            .fill(.ultraThinMaterial)
-                    }
+                    .frame(height: 52)
+                    .background(.white.opacity(0.4), in: Capsule())
             }
-            .padding(.horizontal, 40)
+            .padding(.horizontal, 48)
+            .padding(.bottom, 40)
+            .opacity(selected == nil ? 0 : 1)
+            .scaleEffect(selected == nil ? 0.92 : 1, anchor: .bottom)
+            .animation(.spring(response: 0.35, dampingFraction: 0.8), value: selected == nil)
+            .disabled(selected == nil)
+            .allowsHitTesting(selected != nil)
         }
-        .padding()
+    }
+
+    @ViewBuilder private var titleView: some View {
+        if let attributed = try? AttributedString(markdown: L("onboarding.porosity.question")) {
+            Text(attributed)
+                .font(.system(size: 32, weight: .regular))
+                .foregroundColor(obActiveColor)
+        } else {
+            Text(L("onboarding.porosity.question"))
+                .font(.system(size: 32, weight: .regular))
+                .foregroundColor(obActiveColor)
+        }
     }
 }
 
@@ -394,34 +475,86 @@ struct WashFrequencyStep: View {
     var next: () -> Void
 
     var body: some View {
-        VStack(spacing: 30) {
-            Text(L("onboarding.washFrequency.question"))
-                .font(.system(size: 26, weight: .semibold))
-                .multilineTextAlignment(.center)
-                .foregroundColor(.redBrown)
+        VStack(alignment: .leading, spacing: 0) {
+            OnboardingProgressDots(currentStep: 4)
+                .padding(.horizontal, 24)
+                .padding(.top, 16)
 
-            Picker(L("onboarding.washFrequency.pickerLabel"), selection: $washFrequency) {
-                ForEach(WashFrequency.allCases, id: \.self) { option in
-                    Text(option.label).tag(option)
-                }
-            }
-            .pickerStyle(.wheel)
+            titleView
+                .padding(.horizontal, 28)
+                .padding(.top, 40)
 
-            Button(action: { next() }) {
+            Spacer()
+
+            WashFrequencyDrumPicker(selection: $washFrequency)
+                .frame(maxWidth: .infinity)
+
+            Spacer()
+
+            Button(action: next) {
                 Text(L("common.continue"))
-                    .font(.system(size: 20, weight: .semibold))
-                    .fontWeight(.bold)
-                    .foregroundColor(.pink)
+                    .font(.system(size: 20, weight: .medium))
+                    .foregroundColor(obActiveColor)
                     .frame(maxWidth: .infinity)
-                    .padding(.vertical, 20)
-                    .background {
-                        RoundedRectangle(cornerRadius: 20)
-                            .fill(.ultraThinMaterial)
-                    }
+                    .frame(height: 52)
+                    .background(.white.opacity(0.4), in: Capsule())
             }
-            .padding(.horizontal, 40)
+            .padding(.horizontal, 48)
+            .padding(.bottom, 40)
         }
-        .padding()
+    }
+
+    @ViewBuilder private var titleView: some View {
+        if let attributed = try? AttributedString(markdown: L("onboarding.washFrequency.question")) {
+            Text(attributed)
+                .font(.system(size: 32, weight: .regular))
+                .foregroundColor(obActiveColor)
+        } else {
+            Text(L("onboarding.washFrequency.question"))
+                .font(.system(size: 32, weight: .regular))
+                .foregroundColor(obActiveColor)
+        }
+    }
+}
+
+private struct WashFrequencyDrumPicker: View {
+    @Binding var selection: WashFrequency
+    private let cases = WashFrequency.allCases
+    private let itemHeight: CGFloat = 110
+
+    @State private var dragOffset: CGFloat = 0
+    private var idx: Int { cases.firstIndex(of: selection) ?? 0 }
+
+    var body: some View {
+        ZStack {
+            ForEach(Array(cases.enumerated()), id: \.offset) { i, freq in
+                Text(String(freq.rawValue))
+                    .font(.system(size: 56, weight: .semibold))
+                    .foregroundColor(obActiveColor.opacity(i == idx ? 1.0 : 0.35))
+                    .scaleEffect(i == idx ? 1.0 : 0.78)
+                    .frame(height: itemHeight)
+                    .offset(y: CGFloat(i - idx) * itemHeight + dragOffset)
+            }
+        }
+        .frame(height: itemHeight * 3)
+        .clipped()
+        .contentShape(Rectangle())
+        .gesture(
+            DragGesture(minimumDistance: 5)
+                .onChanged { value in
+                    dragOffset = value.translation.height
+                }
+                .onEnded { value in
+                    withAnimation(.spring(response: 0.35, dampingFraction: 0.72)) {
+                        if value.translation.height < -20, idx < cases.count - 1 {
+                            selection = cases[idx + 1]
+                        } else if value.translation.height > 20, idx > 0 {
+                            selection = cases[idx - 1]
+                        }
+                        dragOffset = 0
+                    }
+                }
+        )
     }
 }
 

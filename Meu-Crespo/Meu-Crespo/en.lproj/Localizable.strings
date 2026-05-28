@@ -34,17 +34,23 @@
 "onboarding.skip" = "Skip";
 "onboarding.name.question" = "What should we call you?";
 "onboarding.name.placeholder" = "My name is...";
-"onboarding.porosity.question" = "What is your hair porosity?";
+"onboarding.porosity.question" = "What is your hair **porosity**?";
 "onboarding.porosity.pickerLabel" = "Porosity";
-"onboarding.washFrequency.question" = "How many times do you wash your hair per week?";
+"onboarding.porosity.low" = "Low porosity";
+"onboarding.porosity.medium" = "Medium porosity";
+"onboarding.porosity.high" = "High porosity";
+"onboarding.washFrequency.question" = "How many times do you **wash** your hair per **week**?";
 "onboarding.washFrequency.pickerLabel" = "Frequency";
 "onboarding.chemical.question" = "Does your hair have **chemical** treatment?";
 "onboarding.chemical.pickerLabel" = "Chemical";
 "onboarding.chemical.full" = "Yes, my whole hair has chemical treatment";
 "onboarding.chemical.none" = "No, my hair has no chemical treatment";
 "onboarding.chemical.partial" = "Yes, I have a little chemical treatment";
-"onboarding.dryness.question" = "Is your hair dry?";
+"onboarding.dryness.question" = "What Is the **Dryness** Level of Your Hair?";
 "onboarding.dryness.pickerLabel" = "Dryness";
+"onboarding.dryness.low" = "Low Dryness";
+"onboarding.dryness.medium" = "Medium Dryness";
+"onboarding.dryness.high" = "High Dryness";
 
 /* Settings */
 "settings.title" = "Settings";

@@ -36,6 +36,9 @@ final class WeatherManager: NSObject, ObservableObject, CLLocationManagerDelegat
     override init() {
         super.init()
         locationManager.delegate = self
+    }
+
+    func start() {
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
     }

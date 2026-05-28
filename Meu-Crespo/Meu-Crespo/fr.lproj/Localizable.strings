@@ -34,17 +34,23 @@
 "onboarding.skip" = "Passer";
 "onboarding.name.question" = "Comment pouvons-nous vous appeler?";
 "onboarding.name.placeholder" = "Mon prénom est...";
-"onboarding.porosity.question" = "Quelle est la porosité de vos cheveux?";
+"onboarding.porosity.question" = "Quel est le niveau de **porosité** de vos cheveux?";
 "onboarding.porosity.pickerLabel" = "Porosité";
-"onboarding.washFrequency.question" = "Combien de fois lavez-vous vos cheveux par semaine?";
+"onboarding.porosity.low" = "Faible porosité";
+"onboarding.porosity.medium" = "Porosité moyenne";
+"onboarding.porosity.high" = "Haute porosité";
+"onboarding.washFrequency.question" = "Combien de fois **lavez**-vous vos cheveux par **semaine**?";
 "onboarding.washFrequency.pickerLabel" = "Fréquence";
 "onboarding.chemical.question" = "Vos cheveux ont-ils subi un **traitement chimique**?";
 "onboarding.chemical.pickerLabel" = "Traitement chimique";
 "onboarding.chemical.full" = "Oui, tout mon cheveu a un traitement chimique";
 "onboarding.chemical.none" = "Non, mes cheveux n'ont pas de traitement chimique";
 "onboarding.chemical.partial" = "Oui, j'ai un peu de traitement chimique";
-"onboarding.dryness.question" = "Vos cheveux sont-ils secs?";
+"onboarding.dryness.question" = "Quel est le niveau de **sécheresse** de vos cheveux?";
 "onboarding.dryness.pickerLabel" = "Sécheresse";
+"onboarding.dryness.low" = "Faible sécheresse";
+"onboarding.dryness.medium" = "Sécheresse moyenne";
+"onboarding.dryness.high" = "Sécheresse élevée";
 
 /* Settings */
 "settings.title" = "Paramètres";

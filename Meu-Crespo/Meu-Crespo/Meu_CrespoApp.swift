@@ -29,7 +29,6 @@ struct Meu_CrespoApp: App {
         }
 
         LanguageManager.migrateIfNeeded()
-        NotificationManager.shared.requestPermissionIfNeeded(thenSchedule: true)
     }
 
     var body: some Scene {

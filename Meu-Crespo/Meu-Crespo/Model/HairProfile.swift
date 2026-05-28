@@ -7,20 +7,22 @@ struct HairProfile: Codable {
     var drynessLevel: HairDryness
 }
 
-enum HairPorosity: String, Codable, CaseIterable {
+enum HairPorosity: String, Codable, CaseIterable, Equatable {
     case low = "low"
     case medium = "medium"
     case high = "high"
 
     var localizedLabel: String { L("porosity.\(rawValue)") }
+    var onboardingLabel: String { L("onboarding.porosity.\(rawValue)") }
 }
 
-enum HairDryness: String, Codable, CaseIterable {
+enum HairDryness: String, Codable, CaseIterable, Equatable {
     case low = "low"
     case medium = "medium"
     case high = "high"
 
     var localizedLabel: String { L("dryness.\(rawValue)") }
+    var onboardingLabel: String { L("onboarding.dryness.\(rawValue)") }
 }
 
 enum WashFrequency: Int, CaseIterable, Codable {

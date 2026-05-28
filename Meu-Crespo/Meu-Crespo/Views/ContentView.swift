@@ -53,6 +53,21 @@ struct ContentView: View {
         }
         .preferredColorScheme(preferredScheme)
         .animation(.easeInOut(duration: 0.5), value: showSplash)
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                showSplash = false
+            }
+            if hasCompletedOnboarding {
+                weatherManager.start()
+                NotificationManager.shared.requestPermissionIfNeeded(thenSchedule: true)
+            }
+        }
+        .onChange(of: hasCompletedOnboarding) { _, newValue in
+            if newValue {
+                weatherManager.start()
+                NotificationManager.shared.requestPermissionIfNeeded(thenSchedule: true)
+            }
+        }
         .onChange(of: selectedTab) { _, newTab in
             let tabName: String
             switch newTab {
@@ -80,11 +95,6 @@ struct ContentView: View {
                     treatment: treatment.localizedLabel,
                     humidity: weatherManager.humidity
                 )
-            }
-            if newValue == .loaded || newValue == .failed {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    showSplash = false
-                }
             }
         }
     }

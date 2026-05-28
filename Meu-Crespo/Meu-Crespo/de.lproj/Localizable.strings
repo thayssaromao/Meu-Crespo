@@ -34,17 +34,23 @@
 "onboarding.skip" = "Überspringen";
 "onboarding.name.question" = "Wie sollen wir Sie nennen?";
 "onboarding.name.placeholder" = "Mein Name ist...";
-"onboarding.porosity.question" = "Wie ist die Porosität Ihrer Haare?";
+"onboarding.porosity.question" = "Wie ist die **Porosität** Ihrer Haare?";
 "onboarding.porosity.pickerLabel" = "Porosität";
-"onboarding.washFrequency.question" = "Wie oft waschen Sie Ihre Haare pro Woche?";
+"onboarding.porosity.low" = "Niedrige Porosität";
+"onboarding.porosity.medium" = "Mittlere Porosität";
+"onboarding.porosity.high" = "Hohe Porosität";
+"onboarding.washFrequency.question" = "Wie oft **waschen** Sie Ihre Haare pro **Woche**?";
 "onboarding.washFrequency.pickerLabel" = "Häufigkeit";
 "onboarding.chemical.question" = "Wurden Ihre Haare **chemisch** behandelt?";
 "onboarding.chemical.pickerLabel" = "Chemisch";
 "onboarding.chemical.full" = "Ja, mein ganzes Haar hat eine chemische Behandlung";
 "onboarding.chemical.none" = "Nein, mein Haar hat keine chemische Behandlung";
 "onboarding.chemical.partial" = "Ja, ich habe etwas chemische Behandlung";
-"onboarding.dryness.question" = "Sind Ihre Haare trocken?";
+"onboarding.dryness.question" = "Wie **trocken** ist Ihr Haar?";
 "onboarding.dryness.pickerLabel" = "Trockenheit";
+"onboarding.dryness.low" = "Niedrige Trockenheit";
+"onboarding.dryness.medium" = "Mittlere Trockenheit";
+"onboarding.dryness.high" = "Hohe Trockenheit";
 
 /* Settings */
 "settings.title" = "Einstellungen";
