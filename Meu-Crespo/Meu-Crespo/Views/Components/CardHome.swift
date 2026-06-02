@@ -1,167 +1,199 @@
 import SwiftUI
-import PostHog
 
-struct CardListView: View {
+// MARK: - Seção inline de Sugestões de Penteados
+struct HairSuggestionsSection: View {
     @EnvironmentObject var weatherManager: WeatherManager
     @EnvironmentObject var languageManager: LanguageManager
 
-    @State private var selectedItem: ConteudoItem? = nil
+    @State private var jsonSuggestions: [String] = []
     @State private var dadosOriginais: [ConteudoItem] = []
-    @State private var dadosFiltrados: [ConteudoItem] = []
-    @State private var climaAtualLabel: String = L("weather.loading")
     @State private var climaChave: String = "nublado"
-    @State private var temperaturaAtual: String = "--"
-    @State private var ventoAtual: String = "--"
+    @State private var climaLabel: String = ""
+    @State private var isLoadingAI = false
+    @State private var aiSuggestions: [String]? = nil
+    @State private var isAI = false
+    @State private var aiFailed = false
+
+    @AppStorage("hairPorosity") private var storedPorosity: String = HairPorosity.medium.rawValue
+    @AppStorage("hairDryness") private var storedDryness: String = HairDryness.medium.rawValue
+    @AppStorage("chemicalTreatment") private var storedChemical: String = ChemicalTreatment.none.rawValue
+    @AppStorage("washFrequency") private var storedWashFrequency: Int = WashFrequency.twice.rawValue
+
+    private var displaySuggestions: [String] {
+        aiSuggestions ?? jsonSuggestions
+    }
 
     var body: some View {
         VStack(spacing: 20) {
-            ForEach(dadosFiltrados) { item in
-                CardHome(item: item) {
-                    // PostHog: Track recommendation card tap
-                    PostHogSDK.shared.capture("home_recommendation_opened", properties: [
-                        "card_type": item.tipo,
-                        "weather_condition": climaChave,
-                        "temperature": temperaturaAtual,
-                    ])
-                    selectedItem = item
+            HStack {
+                Spacer()
+                aiStatusBadge
+            }
+
+            if isLoadingAI {
+                VStack(spacing: 12) {
+                    ProgressView()
+                        .tint(.white)
+                        .scaleEffect(1.2)
+                    Text(L("ai.generating"))
+                        .font(.system(size: 14, weight: .medium))
+                        .foregroundColor(.white.opacity(0.85))
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 40)
+            } else {
+                ForEach(displaySuggestions, id: \.self) { suggestion in
+                    HairstyleCard(text: suggestion)
                 }
             }
         }
-        .onAppear {
-            carregarJSON()
-        }
-        .onChange(of: weatherManager.condition) {
-            atualizarConteudoConformeClima()
-        }
-        .onChange(of: weatherManager.temperature) {
-            atualizarConteudoConformeClima()
-        }
-        .onChange(of: languageManager.currentLanguage) {
-            carregarJSON()
-        }
-        .sheet(item: $selectedItem) { item in
-            SheetView(
-                item: item,
-                climaAtual: climaAtualLabel,
-                climaChave: climaChave,
-                temperatura: temperaturaAtual,
-                vento: ventoAtual,
-                dataSelecionada: weatherManager.selectedDate
+        .padding(22)
+        .frame(maxWidth: .infinity)
+        .background(
+            LinearGradient(
+                stops: [
+                    .init(color: Color(red: 242/255, green: 106/255, blue: 95/255), location: 0),
+                    .init(color: Color(red: 242/255, green: 156/255, blue: 108/255), location: 0.25),
+                    .init(color: Color(red: 242/255, green: 180/255, blue: 107/255), location: 0.5),
+                    .init(color: Color(red: 242/255, green: 200/255, blue: 151/255), location: 0.75),
+                    .init(color: Color(red: 242/255, green: 220/255, blue: 194/255), location: 1),
+                ],
+                startPoint: .bottomLeading,
+                endPoint: .topTrailing
             )
-            .environmentObject(weatherManager)
+            .cornerRadius(30)
+        )
+        .onAppear { carregarJSON() }
+        .onChange(of: weatherManager.condition) { atualizarSugestoes() }
+        .onChange(of: weatherManager.temperature) { atualizarSugestoes() }
+        .onChange(of: languageManager.currentLanguage) { carregarJSON() }
+        .task(id: weatherManager.selectedDate) { await carregarAI() }
+    }
+
+    @ViewBuilder
+    private var aiStatusBadge: some View {
+        if isLoadingAI {
+            HStack(spacing: 5) {
+                ProgressView().scaleEffect(0.7).tint(.white)
+                Text(L("ai.badge.loading"))
+                    .font(.system(size: 11, weight: .semibold))
+                    .foregroundColor(.white)
+            }
+            .padding(.horizontal, 10)
+            .padding(.vertical, 5)
+            .background(Color.white.opacity(0.25), in: Capsule())
+        } else if isAI {
+            Text("✦ Apple Intelligence")
+                .font(.system(size: 11, weight: .semibold))
+                .foregroundColor(.white)
+                .padding(.horizontal, 10)
+                .padding(.vertical, 5)
+                .background(Color.black.opacity(0.18), in: Capsule())
+        } else if aiFailed {
+            Text(L("ai.badge.default"))
+                .font(.system(size: 11, weight: .semibold))
+                .foregroundColor(.white.opacity(0.8))
+                .padding(.horizontal, 10)
+                .padding(.vertical, 5)
+                .background(Color.white.opacity(0.15), in: Capsule())
         }
     }
 
-    // MARK: - Carrega o JSON localizado
     func carregarJSON() {
         let bundle = LanguageManager.shared.bundle
-        let url: URL?
-        if let localizedUrl = bundle.url(forResource: "dados", withExtension: "json") {
-            url = localizedUrl
-        } else {
-            url = Bundle.main.url(forResource: "dados", withExtension: "json")
-        }
-        guard let resolvedUrl = url else {
-            print("⚠️ Arquivo dados.json não encontrado.")
-            return
-        }
-        do {
-            let data = try Data(contentsOf: resolvedUrl)
-            let decoded = try JSONDecoder().decode([ConteudoItem].self, from: data)
-            dadosOriginais = decoded
-            atualizarConteudoConformeClima()
-        } catch {
-            print("❌ Erro ao carregar JSON: \(error)")
-        }
+        let url = bundle.url(forResource: "dados", withExtension: "json")
+            ?? Bundle.main.url(forResource: "dados", withExtension: "json")
+        guard let resolvedUrl = url,
+              let data = try? Data(contentsOf: resolvedUrl),
+              let decoded = try? JSONDecoder().decode([ConteudoItem].self, from: data) else { return }
+        dadosOriginais = decoded
+        atualizarSugestoes()
     }
 
-    // MARK: - Atualiza conteúdo conforme o clima atual
-    func atualizarConteudoConformeClima() {
+    func atualizarSugestoes() {
         let clima = weatherManager.condition.lowercased()
         let temperatura = Int(weatherManager.temperature.filter("0123456789".contains)) ?? 0
         let ventoKey = weatherManager.windStatusKey
 
-        var chave: String = "nublado"
-        var climaLabel: String = L("weather.condition.cloudy")
+        var chave = "nublado"
+        var label = L("weather.condition.cloudy")
 
-        if clima.contains("chuva") || clima.contains("rain") {
-            chave = "chuvoso"
-            climaLabel = L("weather.condition.rainy")
+        if clima.contains("chuva") || clima.contains("rain") || clima.contains("drizzle") || clima.contains("thunderstorm") {
+            chave = "chuvoso"; label = L("weather.condition.rainy")
         } else if clima.contains("sol") || clima.contains("ensolarado") || clima.contains("clear") {
-            chave = "ensolarado"
-            climaLabel = L("weather.condition.sunny")
+            chave = "ensolarado"; label = L("weather.condition.sunny")
         } else if clima.contains("mostly clear") || clima.contains("partly cloudy") || clima.contains("parcialmente") {
-            chave = "nublado"
-            climaLabel = L("weather.condition.partlyCloudy")
-        } else if clima.contains("drizzle") || clima.contains("thunderstorm") {
-            chave = "chuvoso"
-            climaLabel = L("weather.condition.rainy")
+            chave = "nublado"; label = L("weather.condition.partlyCloudy")
         } else if ventoKey == "alert" || ventoKey == "moderate" {
-            chave = "ventando"
-            climaLabel = L("weather.condition.windy")
+            chave = "ventando"; label = L("weather.condition.windy")
         } else if temperatura < 16 {
-            chave = "frio"
-            climaLabel = L("weather.condition.cold")
+            chave = "frio"; label = L("weather.condition.cold")
         } else if clima.contains("nublado") || clima.contains("cloud") || clima.contains("nuvens") {
-            chave = "nublado"
-            climaLabel = L("weather.condition.cloudy")
+            chave = "nublado"; label = L("weather.condition.cloudy")
         }
 
-        climaAtualLabel = climaLabel
         climaChave = chave
-        temperaturaAtual = weatherManager.temperature
-        ventoAtual = "\(weatherManager.windStatus) (\(weatherManager.windSpeed))"
+        climaLabel = label
+        jsonSuggestions = dadosOriginais
+            .filter { $0.tipo == "penteados" }
+            .flatMap { $0.climas[chave] ?? [L("weather.noInfo")] }
+    }
 
-        print("🔍 Condição detectada: \(climaLabel) | Clima: \(clima) | Temp: \(temperatura) | Vento: \(ventoKey)")
+    func carregarAI() async {
+        aiSuggestions = nil
+        isAI = false
+        aiFailed = false
 
-        dadosFiltrados = dadosOriginais.map { item in
-            var novoItem = item
-            if let conteudoDoClima = item.climas[chave] {
-                novoItem.climas = [chave: conteudoDoClima]
-            } else {
-                novoItem.climas = [chave: [L("weather.noInfo")]]
-            }
-            return novoItem
+        guard HairstyleAIService.shared.isAvailable else { return }
+        if dadosOriginais.isEmpty { carregarJSON() }
+        isLoadingAI = true
+        defer { isLoadingAI = false }
+        let context = HairContext(
+            porosity: HairPorosity(rawValue: storedPorosity) ?? .medium,
+            dryness: HairDryness(rawValue: storedDryness) ?? .medium,
+            chemical: ChemicalTreatment(rawValue: storedChemical) ?? .none,
+            washFrequency: WashFrequency(rawValue: storedWashFrequency) ?? .twice,
+            weatherCondition: climaLabel.isEmpty ? L("weather.condition.cloudy") : climaLabel,
+            temperature: weatherManager.temperature,
+            humidity: weatherManager.humidity,
+            selectedDate: weatherManager.selectedDate
+        )
+        do {
+            aiSuggestions = try await HairstyleAIService.shared.suggestions(for: context)
+            isAI = true
+        } catch {
+            aiFailed = true
         }
     }
 }
 
-// MARK: - Card que aparece na Home
-struct CardHome: View {
-    var item: ConteudoItem
-    var onTap: () -> Void
+// MARK: - Card individual de penteado (novo design inline)
+struct HairstyleCard: View {
+    var text: String
 
-    var imageName: String {
-        switch item.tipo {
-        case "penteados": return "garfo"
-        case "cronograma": return "cronograma"
-        case "dicas": return "dicas"
-        default: return "garfo"
-        }
+    private var parts: [String] {
+        let components = text.components(separatedBy: ": ")
+        guard components.count > 1 else { return [text, ""] }
+        return [components[0], components.dropFirst().joined(separator: ": ")]
     }
 
     var body: some View {
-        Button { onTap() } label: {
-            ZStack {
-                Rectangle()
-                    .foregroundColor(.clear)
-                    .frame(width: UIDevice.current.userInterfaceIdiom == .phone ? 323 : 450, height: 105)
-                    .background(.white)
-                    .cornerRadius(10)
-                    .shadow(color: .black.opacity(0.25), radius: 1.8, x: 0, y: 3.6)
-
-                HStack(spacing: 20) {
-                    Image(imageName)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 80, height: 80)
-                    Text(L("card.tipo.\(item.tipo)"))
-                        .font(.system(size: 20)).bold()
-                        .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
-                        .frame(width: 150)
-                }
-                .padding(10)
+        VStack(alignment: .leading, spacing: 11) {
+            Text(parts[0])
+                .font(.system(size: 20, weight: .semibold))
+                .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
+            if !parts[1].isEmpty {
+                Text(parts[1])
+                    .font(.system(size: 16))
+                    .foregroundColor(Color(red: 0.32, green: 0.13, blue: 0.02))
+                    .fixedSize(horizontal: false, vertical: true)
             }
         }
+        .padding(.horizontal, 32)
+        .padding(.vertical, 20)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Color.white)
+        .cornerRadius(20)
+        .shadow(color: Color.black.opacity(0.25), radius: 2, x: 0, y: 4)
     }
 }

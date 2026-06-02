@@ -2,7 +2,7 @@ import SwiftUI
 import PostHog
 
 enum Tabs {
-    case home, timeline, learn, settings
+    case home, timeline, learn
 }
 
 struct ContentView: View {
@@ -32,9 +32,6 @@ struct ContentView: View {
                             .tabItem { Label(L("tab.timeline"), systemImage: "calendar") }
                             .tag(Tabs.timeline)
 
-                        SettingsView()
-                            .tabItem { Label(L("tab.settings"), systemImage: "gearshape.fill") }
-                            .tag(Tabs.settings)
                     }
                     .tint(Color(red: 0.95, green: 0.42, blue: 0.37))
                     .id(languageManager.currentLanguage)
@@ -74,7 +71,6 @@ struct ContentView: View {
             case .home: tabName = "home"
             case .timeline: tabName = "timeline"
             case .learn: tabName = "learn"
-            case .settings: tabName = "settings"
             }
             PostHogSDK.shared.capture("tab_viewed", properties: ["tab": tabName])
         }

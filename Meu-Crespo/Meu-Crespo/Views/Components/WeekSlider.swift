@@ -113,7 +113,7 @@ struct WeekSlider: View {
         let calendar = Calendar.current
         let today = Date()
         var tempDays: [WeekDay] = []
-        for i in 0...9 {
+        for i in 0...7 {
             if let date = calendar.date(byAdding: .day, value: i, to: today) {
                 tempDays.append(WeekDay(date: date))
             }

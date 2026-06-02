@@ -10,7 +10,13 @@
 "common.no" = "Non";
 
 /* Home */
+"home.greeting" = "Bonjour, %@!";
+"home.paraHoje" = "Pour Aujourd'hui";
 "home.recommendations" = "Recommandations";
+"home.hairSuggestions" = "Suggestions de Coiffures";
+"ai.generating" = "Génération en cours...";
+"ai.badge.loading" = "IA en cours...";
+"ai.badge.default" = "Suggestions par défaut";
 "home.weatherAttribution" = "Données météo fournies par  Weather";
 "home.legalAttribution" = "Attribution Légale";
 
@@ -90,6 +96,7 @@
 "weather.loading" = "Chargement de la météo...";
 "weather.noInfo" = "Aucune information spécifique pour ce temps.";
 "weather.humidity" = "Humidité";
+"weather.precipitation" = "Prévision de pluie";
 "weather.uvIndex" = "Indice UV";
 "weather.wind" = "Vent";
 "weather.wind.alert" = "Alerte";
