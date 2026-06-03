@@ -115,12 +115,8 @@
 "sheet.noWeatherInfo" = "Sem informações disponíveis para este clima.";
 
 /* Notifications */
-"settings.section.notifications" = "Notificações";
-"settings.notifications.daily" = "Lembrete matinal";
 "notification.title" = "Meu Crespo";
 "notification.body" = "Hora de cuidar do seu cabelo! Veja suas recomendações de hoje.";
-"notification.smart.title" = "Seu dia capilar";
-"notification.smart.body" = "Hoje é dia de %@! Umidade em %@";
 
 /* Appearance */
 "settings.section.appearance" = "Aparência";
@@ -128,6 +124,34 @@
 "settings.appearance.system" = "Sistema";
 "settings.appearance.light" = "Claro";
 "settings.appearance.dark" = "Escuro";
+
+/* Timeline treatment insights — fallback curl-specific (Layer 3) */
+"timeline.insight.hydration.reason" = "Cabelos crespos e cacheados ressecam mais rápido porque o sebo capilar não percorre a espiral do fio. A hidratação repõe a água no córtex e restaura a elasticidade dos cachos.";
+"timeline.insight.hydration.tip1" = "Aplique o hidratante nos fios ainda encharcados e use o método LOC (leave-in → óleo → creme) para selar a umidade dentro do fio e definir os cachos.";
+"timeline.insight.hydration.tip2" = "Finalize com plopping por 20–30 min numa camiseta de algodão ou microfibra para preservar a forma dos cachos sem frizz.";
+
+"timeline.insight.nutrition.reason" = "Os óleos e ácidos graxos da nutrição preenchem as lacunas da cutícula levantada dos fios crespos, selando a umidade absorvida e reduzindo o frizz e a quebra.";
+"timeline.insight.nutrition.tip1" = "Aplique o óleo das pontas ao comprimento, seção por seção, nos fios quase secos, para garantir a penetração real na cutícula.";
+"timeline.insight.nutrition.tip2" = "Para alta porosidade, prefira óleos leves como coco ou baobá, que penetram o fio em vez de ficar só na superfície.";
+
+"timeline.insight.reconstruction.reason" = "A reconstrução repõe as proteínas que sustentam a estrutura do fio crespo, reduzindo a quebra — especialmente necessária para quem tem química ou usa calor com frequência.";
+"timeline.insight.reconstruction.tip1" = "Aplique o reconstrutor do comprimento às pontas em fios recém-lavados, evite o couro cabeludo, e use touca térmica por 20 min para potencializar a absorção.";
+"timeline.insight.reconstruction.tip2" = "Sempre finalize a reconstrução com hidratação: proteína sem umidade deixa o fio rígido e propenso à quebra.";
+
+"timeline.insight.umectation.reason" = "Os humectantes da umectação atraem água do ar diretamente para os fios crespos — mais eficazes em dias com umidade acima de 70%.";
+"timeline.insight.umectation.tip1" = "Aplique a umectação nos fios bem úmidos, seção por seção, e sele imediatamente com óleo ou creme para travar a umidade captada.";
+"timeline.insight.umectation.tip2" = "Em dias com baixa umidade (abaixo de 40%), reduza a proporção de glicerina — humectantes em ar seco podem retirar umidade do próprio fio.";
+
+/* Timeline rest day */
+"timeline.restDay" = "Dia de descanso";
+"timeline.nextWashTomorrow" = "Lavagens nos próximos dias";
+"timeline.nextWashDays" = "Lavagens nos próximos dias";
+
+/* Timeline climate warnings */
+"timeline.climate.highHumidity.nutrition" = "Umidade alta hoje: considere adicionar leave-in após a nutrição.";
+"timeline.climate.highHumidity.hydration" = "Umidade alta: use um anti-frizz após a hidratação.";
+"timeline.climate.highHumidity.umectation" = "Umidade alta: o resultado da umectação pode ser potencializado hoje.";
+"timeline.climate.lowHumidity" = "Ar seco hoje: capriche na hidratação e não esqueça o leave-in!";
 
 /* Card tipo labels */
 "card.tipo.penteados" = "Penteados";

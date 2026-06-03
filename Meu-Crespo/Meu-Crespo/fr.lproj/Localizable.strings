@@ -115,12 +115,8 @@
 "sheet.noWeatherInfo" = "Aucune information disponible pour ce temps.";
 
 /* Notifications */
-"settings.section.notifications" = "Notifications";
-"settings.notifications.daily" = "Rappel matinal";
 "notification.title" = "Meu Crespo";
 "notification.body" = "Il est temps de prendre soin de vos cheveux! Consultez vos recommandations du jour.";
-"notification.smart.title" = "Votre journée capillaire";
-"notification.smart.body" = "Aujourd'hui c'est jour de %@! Humidité à %@";
 
 /* Appearance */
 "settings.section.appearance" = "Apparence";
@@ -128,6 +124,34 @@
 "settings.appearance.system" = "Système";
 "settings.appearance.light" = "Clair";
 "settings.appearance.dark" = "Sombre";
+
+/* Timeline rest day */
+"timeline.restDay" = "Jour de repos";
+"timeline.nextWashTomorrow" = "Prochains jours de lavage";
+"timeline.nextWashDays" = "Prochains jours de lavage";
+
+/* Timeline climate warnings */
+"timeline.climate.highHumidity.nutrition" = "Humidité élevée aujourd'hui : pensez à ajouter un leave-in après le soin nourrissant.";
+"timeline.climate.highHumidity.hydration" = "Humidité élevée : utilisez un anti-frizz après l'hydratation.";
+"timeline.climate.highHumidity.umectation" = "Humidité élevée : les résultats de l'umectation peuvent être renforcés aujourd'hui.";
+"timeline.climate.lowHumidity" = "Air sec aujourd'hui : misez sur l'hydratation et n'oubliez pas le leave-in !";
+
+/* Timeline treatment insights — fallback curl-specific (Layer 3) */
+"timeline.insight.hydration.reason" = "Les cheveux crépus et bouclés se dessèchent plus vite car le sébum ne remonte pas la spirale du cheveu. L'hydratation recharge le cortex en eau et restaure l'élasticité des boucles.";
+"timeline.insight.hydration.tip1" = "Appliquez le soin hydratant sur cheveux très mouillés et utilisez la méthode LOC (leave-in → huile → crème) pour sceller l'humidité dans le cheveu et définir les boucles.";
+"timeline.insight.hydration.tip2" = "Terminez par le plopping pendant 20–30 min avec un t-shirt en coton ou une serviette en microfibre pour préserver la forme des boucles sans frisottis.";
+
+"timeline.insight.nutrition.reason" = "Les huiles et acides gras du soin nutrition comblent les écailles ouvertes des cheveux crépus, scellant l'humidité et réduisant le frisottis et la casse.";
+"timeline.insight.nutrition.tip1" = "Appliquez l'huile des pointes vers le milieu du cheveu, section par section, sur cheveux presque secs, pour une vraie pénétration de la cuticule.";
+"timeline.insight.nutrition.tip2" = "Pour une haute porosité, préférez des huiles légères comme la noix de coco ou le baobab, qui pénètrent le cheveu plutôt que de rester en surface.";
+
+"timeline.insight.reconstruction.reason" = "La reconstruction remplace les protéines qui soutiennent la structure du cheveu crépu, réduisant la casse — indispensable en cas de traitement chimique ou d'utilisation fréquente de chaleur.";
+"timeline.insight.reconstruction.tip1" = "Appliquez le soin protéiné du milieu aux pointes sur cheveux fraîchement lavés, évitez le cuir chevelu, et utilisez un bonnet chauffant 20 min pour maximiser l'absorption.";
+"timeline.insight.reconstruction.tip2" = "Terminez toujours la reconstruction par une étape d'hydratation : protéine sans humidité rend les cheveux rigides et cassants.";
+
+"timeline.insight.umectation.reason" = "Les humectants du soin umectation attirent l'eau de l'air vers les cheveux crépus — plus efficace par temps humide (humidité > 70%).";
+"timeline.insight.umectation.tip1" = "Appliquez le soin umectation sur cheveux très mouillés, section par section, et scellez immédiatement avec une huile ou une crème pour retenir l'humidité capturée.";
+"timeline.insight.umectation.tip2" = "Par faible humidité (moins de 40%), réduisez la proportion de glycérine — les humectants en air sec peuvent extraire l'humidité du cheveu lui-même.";
 
 /* Card tipo labels */
 "card.tipo.penteados" = "Coiffures";

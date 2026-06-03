@@ -115,12 +115,8 @@
 "sheet.noWeatherInfo" = "Keine Informationen für dieses Wetter verfügbar.";
 
 /* Notifications */
-"settings.section.notifications" = "Benachrichtigungen";
-"settings.notifications.daily" = "Morgenerinnerung";
 "notification.title" = "Meu Crespo";
 "notification.body" = "Zeit, sich um Ihr Haar zu kümmern! Schauen Sie sich die heutigen Empfehlungen an.";
-"notification.smart.title" = "Ihr Haarpflegetag";
-"notification.smart.body" = "Heute ist %@-Tag! Luftfeuchtigkeit: %@";
 
 /* Appearance */
 "settings.section.appearance" = "Darstellung";
@@ -128,6 +124,34 @@
 "settings.appearance.system" = "System";
 "settings.appearance.light" = "Hell";
 "settings.appearance.dark" = "Dunkel";
+
+/* Timeline climate warnings */
+"timeline.climate.highHumidity.nutrition" = "Hohe Luftfeuchtigkeit heute: Erwäge nach der Ernährungspflege ein Leave-in aufzutragen.";
+"timeline.climate.highHumidity.hydration" = "Hohe Luftfeuchtigkeit: Verwende nach der Feuchtigkeitspflege ein Anti-Frizz-Produkt.";
+"timeline.climate.highHumidity.umectation" = "Hohe Luftfeuchtigkeit: Die Umectation-Ergebnisse können heute verstärkt werden.";
+"timeline.climate.lowHumidity" = "Trockene Luft heute: Setze auf intensive Feuchtigkeitspflege und vergiss das Leave-in nicht!";
+
+/* Timeline treatment insights — fallback curl-specific (Layer 3) */
+"timeline.insight.hydration.reason" = "Lockiges und krauses Haar trocknet schneller aus, da Talg die Spirale nicht entlangreisen kann. Feuchtigkeitspflege lädt den Cortex mit Wasser auf und stellt die Elastizität der Locken wieder her.";
+"timeline.insight.hydration.tip1" = "Trage das Feuchtigkeitsprodukt auf tropfend nassem Haar auf und verwende die LOC-Methode (Leave-in → Öl → Creme), um Feuchtigkeit im Haar zu versiegeln und Locken zu definieren.";
+"timeline.insight.hydration.tip2" = "Beende mit 20–30 Minuten Plopping in einem Baumwoll-T-Shirt oder Mikrofaser-Handtuch, um die Lockenform zu erhalten und Frizz zu minimieren.";
+
+"timeline.insight.nutrition.reason" = "Die Öle und Fettsäuren der Ernährungspflege füllen offene Schuppen lockigen Haares und versiegeln Feuchtigkeit — reduziert Frizz und Haarbruch.";
+"timeline.insight.nutrition.tip1" = "Trage das Öl von den Spitzen zur Mitte auf, Strähne für Strähne, auf fast trockenem Haar, um echte Kutikula-Penetration zu gewährleisten.";
+"timeline.insight.nutrition.tip2" = "Bei hoher Porosität bevorzuge leichte Öle wie Kokos oder Baobab, die ins Haar eindringen statt nur an der Oberfläche zu bleiben.";
+
+"timeline.insight.reconstruction.reason" = "Die Rekonstruktion ersetzt Proteine, die die Struktur lockigen Haares stützen, und reduziert Haarbruch — besonders wichtig bei chemischer Behandlung oder häufiger Wärmenutzung.";
+"timeline.insight.reconstruction.tip1" = "Trage das Proteinprodukt von der Mitte bis zu den Spitzen auf frisch gewaschenem Haar auf, vermeide die Kopfhaut, und verwende 20 Min. eine Wärmehaube für maximale Absorption.";
+"timeline.insight.reconstruction.tip2" = "Folge der Rekonstruktion immer mit einem Feuchtigkeitsschritt: Protein ohne Feuchtigkeit macht das Haar steif und bruchanfällig.";
+
+"timeline.insight.umectation.reason" = "Humektanzien in der Umektationspflege ziehen Wasser aus der Luft in lockiges Haar — am wirksamsten bei Luftfeuchtigkeit über 70%.";
+"timeline.insight.umectation.tip1" = "Trage die Umektationspflege auf stark nassem Haar auf, Strähne für Strähne, und versiegle sofort mit einem Öl oder einer Creme, um die aufgenommene Feuchtigkeit einzuschließen.";
+"timeline.insight.umectation.tip2" = "Bei niedriger Luftfeuchtigkeit (unter 40%) reduziere den Glyzerinanteil — Humektanzien in trockener Luft können dem Haar selbst Feuchtigkeit entziehen.";
+
+/* Timeline rest day */
+"timeline.restDay" = "Ruhetag";
+"timeline.nextWashTomorrow" = "Bevorstehende Waschtage";
+"timeline.nextWashDays" = "Bevorstehende Waschtage";
 
 /* Card tipo labels */
 "card.tipo.penteados" = "Frisuren";

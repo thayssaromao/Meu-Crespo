@@ -115,12 +115,8 @@
 "sheet.noWeatherInfo" = "No information available for this weather.";
 
 /* Notifications */
-"settings.section.notifications" = "Notifications";
-"settings.notifications.daily" = "Morning reminder";
 "notification.title" = "Meu Crespo";
 "notification.body" = "Time to care for your hair! Check today's recommendations.";
-"notification.smart.title" = "Your hair day";
-"notification.smart.body" = "Today is %@ day! Humidity at %@";
 
 /* Appearance */
 "settings.section.appearance" = "Appearance";
@@ -128,6 +124,34 @@
 "settings.appearance.system" = "System";
 "settings.appearance.light" = "Light";
 "settings.appearance.dark" = "Dark";
+
+/* Timeline treatment insights — fallback curl-specific (Layer 3) */
+"timeline.insight.hydration.reason" = "Curly and coily strands dry out faster because sebum cannot travel along the hair's spiral. Hydration replenishes water in the cortex and restores curl elasticity.";
+"timeline.insight.hydration.tip1" = "Apply your moisturizer on soaking-wet hair and use the LOC method (leave-in → oil → cream) to lock moisture inside the strand and define your curls.";
+"timeline.insight.hydration.tip2" = "Finish with plopping for 20–30 minutes in a cotton T-shirt or microfiber towel to preserve curl shape and minimize frizz.";
+
+"timeline.insight.nutrition.reason" = "The oils and fatty acids in nutrition fill gaps in the raised cuticle of curly/coily strands, sealing in moisture and reducing frizz and breakage.";
+"timeline.insight.nutrition.tip1" = "Apply oil from ends to mid-shaft, section by section, on nearly-dry hair to ensure real cuticle penetration.";
+"timeline.insight.nutrition.tip2" = "For high porosity, choose lightweight oils like coconut or baobab that penetrate the strand rather than sitting on top.";
+
+"timeline.insight.reconstruction.reason" = "Reconstruction replenishes the proteins that support curly strand structure, reducing breakage — especially needed if you have chemical treatments or frequently use heat.";
+"timeline.insight.reconstruction.tip1" = "Apply the protein treatment from mid-length to ends on freshly washed hair, avoid the scalp, and use a heat cap for 20 minutes to maximize absorption.";
+"timeline.insight.reconstruction.tip2" = "Always follow reconstruction with a hydration step: protein without moisture leaves strands stiff and prone to breakage.";
+
+"timeline.insight.umectation.reason" = "Humectants in umectation draw water from the air directly into curly strands — most effective on days with humidity above 70%.";
+"timeline.insight.umectation.tip1" = "Apply umectation on soaking-wet hair, section by section, and immediately seal with an oil or cream to lock in the captured moisture.";
+"timeline.insight.umectation.tip2" = "On low-humidity days (below 40%), reduce glycerin in your products — humectants in dry air can pull moisture from the strand itself.";
+
+/* Timeline rest day */
+"timeline.restDay" = "Rest day";
+"timeline.nextWashTomorrow" = "Upcoming wash days";
+"timeline.nextWashDays" = "Upcoming wash days";
+
+/* Timeline climate warnings */
+"timeline.climate.highHumidity.nutrition" = "High humidity today: consider adding leave-in after nourishing.";
+"timeline.climate.highHumidity.hydration" = "High humidity: use an anti-frizz product after hydrating.";
+"timeline.climate.highHumidity.umectation" = "High humidity: umectation results may be enhanced today.";
+"timeline.climate.lowHumidity" = "Dry air today: go all in on hydration and don't skip leave-in!";
 
 /* Card tipo labels */
 "card.tipo.penteados" = "Hairstyles";

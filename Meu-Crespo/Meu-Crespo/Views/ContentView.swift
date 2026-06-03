@@ -51,7 +51,7 @@ struct ContentView: View {
         .preferredColorScheme(preferredScheme)
         .animation(.easeInOut(duration: 0.5), value: showSplash)
         .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 showSplash = false
             }
             if hasCompletedOnboarding {
@@ -75,23 +75,8 @@ struct ContentView: View {
             PostHogSDK.shared.capture("tab_viewed", properties: ["tab": tabName])
         }
         .onChange(of: languageManager.currentLanguage) { _, _ in
-            NotificationManager.shared.scheduleDailyNotification()
-            if weatherManager.status == .loaded {
-                let treatment = TimelineViewModel().treatmentForDay(Date())
-                NotificationManager.shared.scheduleSmartDailyNotification(
-                    treatment: treatment.localizedLabel,
-                    humidity: weatherManager.humidity
-                )
-            }
-        }
-        .onChange(of: weatherManager.status) { _, newValue in
-            if newValue == .loaded {
-                let treatment = TimelineViewModel().treatmentForDay(Date())
-                NotificationManager.shared.scheduleSmartDailyNotification(
-                    treatment: treatment.localizedLabel,
-                    humidity: weatherManager.humidity
-                )
-            }
+            // Reschedule only if already authorized — checks auth before touching UNUserNotificationCenter
+            NotificationManager.shared.scheduleIfAuthorized()
         }
     }
 }

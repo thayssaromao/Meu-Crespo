@@ -17,7 +17,7 @@ struct HairSuggestionsSection: View {
     @AppStorage("hairPorosity") private var storedPorosity: String = HairPorosity.medium.rawValue
     @AppStorage("hairDryness") private var storedDryness: String = HairDryness.medium.rawValue
     @AppStorage("chemicalTreatment") private var storedChemical: String = ChemicalTreatment.none.rawValue
-    @AppStorage("washFrequency") private var storedWashFrequency: Int = WashFrequency.twice.rawValue
+    @AppStorage("washFrequency") private var storedWashFrequency: Int = WashFrequency.three.rawValue
 
     private var displaySuggestions: [String] {
         aiSuggestions ?? jsonSuggestions
@@ -41,9 +41,11 @@ struct HairSuggestionsSection: View {
                 }
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 40)
+                .transition(.opacity)
             } else {
                 ForEach(displaySuggestions, id: \.self) { suggestion in
                     HairstyleCard(text: suggestion)
+                        .transition(.opacity.combined(with: .move(edge: .bottom)))
                 }
             }
         }
@@ -63,6 +65,8 @@ struct HairSuggestionsSection: View {
             )
             .cornerRadius(30)
         )
+        .animation(.spring(response: 0.55, dampingFraction: 0.8), value: isLoadingAI)
+        .animation(.spring(response: 0.55, dampingFraction: 0.8), value: displaySuggestions.count)
         .onAppear { carregarJSON() }
         .onChange(of: weatherManager.condition) { atualizarSugestoes() }
         .onChange(of: weatherManager.temperature) { atualizarSugestoes() }
@@ -147,7 +151,6 @@ struct HairSuggestionsSection: View {
         guard HairstyleAIService.shared.isAvailable else { return }
         if dadosOriginais.isEmpty { carregarJSON() }
         isLoadingAI = true
-        defer { isLoadingAI = false }
         let context = HairContext(
             porosity: HairPorosity(rawValue: storedPorosity) ?? .medium,
             dryness: HairDryness(rawValue: storedDryness) ?? .medium,
@@ -159,10 +162,17 @@ struct HairSuggestionsSection: View {
             selectedDate: weatherManager.selectedDate
         )
         do {
-            aiSuggestions = try await HairstyleAIService.shared.suggestions(for: context)
-            isAI = true
+            let result = try await HairstyleAIService.shared.suggestions(for: context)
+            withAnimation(.spring(response: 0.55, dampingFraction: 0.8)) {
+                aiSuggestions = result
+                isAI = true
+                isLoadingAI = false
+            }
         } catch {
-            aiFailed = true
+            withAnimation(.spring(response: 0.55, dampingFraction: 0.8)) {
+                aiFailed = true
+                isLoadingAI = false
+            }
         }
     }
 }

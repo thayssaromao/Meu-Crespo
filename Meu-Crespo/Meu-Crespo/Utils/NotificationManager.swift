@@ -4,15 +4,21 @@ final class NotificationManager {
     static let shared = NotificationManager()
     private init() {}
 
+    private let identifiers = ["dailyMorning", "dailyEvening"]
+
     func requestPermissionIfNeeded(thenSchedule schedule: Bool) {
-        UNUserNotificationCenter.current().getNotificationSettings { settings in
+        UNUserNotificationCenter.current().getNotificationSettings { [weak self] settings in
             switch settings.authorizationStatus {
             case .notDetermined:
-                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { granted, _ in
-                    if granted && schedule { self.scheduleDailyNotification() }
+                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] granted, _ in
+                    if granted && schedule {
+                        DispatchQueue.main.async { self?.scheduleDailyNotification() }
+                    }
                 }
             case .authorized, .provisional:
-                if schedule { self.scheduleDailyNotification() }
+                if schedule {
+                    DispatchQueue.main.async { self?.scheduleDailyNotification() }
+                }
             default:
                 break
             }
@@ -20,58 +26,37 @@ final class NotificationManager {
     }
 
     func scheduleDailyNotification() {
-        let center = UNUserNotificationCenter.current()
-        center.removePendingNotificationRequests(withIdentifiers: ["dailyMorning"])
+        // Read localized strings on main thread before entering UNUserNotificationCenter
+        let title = L("notification.title")
+        let body  = L("notification.body")
 
+        let center = UNUserNotificationCenter.current()
+        center.removePendingNotificationRequests(withIdentifiers: identifiers)
+        schedule(identifier: "dailyMorning", hour: 9,  minute: 0, title: title, body: body, to: center)
+        schedule(identifier: "dailyEvening", hour: 17, minute: 0, title: title, body: body, to: center)
+    }
+
+    func scheduleIfAuthorized() {
+        UNUserNotificationCenter.current().getNotificationSettings { [weak self] settings in
+            guard settings.authorizationStatus == .authorized ||
+                  settings.authorizationStatus == .provisional else { return }
+            DispatchQueue.main.async { self?.scheduleDailyNotification() }
+        }
+    }
+
+    private func schedule(identifier: String, hour: Int, minute: Int,
+                          title: String, body: String,
+                          to center: UNUserNotificationCenter) {
         let content = UNMutableNotificationContent()
-        content.title = L("notification.title")
-        content.body  = L("notification.body")
+        content.title = title
+        content.body  = body
         content.sound = .default
 
         var components = DateComponents()
-        components.hour   = 9
-        components.minute = 0
+        components.hour   = hour
+        components.minute = minute
 
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
-        let request = UNNotificationRequest(identifier: "dailyMorning", content: content, trigger: trigger)
-        center.add(request)
-    }
-
-    func cancelDailyNotification() {
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["dailyMorning"])
-    }
-
-    func scheduleSmartDailyNotification(treatment: String, humidity: String) {
-        var comps = Calendar.current.dateComponents([.year, .month, .day], from: Date())
-        comps.hour = 9; comps.minute = 0
-        guard let fireDate = Calendar.current.date(from: comps), fireDate > Date() else { return }
-        _ = fireDate
-
-        let center = UNUserNotificationCenter.current()
-        center.removePendingNotificationRequests(withIdentifiers: ["dailyMorning"])
-
-        let content = UNMutableNotificationContent()
-        content.title = L("notification.smart.title")
-        content.body  = String(format: L("notification.smart.body"), treatment, humidity)
-        content.sound = .default
-
-        var triggerComps = DateComponents()
-        triggerComps.hour = 9; triggerComps.minute = 0
-        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerComps, repeats: true)
-        center.add(UNNotificationRequest(identifier: "dailyMorning", content: content, trigger: trigger))
-    }
-    
-    func TESTscheduleSmartDailyNotification(treatment: String, humidity: String) {
-        // TEST MODE: fires 5 seconds after data loads (remove this block and restore calendar trigger for production)
-        let center = UNUserNotificationCenter.current()
-        center.removePendingNotificationRequests(withIdentifiers: ["dailyMorning"])
-
-        let content = UNMutableNotificationContent()
-        content.title = L("notification.smart.title")
-        content.body  = String(format: L("notification.smart.body"), treatment, humidity)
-        content.sound = .default
-
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-        center.add(UNNotificationRequest(identifier: "dailyMorning", content: content, trigger: trigger))
+        center.add(UNNotificationRequest(identifier: identifier, content: content, trigger: trigger))
     }
 }
