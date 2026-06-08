@@ -1,7 +1,6 @@
 /* Tabs */
 "tab.home" = "Início";
 "tab.timeline" = "Cronograma";
-"tab.learn" = "Conteúdo";
 "tab.settings" = "Configurações";
 
 /* Common */
@@ -31,9 +30,7 @@
 "timeline.treatmentDescription" = "Tratamento ideal para hoje baseado no seu perfil capilar.";
 
 /* Learn */
-"learn.hello" = "Olá";
-"learn.subtitle" = "Aqui você pode explorar diversos assuntos relacionados a cuidados com o seu cabelo crespo!";
-"learn.defaultUser" = "Usuário";
+"common.defaultUser" = "Usuário";
 
 /* Onboarding */
 "onboarding.welcome.title" = "**Cuide** do seu cabelo crespo com ajuda do **Clima!**";

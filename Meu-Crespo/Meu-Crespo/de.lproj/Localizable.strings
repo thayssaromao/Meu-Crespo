@@ -1,7 +1,6 @@
 /* Tabs */
 "tab.home" = "Start";
 "tab.timeline" = "Zeitplan";
-"tab.learn" = "Lernen";
 "tab.settings" = "Einstellungen";
 
 /* Common */
@@ -31,9 +30,7 @@
 "timeline.treatmentDescription" = "Ideale Behandlung für heute basierend auf Ihrem Haarprofil.";
 
 /* Learn */
-"learn.hello" = "Hallo";
-"learn.subtitle" = "Hier können Sie verschiedene Themen rund um die Pflege Ihres krausen Haares erkunden!";
-"learn.defaultUser" = "Benutzer";
+"common.defaultUser" = "Benutzer";
 
 /* Onboarding */
 "onboarding.welcome.title" = "**Pflege** dein lockiges Haar mit Hilfe des **Wetters!**";

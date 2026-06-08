@@ -1,7 +1,6 @@
 /* Tabs */
 "tab.home" = "Accueil";
 "tab.timeline" = "Programme";
-"tab.learn" = "Apprendre";
 "tab.settings" = "Paramètres";
 
 /* Common */
@@ -31,9 +30,7 @@
 "timeline.treatmentDescription" = "Traitement idéal pour aujourd'hui basé sur votre profil capillaire.";
 
 /* Learn */
-"learn.hello" = "Bonjour";
-"learn.subtitle" = "Ici, vous pouvez explorer divers sujets liés aux soins de vos cheveux crépus!";
-"learn.defaultUser" = "Utilisateur";
+"common.defaultUser" = "Utilisateur";
 
 /* Onboarding */
 "onboarding.welcome.title" = "**Prenez soin** de vos cheveux crépus avec l'aide de la **Météo!**";

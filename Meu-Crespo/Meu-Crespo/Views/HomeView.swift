@@ -9,7 +9,7 @@ struct HomeView: View {
     @State private var showSettings = false
 
     private var displayName: String {
-        userName.isEmpty ? L("learn.defaultUser") : userName
+        userName.isEmpty ? L("common.defaultUser") : userName
     }
 
     var body: some View {

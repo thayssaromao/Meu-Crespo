@@ -3,7 +3,7 @@ import PostHog
 import StoreKit
 
 enum Tabs {
-    case home, timeline, learn
+    case home, timeline
 }
 
 struct ContentView: View {
@@ -73,7 +73,6 @@ struct ContentView: View {
             switch newTab {
             case .home: tabName = "home"
             case .timeline: tabName = "timeline"
-            case .learn: tabName = "learn"
             }
             PostHogSDK.shared.capture("tab_viewed", properties: ["tab": tabName])
 

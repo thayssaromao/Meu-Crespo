@@ -176,6 +176,8 @@ struct OnboardingProgressDots: View {
 struct WelcomeStep: View {
     var next: () -> Void
 
+    private var isPad: Bool { UIDevice.current.userInterfaceIdiom == .pad }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             OnboardingProgressDots(currentStep: 0)
@@ -190,20 +192,21 @@ struct WelcomeStep: View {
 
             ZStack {
                 Image(systemName: "cloud.rain")
-                    .font(.system(size: 150))
+                    .font(.system(size: isPad ? 220 : 150))
                     .foregroundStyle(obActiveColor.opacity(0.84))
                     .shadow(color: Color(red: 0.949, green: 0.416, blue: 0.373).opacity(0.4), radius: 4, x: 1, y: 5)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .offset(x: 16, y: -100)
+                    .offset(x: 32, y: isPad ? -150 : -100)
 
                 Image(systemName: "sun.max")
-                    .font(.system(size: 190))
+                    .font(.system(size: isPad ? 290 : 190))
                     .foregroundStyle(obActiveColor.opacity(0.84))
                     .shadow(color: Color(red: 0.949, green: 0.416, blue: 0.373).opacity(0.4), radius: 4, x: 1, y: 5)
                     .frame(maxWidth: .infinity, alignment: .trailing)
-                    .offset(x: -16, y: 80)
+                    .offset(x: -32, y: isPad ? 120 : 80)
             }
-            .frame(height: 280)
+            .frame(maxWidth: .infinity)
+            .frame(height: isPad ? 440 : 280)
 
             Spacer()
 
@@ -226,11 +229,11 @@ struct WelcomeStep: View {
     private var titleView: some View {
         if let attributed = try? AttributedString(markdown: L("onboarding.welcome.title")) {
             Text(attributed)
-                .font(.system(size: 36))
+                .font(.system(size: isPad ? 52 : 36))
                 .foregroundColor(obActiveColor)
         } else {
             Text(L("onboarding.welcome.title"))
-                .font(.system(size: 36))
+                .font(.system(size: isPad ? 52 : 36))
                 .foregroundColor(obActiveColor)
         }
     }
@@ -745,6 +748,8 @@ struct NameStep: View {
 struct FinalStep: View {
     var next: () -> Void
 
+    private var isPad: Bool { UIDevice.current.userInterfaceIdiom == .pad }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             OnboardingProgressDots(currentStep: 7)
@@ -752,7 +757,7 @@ struct FinalStep: View {
                 .padding(.top, 16)
 
             Text(L("onboarding.final.title"))
-                .font(.system(size: 36, weight: .bold))
+                .font(.system(size: isPad ? 52 : 36, weight: .bold))
                 .foregroundColor(obActiveColor)
                 .padding(.horizontal, 28)
                 .padding(.top, 40)
@@ -761,14 +766,13 @@ struct FinalStep: View {
                 .padding(.horizontal, 28)
                 .padding(.top, 20)
 
-            ZStack {
-                Image("finalStep")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .offset(y:70)
-            }
-            .frame(height: 280)
+            Image("finalStep")
+                .resizable()
+                .scaledToFit()
+                .frame(maxWidth: isPad ? 560 : 340)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.leading, isPad ? 32 : 16)
+                .padding(.top, isPad ? 40 : 24)
 
             Spacer()
 
@@ -780,7 +784,9 @@ struct FinalStep: View {
                     .frame(height: 52)
                     .background(.white.opacity(0.75), in: Capsule())
             }
-            .padding(.horizontal, 48)
+            .frame(maxWidth: isPad ? 500 : .infinity)
+            .frame(maxWidth: .infinity)
+            .padding(.horizontal, isPad ? 0 : 48)
             .padding(.bottom, 40)
         }
     }
@@ -788,11 +794,11 @@ struct FinalStep: View {
     @ViewBuilder private var descriptionView: some View {
         if let attributed = try? AttributedString(markdown: L("onboarding.final.description")) {
             Text(attributed)
-                .font(.system(size: 18))
+                .font(.system(size: isPad ? 22 : 18))
                 .foregroundColor(obActiveColor)
         } else {
             Text(L("onboarding.final.description"))
-                .font(.system(size: 18))
+                .font(.system(size: isPad ? 22 : 18))
                 .foregroundColor(obActiveColor)
         }
     }

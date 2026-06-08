@@ -1,7 +1,6 @@
 /* Tabs */
 "tab.home" = "Home";
 "tab.timeline" = "Timeline";
-"tab.learn" = "Learn";
 "tab.settings" = "Settings";
 
 /* Common */
@@ -31,9 +30,7 @@
 "timeline.treatmentDescription" = "Ideal treatment for today based on your hair profile.";
 
 /* Learn */
-"learn.hello" = "Hello";
-"learn.subtitle" = "Here you can explore various topics related to caring for your curly hair!";
-"learn.defaultUser" = "User";
+"common.defaultUser" = "User";
 
 /* Onboarding */
 "onboarding.welcome.title" = "**Care** for your curly hair with the help of the **Weather!**";
