@@ -39,6 +39,13 @@
 "onboarding.welcome.title" = "**Cuide** do seu cabelo crespo com ajuda do **Clima!**";
 "onboarding.skip" = "Pular";
 "onboarding.name.question" = "Como podemos te chamar?";
+"onboarding.ai.title" = "Apple Intelligence";
+"onboarding.ai.subtitle" = "Ative a **Apple Intelligence**, para recomendações de penteados e cronograma capilar, considerando as **características** do seu cabelo e o **clima** do dia.";
+"onboarding.ai.step1" = "Abra o app Ajustes";
+"onboarding.ai.step2" = "Toque em \"Apple Intelligence e Siri\"";
+"onboarding.ai.step3" = "Ative \"Apple Intelligence\"";
+"onboarding.ai.step4" = "Se aparecer um aviso de download, toque em \"Ativar Apple Intelligence\"";
+"onboarding.ai.step5" = "Volte ao Meu Crespo, as dicas estarão disponíveis automaticamente!";
 "onboarding.name.placeholder" = "Meu nome é...";
 "onboarding.porosity.question" = "Qual o Nível De **Porosidade** Do Seu Cabelo?";
 "onboarding.porosity.pickerLabel" = "Porosidade";
@@ -57,6 +64,9 @@
 "onboarding.dryness.low" = "Baixo Ressecamento";
 "onboarding.dryness.medium" = "Médio Ressecamento";
 "onboarding.dryness.high" = "Alto Ressecamento";
+"onboarding.final.title" = "Cronograma Capilar";
+"onboarding.final.description" = "Com base no seu **perfil** capilar, o App monta um ciclo de **tratamentos personalizados** que se adapta à sua rotina.";
+"onboarding.final.button" = "Vamos Lá!";
 
 /* Settings */
 "settings.title" = "Configurações";

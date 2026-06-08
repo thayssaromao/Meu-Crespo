@@ -39,6 +39,13 @@
 "onboarding.welcome.title" = "**Prenez soin** de vos cheveux crépus avec l'aide de la **Météo!**";
 "onboarding.skip" = "Passer";
 "onboarding.name.question" = "Comment pouvons-nous vous appeler?";
+"onboarding.ai.title" = "Apple Intelligence";
+"onboarding.ai.subtitle" = "Activez **Apple Intelligence** pour des recommandations de coiffures et un programme capillaire personnalisés, selon les **caractéristiques** de vos cheveux et la **météo** du jour.";
+"onboarding.ai.step1" = "Ouvrez l'app Réglages";
+"onboarding.ai.step2" = "Appuyez sur \"Apple Intelligence et Siri\"";
+"onboarding.ai.step3" = "Activez \"Apple Intelligence\"";
+"onboarding.ai.step4" = "Si une invite de téléchargement apparaît, appuyez sur \"Activer Apple Intelligence\"";
+"onboarding.ai.step5" = "Revenez à Meu Crespo, les conseils seront disponibles automatiquement !";
 "onboarding.name.placeholder" = "Mon prénom est...";
 "onboarding.porosity.question" = "Quel est le niveau de **porosité** de vos cheveux?";
 "onboarding.porosity.pickerLabel" = "Porosité";
@@ -57,6 +64,9 @@
 "onboarding.dryness.low" = "Faible sécheresse";
 "onboarding.dryness.medium" = "Sécheresse moyenne";
 "onboarding.dryness.high" = "Sécheresse élevée";
+"onboarding.final.title" = "Programme Capillaire";
+"onboarding.final.description" = "En fonction de votre **profil** capillaire, l'application crée un cycle de **soins personnalisés** qui s'adapte à votre routine.";
+"onboarding.final.button" = "C'est parti!";
 
 /* Settings */
 "settings.title" = "Paramètres";

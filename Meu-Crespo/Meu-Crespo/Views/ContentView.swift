@@ -1,5 +1,6 @@
 import SwiftUI
 import PostHog
+import StoreKit
 
 enum Tabs {
     case home, timeline, learn
@@ -9,6 +10,8 @@ struct ContentView: View {
     @EnvironmentObject var weatherManager: WeatherManager
     @EnvironmentObject var languageManager: LanguageManager
     @AppStorage("appearanceMode") private var storedAppearance: String = AppearanceMode.system.rawValue
+    @AppStorage("timelineVisitCount") private var timelineVisitCount: Int = 0
+    @Environment(\.requestReview) private var requestReview
     @State var selectedTab: Tabs = .home
 
     private var preferredScheme: ColorScheme? {
@@ -73,6 +76,13 @@ struct ContentView: View {
             case .learn: tabName = "learn"
             }
             PostHogSDK.shared.capture("tab_viewed", properties: ["tab": tabName])
+
+            if newTab == .timeline {
+                timelineVisitCount += 1
+                if timelineVisitCount == 3 {
+                    requestReview()
+                }
+            }
         }
         .onChange(of: languageManager.currentLanguage) { _, _ in
             // Reschedule only if already authorized — checks auth before touching UNUserNotificationCenter

@@ -39,6 +39,13 @@
 "onboarding.welcome.title" = "**Care** for your curly hair with the help of the **Weather!**";
 "onboarding.skip" = "Skip";
 "onboarding.name.question" = "What should we call you?";
+"onboarding.ai.title" = "Apple Intelligence";
+"onboarding.ai.subtitle" = "Enable **Apple Intelligence** for personalized hairstyle recommendations and hair care schedule, based on your hair **characteristics** and today's **weather**.";
+"onboarding.ai.step1" = "Open the Settings app";
+"onboarding.ai.step2" = "Tap \"Apple Intelligence & Siri\"";
+"onboarding.ai.step3" = "Turn on \"Apple Intelligence\"";
+"onboarding.ai.step4" = "If a download prompt appears, tap \"Turn On Apple Intelligence\"";
+"onboarding.ai.step5" = "Return to Meu Crespo, tips will be available automatically!";
 "onboarding.name.placeholder" = "My name is...";
 "onboarding.porosity.question" = "What is your hair **porosity**?";
 "onboarding.porosity.pickerLabel" = "Porosity";
@@ -57,6 +64,9 @@
 "onboarding.dryness.low" = "Low Dryness";
 "onboarding.dryness.medium" = "Medium Dryness";
 "onboarding.dryness.high" = "High Dryness";
+"onboarding.final.title" = "Hair Schedule";
+"onboarding.final.description" = "Based on your hair **profile**, the App builds a cycle of **personalized treatments** that adapts to your routine.";
+"onboarding.final.button" = "Let's Go!";
 
 /* Settings */
 "settings.title" = "Settings";

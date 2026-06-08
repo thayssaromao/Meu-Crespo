@@ -20,7 +20,7 @@ struct OnboardingView: View {
     @State private var chemicalTreatment: ChemicalTreatment? = nil
     @State private var dryness: HairDryness = .medium
 
-    private let stepNames = ["welcome", "name", "chemical", "porosity", "wash_frequency", "dryness"]
+    private let stepNames = ["welcome", "name", "apple_intelligence", "chemical", "porosity", "wash_frequency", "dryness", "final"]
 
     private func nextStep() {
         withAnimation(.spring(response: 0.45, dampingFraction: 0.72)) {
@@ -30,27 +30,21 @@ struct OnboardingView: View {
 
     var body: some View {
         ZStack {
-            if step < 5 {
-                OnboardingBackground()
-            } else {
+            if step == 6 {
                 Image("bgRecomendacao")
                     .resizable()
                     .ignoresSafeArea()
+            } else {
+                OnboardingBackground()
             }
 
             Group {
                 switch step {
                 case 0:
-                    WelcomeStep(
-                        skip: {
-                            PostHogSDK.shared.capture("onboarding_skipped", properties: ["at_step": "welcome"])
-                            hasCompletedOnboarding = true
-                        },
-                        next: {
-                            PostHogSDK.shared.capture("onboarding_step_completed", properties: ["step": "welcome"])
-                            nextStep()
-                        }
-                    )
+                    WelcomeStep {
+                        PostHogSDK.shared.capture("onboarding_step_completed", properties: ["step": "welcome"])
+                        nextStep()
+                    }
                 case 1:
                     NameStep(tempName: $tempName) {
                         userName = tempName
@@ -58,6 +52,11 @@ struct OnboardingView: View {
                         nextStep()
                     }
                 case 2:
+                    AppleIntelligenceStep {
+                        PostHogSDK.shared.capture("onboarding_step_completed", properties: ["step": "apple_intelligence"])
+                        nextStep()
+                    }
+                case 3:
                     ChemicalStep(chemicalTreatment: $chemicalTreatment) {
                         PostHogSDK.shared.capture("onboarding_step_completed", properties: [
                             "step": "chemical",
@@ -65,7 +64,7 @@ struct OnboardingView: View {
                         ])
                         nextStep()
                     }
-                case 3:
+                case 4:
                     PorosityStep(porosity: $porosity) {
                         PostHogSDK.shared.capture("onboarding_step_completed", properties: [
                             "step": "porosity",
@@ -73,7 +72,7 @@ struct OnboardingView: View {
                         ])
                         nextStep()
                     }
-                case 4:
+                case 5:
                     WashFrequencyStep(washFrequency: $washFrequency) {
                         PostHogSDK.shared.capture("onboarding_step_completed", properties: [
                             "step": "wash_frequency",
@@ -81,8 +80,16 @@ struct OnboardingView: View {
                         ])
                         nextStep()
                     }
-                case 5:
+                case 6:
                     DrynessStep(dryness: $dryness) {
+                        PostHogSDK.shared.capture("onboarding_step_completed", properties: [
+                            "step": "dryness",
+                            "dryness": dryness.rawValue,
+                        ])
+                        nextStep()
+                    }
+                case 7:
+                    FinalStep {
                         storedPorosity = porosity.rawValue
                         storedWashFrequency = washFrequency
                         storedChemicalTreatment = chemicalTreatment?.rawValue ?? ChemicalTreatment.none.rawValue
@@ -152,7 +159,7 @@ struct OnboardingBackground: View {
 
 struct OnboardingProgressDots: View {
     let currentStep: Int
-    private let totalSteps = 6
+    private let totalSteps = 8
 
     var body: some View {
         HStack(spacing: 8) {
@@ -167,7 +174,6 @@ struct OnboardingProgressDots: View {
 }
 
 struct WelcomeStep: View {
-    var skip: () -> Void
     var next: () -> Void
 
     var body: some View {
@@ -188,29 +194,20 @@ struct WelcomeStep: View {
                     .foregroundStyle(obActiveColor.opacity(0.84))
                     .shadow(color: Color(red: 0.949, green: 0.416, blue: 0.373).opacity(0.4), radius: 4, x: 1, y: 5)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .offset(x: -40, y: -80)
+                    .offset(x: 16, y: -100)
 
                 Image(systemName: "sun.max")
-                    .font(.system(size: 210))
+                    .font(.system(size: 190))
                     .foregroundStyle(obActiveColor.opacity(0.84))
                     .shadow(color: Color(red: 0.949, green: 0.416, blue: 0.373).opacity(0.4), radius: 4, x: 1, y: 5)
-                    .rotationEffect(.degrees(-10.51))
                     .frame(maxWidth: .infinity, alignment: .trailing)
-                    .offset(x: 30, y: 40)
+                    .offset(x: -16, y: 80)
             }
-            .frame(height: 220)
+            .frame(height: 280)
 
             Spacer()
 
             HStack {
-                Button(action: skip) {
-                    Text(L("onboarding.skip"))
-                        .font(.system(size: 17))
-                        .foregroundColor(obActiveColor)
-                        .padding(.horizontal, 24)
-                        .padding(.vertical, 12)
-                        .background(.white.opacity(0.4), in: Capsule())
-                }
                 Spacer()
                 Button(action: next) {
                     Image(systemName: "chevron.right")
@@ -247,7 +244,7 @@ struct DrynessStep: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            OnboardingProgressDots(currentStep: 5)
+            OnboardingProgressDots(currentStep: 6)
                 .padding(.horizontal, 24)
                 .padding(.top, 16)
 
@@ -324,7 +321,7 @@ struct ChemicalStep: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            OnboardingProgressDots(currentStep: 2)
+            OnboardingProgressDots(currentStep: 3)
                 .padding(.horizontal, 24)
                 .padding(.top, 16)
 
@@ -401,7 +398,7 @@ struct PorosityStep: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            OnboardingProgressDots(currentStep: 3)
+            OnboardingProgressDots(currentStep: 4)
                 .padding(.horizontal, 24)
                 .padding(.top, 16)
 
@@ -476,7 +473,7 @@ struct WashFrequencyStep: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            OnboardingProgressDots(currentStep: 4)
+            OnboardingProgressDots(currentStep: 5)
                 .padding(.horizontal, 24)
                 .padding(.top, 16)
 
@@ -557,6 +554,102 @@ private struct WashFrequencyDrumPicker: View {
         )
     }
 }
+
+// MARK: - Apple Intelligence Step
+
+struct AppleIntelligenceStep: View {
+    var next: () -> Void
+
+    @State private var showButton = false
+
+    private let aiSteps: [(String, String)] = [
+        ("1", "onboarding.ai.step1"),
+        ("2", "onboarding.ai.step2"),
+        ("3", "onboarding.ai.step3"),
+        ("4", "onboarding.ai.step4"),
+        ("5", "onboarding.ai.step5"),
+    ]
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            OnboardingProgressDots(currentStep: 2)
+                .padding(.horizontal, 24)
+                .padding(.top, 16)
+
+            Text(L("onboarding.ai.title"))
+                .font(.system(size: 36, weight: .bold))
+                .foregroundColor(obActiveColor)
+                .padding(.horizontal, 28)
+                .padding(.top, 40)
+
+            subtitleView
+                .padding(.horizontal, 28)
+                .padding(.top, 12)
+
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(spacing: 14) {
+                    ForEach(aiSteps, id: \.0) { number, key in
+                        aiStepCard(number: number, text: L(key))
+                    }
+                }
+                .padding(.horizontal, 28)
+                .padding(.vertical, 24)
+            }
+
+            Button(action: next) {
+                Text(L("common.continue"))
+                    .font(.system(size: 20, weight: .medium))
+                    .foregroundColor(obActiveColor)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 52)
+                    .background(.white.opacity(0.4), in: Capsule())
+            }
+            .padding(.horizontal, 48)
+            .padding(.bottom, 40)
+            .opacity(showButton ? 1 : 0)
+            .scaleEffect(showButton ? 1 : 0.92, anchor: .bottom)
+            .animation(.spring(response: 0.35, dampingFraction: 0.8), value: showButton)
+            .allowsHitTesting(showButton)
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                showButton = true
+            }
+        }
+    }
+
+    @ViewBuilder private var subtitleView: some View {
+        if let attributed = try? AttributedString(markdown: L("onboarding.ai.subtitle")) {
+            Text(attributed)
+                .font(.system(size: 18))
+                .foregroundColor(obActiveColor)
+        } else {
+            Text(L("onboarding.ai.subtitle"))
+                .font(.system(size: 18))
+                .foregroundColor(obActiveColor)
+        }
+    }
+
+    private func aiStepCard(number: String, text: String) -> some View {
+        HStack(alignment: .top, spacing: 6) {
+            Text("\(number).")
+                .font(.system(size: 17, weight: .medium))
+                .foregroundColor(Color(red: 0.945, green: 0.361, blue: 0.361))
+            Text(text)
+                .font(.system(size: 17, weight: .medium))
+                .foregroundColor(obActiveColor)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .padding(.horizontal, 20)
+        .padding(.vertical, 16)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Color.white)
+        .clipShape(RoundedRectangle(cornerRadius: 20))
+        .shadow(color: Color(red: 0.318, green: 0.129, blue: 0.024).opacity(0.3), radius: 7, x: 0, y: 7)
+    }
+}
+
+// MARK: - Name Step
 
 struct NameStep: View {
     @Binding var tempName: String
@@ -643,6 +736,64 @@ struct NameStep: View {
             } catch {
                 animatedPlaceholder = ""
             }
+        }
+    }
+}
+
+// MARK: - Final Step
+
+struct FinalStep: View {
+    var next: () -> Void
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            OnboardingProgressDots(currentStep: 7)
+                .padding(.horizontal, 24)
+                .padding(.top, 16)
+
+            Text(L("onboarding.final.title"))
+                .font(.system(size: 36, weight: .bold))
+                .foregroundColor(obActiveColor)
+                .padding(.horizontal, 28)
+                .padding(.top, 40)
+
+            descriptionView
+                .padding(.horizontal, 28)
+                .padding(.top, 20)
+
+            ZStack {
+                Image("finalStep")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .offset(y:70)
+            }
+            .frame(height: 280)
+
+            Spacer()
+
+            Button(action: next) {
+                Text(L("onboarding.final.button"))
+                    .font(.system(size: 20, weight: .medium))
+                    .foregroundColor(obActiveColor)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 52)
+                    .background(.white.opacity(0.75), in: Capsule())
+            }
+            .padding(.horizontal, 48)
+            .padding(.bottom, 40)
+        }
+    }
+
+    @ViewBuilder private var descriptionView: some View {
+        if let attributed = try? AttributedString(markdown: L("onboarding.final.description")) {
+            Text(attributed)
+                .font(.system(size: 18))
+                .foregroundColor(obActiveColor)
+        } else {
+            Text(L("onboarding.final.description"))
+                .font(.system(size: 18))
+                .foregroundColor(obActiveColor)
         }
     }
 }
