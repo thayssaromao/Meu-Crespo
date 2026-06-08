@@ -47,7 +47,7 @@ struct ContentView: View {
         .preferredColorScheme(.light)
         .animation(.easeInOut(duration: 0.5), value: showSplash)
         .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 showSplash = false
             }
             if hasCompletedOnboarding {

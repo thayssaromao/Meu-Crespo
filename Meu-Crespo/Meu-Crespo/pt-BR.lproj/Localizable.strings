@@ -14,7 +14,7 @@
 "home.recommendations" = "Recomendações";
 "home.hairSuggestions" = "Sugestões de Penteados";
 "ai.generating" = "Gerando sugestões...";
-"ai.badge.loading" = "IA gerando...";
+"ai.badge.loading" = "Gerando sugestões...";
 "ai.badge.default" = "Sugestões padrão";
 "home.weatherAttribution" = "Dados climáticos fornecidos por  Weather";
 "home.legalAttribution" = "Atribuição Legal";

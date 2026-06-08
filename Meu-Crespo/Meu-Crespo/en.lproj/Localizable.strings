@@ -14,7 +14,7 @@
 "home.recommendations" = "Recommendations";
 "home.hairSuggestions" = "Hairstyle Suggestions";
 "ai.generating" = "Generating suggestions...";
-"ai.badge.loading" = "AI generating...";
+"ai.badge.loading" = "Generating suggestions...";
 "ai.badge.default" = "Default suggestions";
 "home.weatherAttribution" = "Weather data provided by  Weather";
 "home.legalAttribution" = "Legal Attribution";

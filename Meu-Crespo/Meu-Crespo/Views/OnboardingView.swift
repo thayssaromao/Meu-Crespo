@@ -583,21 +583,21 @@ struct AppleIntelligenceStep: View {
                 .font(.system(size: 36, weight: .bold))
                 .foregroundColor(obActiveColor)
                 .padding(.horizontal, 28)
-                .padding(.top, 40)
+                .padding(.top, 20)
 
             subtitleView
                 .padding(.horizontal, 28)
-                .padding(.top, 12)
+                .padding(.top, 8)
 
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack(spacing: 14) {
-                    ForEach(aiSteps, id: \.0) { number, key in
-                        aiStepCard(number: number, text: L(key))
-                    }
+            VStack(spacing: 11) {
+                ForEach(aiSteps, id: \.0) { number, key in
+                    aiStepCard(number: number, text: L(key))
                 }
-                .padding(.horizontal, 28)
-                .padding(.vertical, 24)
             }
+            .padding(.horizontal, 28)
+            .padding(.top, 18)
+
+            Spacer(minLength: 0)
 
             Button(action: next) {
                 Text(L("common.continue"))
@@ -608,7 +608,8 @@ struct AppleIntelligenceStep: View {
                     .background(.white.opacity(0.4), in: Capsule())
             }
             .padding(.horizontal, 48)
-            .padding(.bottom, 40)
+            .padding(.bottom, 28)
+            .padding(.top, 12)
             .opacity(showButton ? 1 : 0)
             .scaleEffect(showButton ? 1 : 0.92, anchor: .bottom)
             .animation(.spring(response: 0.35, dampingFraction: 0.8), value: showButton)
@@ -636,18 +637,18 @@ struct AppleIntelligenceStep: View {
     private func aiStepCard(number: String, text: String) -> some View {
         HStack(alignment: .top, spacing: 6) {
             Text("\(number).")
-                .font(.system(size: 17, weight: .medium))
+                .font(.system(size: 15, weight: .medium))
                 .foregroundColor(Color(red: 0.945, green: 0.361, blue: 0.361))
             Text(text)
-                .font(.system(size: 17, weight: .medium))
+                .font(.system(size: 15, weight: .medium))
                 .foregroundColor(obActiveColor)
                 .fixedSize(horizontal: false, vertical: true)
         }
-        .padding(.horizontal, 20)
-        .padding(.vertical, 16)
+        .padding(.horizontal, 16)
+        .padding(.vertical, 11)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Color.white)
-        .clipShape(RoundedRectangle(cornerRadius: 20))
+        .clipShape(RoundedRectangle(cornerRadius: 16))
         .shadow(color: Color(red: 0.318, green: 0.129, blue: 0.024).opacity(0.3), radius: 7, x: 0, y: 7)
     }
 }

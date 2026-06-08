@@ -1,26 +1,39 @@
 import SwiftUI
 
 struct SplashScreen: View {
-    @State private var isRotating = false
-    
+    @State private var isSwaying = false
+
     var body: some View {
         ZStack {
             Image("SplashBg")
                 .resizable()
                 .ignoresSafeArea()
-            
+
+            // Cabelo crespo levemente abaixo do centro
+            Image("crespo")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 260)
+                .offset(y: 30)
+
+            // Garfo com as dentes na parte superior do afro
             Image("garfo")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 150, height: 150)
-                .rotationEffect(.degrees(isRotating ? 360 : 0))
+                .frame(width: 120)
+                .rotationEffect(.degrees(180))
+                .offset(x: 70, y: -90)
+                .rotationEffect(
+                    .degrees(isSwaying ? 10 : -10),
+                    anchor: UnitPoint(x: 0.8, y: 0.28)
+                )
                 .animation(
-                    .timingCurve(0.2, 0.7, 0.2, 1, duration: 1.4)
-                    .repeatForever(autoreverses: false),
-                    value: isRotating
+                    .easeInOut(duration: 0.7)
+                    .repeatForever(autoreverses: true),
+                    value: isSwaying
                 )
                 .onAppear {
-                    isRotating = true
+                    isSwaying = true
                 }
         }
     }

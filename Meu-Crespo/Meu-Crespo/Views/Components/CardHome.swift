@@ -33,11 +33,11 @@ struct HairSuggestionsSection: View {
             if isLoadingAI {
                 VStack(spacing: 12) {
                     ProgressView()
-                        .tint(.white)
+                        .tint(.redBrown)
                         .scaleEffect(1.2)
                     Text(L("ai.generating"))
                         .font(.system(size: 14, weight: .medium))
-                        .foregroundColor(.white.opacity(0.85))
+                        .foregroundColor(.redBrown.opacity(0.8))
                 }
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 40)
@@ -78,28 +78,29 @@ struct HairSuggestionsSection: View {
     private var aiStatusBadge: some View {
         if isLoadingAI {
             HStack(spacing: 5) {
-                ProgressView().scaleEffect(0.7).tint(.white)
+                ProgressView()
+                    .scaleEffect(0.65)
+                    .tint(.redBrown)
                 Text(L("ai.badge.loading"))
                     .font(.system(size: 11, weight: .semibold))
-                    .foregroundColor(.white)
+                    .foregroundColor(.redBrown)
             }
             .padding(.horizontal, 10)
-            .padding(.vertical, 5)
-            .background(Color.white.opacity(0.25), in: Capsule())
+            .padding(.vertical, 6)
+            .background(Color.white.opacity(0.4), in: Capsule())
+            .transition(.opacity.combined(with: .scale(scale: 0.85)))
         } else if isAI {
-            Text("✦ Apple Intelligence")
-                .font(.system(size: 11, weight: .semibold))
-                .foregroundColor(.white)
-                .padding(.horizontal, 10)
-                .padding(.vertical, 5)
-                .background(Color.black.opacity(0.18), in: Capsule())
-        } else if aiFailed {
-            Text(L("ai.badge.default"))
-                .font(.system(size: 11, weight: .semibold))
-                .foregroundColor(.white.opacity(0.8))
-                .padding(.horizontal, 10)
-                .padding(.vertical, 5)
-                .background(Color.white.opacity(0.15), in: Capsule())
+            HStack(spacing: 4) {
+                Image(systemName: "sparkles")
+                    .font(.system(size: 10, weight: .semibold))
+                Text("Apple Intelligence")
+                    .font(.system(size: 11, weight: .semibold))
+            }
+            .foregroundColor(Color.redBrown.opacity(0.7))
+            .padding(.horizontal, 10)
+            .padding(.vertical, 6)
+            .background(Color.white.opacity(0.4), in: Capsule())
+            .transition(.opacity.combined(with: .scale(scale: 0.85)))
         }
     }
 
@@ -147,10 +148,13 @@ struct HairSuggestionsSection: View {
         aiSuggestions = nil
         isAI = false
         aiFailed = false
-
-        guard HairstyleAIService.shared.isAvailable else { return }
-        if dadosOriginais.isEmpty { carregarJSON() }
         isLoadingAI = true
+
+        guard HairstyleAIService.shared.isAvailable else {
+            isLoadingAI = false
+            return
+        }
+        if dadosOriginais.isEmpty { carregarJSON() }
         let context = HairContext(
             porosity: HairPorosity(rawValue: storedPorosity) ?? .medium,
             dryness: HairDryness(rawValue: storedDryness) ?? .medium,
