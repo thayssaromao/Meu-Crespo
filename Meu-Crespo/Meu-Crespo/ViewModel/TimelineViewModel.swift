@@ -1,5 +1,6 @@
 import SwiftUI
 internal import Combine
+import WidgetKit
 
 enum HairTreatment: String, CaseIterable {
     case hydration = "hydration"
@@ -12,11 +13,11 @@ enum HairTreatment: String, CaseIterable {
 
 class TimelineViewModel: ObservableObject {
 
-    @AppStorage("userName") var userName: String = ""
-    @AppStorage("hairPorosity") var porosity: String = ""
-    @AppStorage("washFrequency") var washFrequencyRaw: Int = 3
-    @AppStorage("hasChemical") var hasChemical: Bool = false
-    @AppStorage("hairDryness") var dryness: String = ""
+    @AppStorage("userName", store: SharedDefaults.store) var userName: String = ""
+    @AppStorage("hairPorosity", store: SharedDefaults.store) var porosity: String = ""
+    @AppStorage("washFrequency", store: SharedDefaults.store) var washFrequencyRaw: Int = 3
+    @AppStorage("hasChemical", store: SharedDefaults.store) var hasChemical: Bool = false
+    @AppStorage("hairDryness", store: SharedDefaults.store) var dryness: String = ""
 
     @Published var selectedDate: Date = Date()
     @Published var customTreatments: [Date: HairTreatment] = [:]
@@ -47,7 +48,7 @@ class TimelineViewModel: ObservableObject {
     // MARK: - Persistence
 
     private func loadCustomTreatments() {
-        guard let dict = UserDefaults.standard.dictionary(forKey: Self.customTreatmentsKey) as? [String: String] else { return }
+        guard let dict = SharedDefaults.store.dictionary(forKey: Self.customTreatmentsKey) as? [String: String] else { return }
         var result: [Date: HairTreatment] = [:]
         for (key, value) in dict {
             if let date = Self.dateFormatter.date(from: key),
@@ -63,30 +64,32 @@ class TimelineViewModel: ObservableObject {
         for (date, treatment) in customTreatments {
             dict[Self.dateFormatter.string(from: date)] = treatment.rawValue
         }
-        UserDefaults.standard.set(dict, forKey: Self.customTreatmentsKey)
+        SharedDefaults.store.set(dict, forKey: Self.customTreatmentsKey)
+        WidgetCenter.shared.reloadAllTimelines()
     }
 
     private func loadCustomRestDays() {
-        guard let strings = UserDefaults.standard.array(forKey: Self.customRestDaysKey) as? [String] else { return }
+        guard let strings = SharedDefaults.store.array(forKey: Self.customRestDaysKey) as? [String] else { return }
         customRestDays = Set(strings.compactMap { Self.dateFormatter.date(from: $0) })
     }
 
     private func saveCustomRestDays() {
-        UserDefaults.standard.set(
+        SharedDefaults.store.set(
             customRestDays.map { Self.dateFormatter.string(from: $0) },
             forKey: Self.customRestDaysKey
         )
+        WidgetCenter.shared.reloadAllTimelines()
     }
 
     // MARK: - Anchor date (cached — never changes within a session)
 
     private var anchorDate: Date {
         if let cached = _anchorDate { return cached }
-        let stored = UserDefaults.standard.double(forKey: Self.anchorDateKey)
+        let stored = SharedDefaults.store.double(forKey: Self.anchorDateKey)
         let date: Date
         if stored == 0 {
             date = Calendar.current.startOfDay(for: Date())
-            UserDefaults.standard.set(date.timeIntervalSince1970, forKey: Self.anchorDateKey)
+            SharedDefaults.store.set(date.timeIntervalSince1970, forKey: Self.anchorDateKey)
         } else {
             date = Date(timeIntervalSince1970: stored)
         }

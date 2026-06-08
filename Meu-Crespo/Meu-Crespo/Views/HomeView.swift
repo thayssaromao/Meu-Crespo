@@ -4,7 +4,7 @@ struct HomeView: View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var weatherManager: WeatherManager
     @EnvironmentObject var languageManager: LanguageManager
-    @AppStorage("userName") private var userName: String = ""
+    @AppStorage("userName", store: SharedDefaults.store) private var userName: String = ""
     @State private var selectedDate: Date = Date()
     @State private var showSettings = false
 

@@ -1,0 +1,10 @@
+/* Widget */
+"widget.today.label" = "Traitement du Jour";
+"widget.rest" = "Jour de repos";
+"widget.setup" = "Ouvrez Meu Crespo\npour commencer";
+
+/* Treatments */
+"treatment.hydration" = "Hydratation";
+"treatment.nutrition" = "Nutrition";
+"treatment.reconstruction" = "Reconstruction";
+"treatment.umectation" = "Humectation";

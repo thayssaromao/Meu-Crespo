@@ -59,13 +59,13 @@ final class LanguageManager: ObservableObject {
     static func migrateIfNeeded() {
         let porosityMap = ["Baixa": "low", "Média": "medium", "Alta": "high"]
         let drynessMap  = ["Pouco": "low", "Moderado": "medium", "Muito": "high"]
-        if let old = UserDefaults.standard.string(forKey: "hairPorosity"),
+        if let old = SharedDefaults.store.string(forKey: "hairPorosity"),
            let new = porosityMap[old] {
-            UserDefaults.standard.set(new, forKey: "hairPorosity")
+            SharedDefaults.store.set(new, forKey: "hairPorosity")
         }
-        if let old = UserDefaults.standard.string(forKey: "hairDryness"),
+        if let old = SharedDefaults.store.string(forKey: "hairDryness"),
            let new = drynessMap[old] {
-            UserDefaults.standard.set(new, forKey: "hairDryness")
+            SharedDefaults.store.set(new, forKey: "hairDryness")
         }
     }
 }

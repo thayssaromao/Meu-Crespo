@@ -12,10 +12,10 @@ struct TimelineView: View {
     @State private var isAIInsight = false
     @State private var isLoadingInsight = false
 
-    @AppStorage("hairPorosity")      private var storedPorosity:  String = HairPorosity.medium.rawValue
-    @AppStorage("hairDryness")       private var storedDryness:   String = HairDryness.medium.rawValue
+    @AppStorage("hairPorosity", store: SharedDefaults.store)      private var storedPorosity:  String = HairPorosity.medium.rawValue
+    @AppStorage("hairDryness", store: SharedDefaults.store)       private var storedDryness:   String = HairDryness.medium.rawValue
     @AppStorage("chemicalTreatment") private var storedChemical:  String = ChemicalTreatment.none.rawValue
-    @AppStorage("washFrequency")     private var storedWashFreq:  Int    = WashFrequency.three.rawValue
+    @AppStorage("washFrequency", store: SharedDefaults.store)     private var storedWashFreq:  Int    = WashFrequency.three.rawValue
 
     // Invalidates the .task when treatment, date, humidity or language changes.
     // Short-circuits for rest days so no insight is loaded when it won't be shown.

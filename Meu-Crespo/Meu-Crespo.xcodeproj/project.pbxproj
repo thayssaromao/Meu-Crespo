@@ -7,15 +7,53 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56146C8F2FD72A4B009AAB3E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56146C8E2FD72A4B009AAB3E /* WidgetKit.framework */; };
+		56146C912FD72A4B009AAB3E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56146C902FD72A4B009AAB3E /* SwiftUI.framework */; };
+		56146CA02FD72A4C009AAB3E /* MeuCrespoWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 56146C8C2FD72A4B009AAB3E /* MeuCrespoWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AA000001000000000000000A /* PostHog in Frameworks */ = {isa = PBXBuildFile; productRef = AA000002000000000000000A /* PostHog */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		56146C9E2FD72A4C009AAB3E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 560C73252E9710ED00D2D30F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56146C8B2FD72A4B009AAB3E;
+			remoteInfo = MeuCrespoWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		56146CA52FD72A4C009AAB3E /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				56146CA02FD72A4C009AAB3E /* MeuCrespoWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		560C732D2E9710ED00D2D30F /* Meu-Crespo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meu-Crespo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		56146C8C2FD72A4B009AAB3E /* MeuCrespoWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MeuCrespoWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		56146C8E2FD72A4B009AAB3E /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		56146C902FD72A4B009AAB3E /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		5624BAC02FD72B750041DFFA /* MeuCrespoWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MeuCrespoWidgetExtension.entitlements; sourceTree = "<group>"; };
 		AA200001000000000000000A /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		56146CA42FD72A4C009AAB3E /* Exceptions for "MeuCrespoWidget" folder in "MeuCrespoWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 56146C8B2FD72A4B009AAB3E /* MeuCrespoWidgetExtension */;
+		};
 		56A733D92F58AF2900688A4A /* Exceptions for "Meu-Crespo" folder in "Meu-Crespo" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -34,6 +72,14 @@
 			path = "Meu-Crespo";
 			sourceTree = "<group>";
 		};
+		56146C922FD72A4B009AAB3E /* MeuCrespoWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				56146CA42FD72A4C009AAB3E /* Exceptions for "MeuCrespoWidget" folder in "MeuCrespoWidgetExtension" target */,
+			);
+			path = MeuCrespoWidget;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,13 +91,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		56146C892FD72A4B009AAB3E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56146C912FD72A4B009AAB3E /* SwiftUI.framework in Frameworks */,
+				56146C8F2FD72A4B009AAB3E /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		560C73242E9710ED00D2D30F = {
 			isa = PBXGroup;
 			children = (
+				5624BAC02FD72B750041DFFA /* MeuCrespoWidgetExtension.entitlements */,
 				560C732F2E9710ED00D2D30F /* Meu-Crespo */,
+				56146C922FD72A4B009AAB3E /* MeuCrespoWidget */,
+				56146C8D2FD72A4B009AAB3E /* Frameworks */,
 				560C732E2E9710ED00D2D30F /* Products */,
 				AA200001000000000000000A /* Secrets.xcconfig */,
 			);
@@ -61,8 +119,18 @@
 			isa = PBXGroup;
 			children = (
 				560C732D2E9710ED00D2D30F /* Meu-Crespo.app */,
+				56146C8C2FD72A4B009AAB3E /* MeuCrespoWidgetExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		56146C8D2FD72A4B009AAB3E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				56146C8E2FD72A4B009AAB3E /* WidgetKit.framework */,
+				56146C902FD72A4B009AAB3E /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -75,10 +143,12 @@
 				560C73292E9710ED00D2D30F /* Sources */,
 				560C732A2E9710ED00D2D30F /* Frameworks */,
 				560C732B2E9710ED00D2D30F /* Resources */,
+				56146CA52FD72A4C009AAB3E /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				56146C9F2FD72A4C009AAB3E /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				560C732F2E9710ED00D2D30F /* Meu-Crespo */,
@@ -91,6 +161,28 @@
 			productReference = 560C732D2E9710ED00D2D30F /* Meu-Crespo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		56146C8B2FD72A4B009AAB3E /* MeuCrespoWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56146CA12FD72A4C009AAB3E /* Build configuration list for PBXNativeTarget "MeuCrespoWidgetExtension" */;
+			buildPhases = (
+				56146C882FD72A4B009AAB3E /* Sources */,
+				56146C892FD72A4B009AAB3E /* Frameworks */,
+				56146C8A2FD72A4B009AAB3E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				56146C922FD72A4B009AAB3E /* MeuCrespoWidget */,
+			);
+			name = MeuCrespoWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = MeuCrespoWidgetExtension;
+			productReference = 56146C8C2FD72A4B009AAB3E /* MeuCrespoWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -98,11 +190,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2600;
+				LastSwiftUpdateCheck = 2630;
 				LastUpgradeCheck = 2630;
 				TargetAttributes = {
 					560C732C2E9710ED00D2D30F = {
 						CreatedOnToolsVersion = 26.0.1;
+					};
+					56146C8B2FD72A4B009AAB3E = {
+						CreatedOnToolsVersion = 26.3;
 					};
 				};
 			};
@@ -127,12 +222,20 @@
 			projectRoot = "";
 			targets = (
 				560C732C2E9710ED00D2D30F /* Meu-Crespo */,
+				56146C8B2FD72A4B009AAB3E /* MeuCrespoWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		560C732B2E9710ED00D2D30F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56146C8A2FD72A4B009AAB3E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -149,7 +252,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		56146C882FD72A4B009AAB3E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		56146C9F2FD72A4C009AAB3E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 56146C8B2FD72A4B009AAB3E /* MeuCrespoWidgetExtension */;
+			targetProxy = 56146C9E2FD72A4C009AAB3E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		560C73362E9710EE00D2D30F /* Debug */ = {
@@ -361,6 +479,78 @@
 			};
 			name = Release;
 		};
+		56146CA22FD72A4C009AAB3E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = MeuCrespoWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZP7U6722Y6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MeuCrespoWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MeuCrespoWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = apple.thayssaromao.MeuCrespo.MeuCrespoWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		56146CA32FD72A4C009AAB3E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = MeuCrespoWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZP7U6722Y6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MeuCrespoWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MeuCrespoWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = apple.thayssaromao.MeuCrespo.MeuCrespoWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -378,6 +568,15 @@
 			buildConfigurations = (
 				560C73392E9710EE00D2D30F /* Debug */,
 				560C733A2E9710EE00D2D30F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		56146CA12FD72A4C009AAB3E /* Build configuration list for PBXNativeTarget "MeuCrespoWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56146CA22FD72A4C009AAB3E /* Debug */,
+				56146CA32FD72A4C009AAB3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

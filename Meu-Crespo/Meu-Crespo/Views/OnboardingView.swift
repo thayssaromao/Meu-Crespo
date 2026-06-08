@@ -5,13 +5,13 @@ private let obActiveColor = Color(red: 0.318, green: 0.129, blue: 0.024)
 private let obInactiveColor = Color(red: 0.682, green: 0.537, blue: 0.455)
 
 struct OnboardingView: View {
-    @AppStorage("userName") var userName: String = ""
+    @AppStorage("userName", store: SharedDefaults.store) var userName: String = ""
     @AppStorage("hasCompletedOnboarding") var hasCompletedOnboarding: Bool = false
-    @AppStorage("hairPorosity") private var storedPorosity: String = HairPorosity.medium.rawValue
-    @AppStorage("washFrequency") private var storedWashFrequency: WashFrequency = .three
-    @AppStorage("hasChemical") private var storedChemical: Bool = false
+    @AppStorage("hairPorosity", store: SharedDefaults.store) private var storedPorosity: String = HairPorosity.medium.rawValue
+    @AppStorage("washFrequency", store: SharedDefaults.store) private var storedWashFrequency: WashFrequency = .three
+    @AppStorage("hasChemical", store: SharedDefaults.store) private var storedChemical: Bool = false
     @AppStorage("chemicalTreatment") private var storedChemicalTreatment: String = ChemicalTreatment.none.rawValue
-    @AppStorage("hairDryness") private var storedDryness: String = HairDryness.medium.rawValue
+    @AppStorage("hairDryness", store: SharedDefaults.store) private var storedDryness: String = HairDryness.medium.rawValue
 
     @State private var tempName: String = ""
     @State private var step = 0

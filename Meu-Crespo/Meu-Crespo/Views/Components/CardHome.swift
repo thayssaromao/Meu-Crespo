@@ -14,10 +14,10 @@ struct HairSuggestionsSection: View {
     @State private var isAI = false
     @State private var aiFailed = false
 
-    @AppStorage("hairPorosity") private var storedPorosity: String = HairPorosity.medium.rawValue
-    @AppStorage("hairDryness") private var storedDryness: String = HairDryness.medium.rawValue
+    @AppStorage("hairPorosity", store: SharedDefaults.store) private var storedPorosity: String = HairPorosity.medium.rawValue
+    @AppStorage("hairDryness", store: SharedDefaults.store) private var storedDryness: String = HairDryness.medium.rawValue
     @AppStorage("chemicalTreatment") private var storedChemical: String = ChemicalTreatment.none.rawValue
-    @AppStorage("washFrequency") private var storedWashFrequency: Int = WashFrequency.three.rawValue
+    @AppStorage("washFrequency", store: SharedDefaults.store) private var storedWashFrequency: Int = WashFrequency.three.rawValue
 
     private var displaySuggestions: [String] {
         aiSuggestions ?? jsonSuggestions

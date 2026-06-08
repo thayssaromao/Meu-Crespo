@@ -24,11 +24,11 @@ struct SettingsView: View {
     @Environment(\.colorScheme) var colorScheme
 
     @AppStorage("appearanceMode") private var storedAppearance: String = AppearanceMode.system.rawValue
-    @AppStorage("userName") private var userName: String = ""
-    @AppStorage("hairPorosity") private var storedPorosity: String = HairPorosity.medium.rawValue
-    @AppStorage("hairDryness") private var storedDryness: String = HairDryness.medium.rawValue
-    @AppStorage("washFrequency") private var storedWashFrequency: WashFrequency = .three
-    @AppStorage("hasChemical") private var hasChemical: Bool = false
+    @AppStorage("userName", store: SharedDefaults.store) private var userName: String = ""
+    @AppStorage("hairPorosity", store: SharedDefaults.store) private var storedPorosity: String = HairPorosity.medium.rawValue
+    @AppStorage("hairDryness", store: SharedDefaults.store) private var storedDryness: String = HairDryness.medium.rawValue
+    @AppStorage("washFrequency", store: SharedDefaults.store) private var storedWashFrequency: WashFrequency = .three
+    @AppStorage("hasChemical", store: SharedDefaults.store) private var hasChemical: Bool = false
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding: Bool = true
 
     private var selectedPorosity: Binding<HairPorosity> {

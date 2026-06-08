@@ -3,7 +3,7 @@ import SwiftUI
 struct LearnView: View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var languageManager: LanguageManager
-    @AppStorage("userName") var userName: String = ""
+    @AppStorage("userName", store: SharedDefaults.store) var userName: String = ""
     @State private var contents: [ContentModel] = []
 
     var body: some View {
