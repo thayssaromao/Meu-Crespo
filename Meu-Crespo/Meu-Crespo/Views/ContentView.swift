@@ -9,14 +9,9 @@ enum Tabs {
 struct ContentView: View {
     @EnvironmentObject var weatherManager: WeatherManager
     @EnvironmentObject var languageManager: LanguageManager
-    @AppStorage("appearanceMode") private var storedAppearance: String = AppearanceMode.system.rawValue
     @AppStorage("timelineVisitCount") private var timelineVisitCount: Int = 0
     @Environment(\.requestReview) private var requestReview
     @State var selectedTab: Tabs = .home
-
-    private var preferredScheme: ColorScheme? {
-        AppearanceMode(rawValue: storedAppearance)?.colorScheme
-    }
     @State private var showSplash = true
     @AppStorage("hasCompletedOnboarding") var hasCompletedOnboarding: Bool = false
 
@@ -34,11 +29,9 @@ struct ContentView: View {
                             .environmentObject(weatherManager)
                             .tabItem { Label(L("tab.timeline"), systemImage: "calendar") }
                             .tag(Tabs.timeline)
-
                     }
                     .tint(Color(red: 0.95, green: 0.42, blue: 0.37))
                     .id(languageManager.currentLanguage)
-
                 } else {
                     OnboardingView()
                         .transition(.opacity)
@@ -51,7 +44,7 @@ struct ContentView: View {
                     .transition(.opacity)
             }
         }
-        .preferredColorScheme(preferredScheme)
+        .preferredColorScheme(.light)
         .animation(.easeInOut(duration: 0.5), value: showSplash)
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
@@ -84,7 +77,6 @@ struct ContentView: View {
             }
         }
         .onChange(of: languageManager.currentLanguage) { _, _ in
-            // Reschedule only if already authorized — checks auth before touching UNUserNotificationCenter
             NotificationManager.shared.scheduleIfAuthorized()
         }
     }

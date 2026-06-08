@@ -1,29 +1,9 @@
 import SwiftUI
 import PostHog
 
-enum AppearanceMode: String, CaseIterable, Identifiable {
-    case system = "system"
-    case light = "light"
-    case dark = "dark"
-
-    var id: String { rawValue }
-
-    var localizedLabel: String { L("settings.appearance.\(rawValue)") }
-
-    var colorScheme: ColorScheme? {
-        switch self {
-        case .system: return nil
-        case .light:  return .light
-        case .dark:   return .dark
-        }
-    }
-}
-
 struct SettingsView: View {
     @EnvironmentObject var languageManager: LanguageManager
-    @Environment(\.colorScheme) var colorScheme
 
-    @AppStorage("appearanceMode") private var storedAppearance: String = AppearanceMode.system.rawValue
     @AppStorage("userName", store: SharedDefaults.store) private var userName: String = ""
     @AppStorage("hairPorosity", store: SharedDefaults.store) private var storedPorosity: String = HairPorosity.medium.rawValue
     @AppStorage("hairDryness", store: SharedDefaults.store) private var storedDryness: String = HairDryness.medium.rawValue
@@ -38,17 +18,6 @@ struct SettingsView: View {
                 storedPorosity = $0.rawValue
                 PostHogSDK.shared.capture("hair_profile_updated", properties: ["field": "porosity", "value": $0.rawValue])
                 PostHogSDK.shared.identify(PostHogSDK.shared.getDistinctId(), userProperties: ["hair_porosity": $0.rawValue])
-            }
-        )
-    }
-
-    private var selectedAppearance: Binding<AppearanceMode> {
-        Binding(
-            get: { AppearanceMode(rawValue: storedAppearance) ?? .system },
-            set: {
-                storedAppearance = $0.rawValue
-                // PostHog: Track appearance change
-                PostHogSDK.shared.capture("appearance_changed", properties: ["appearance": $0.rawValue])
             }
         )
     }
@@ -71,16 +40,6 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             Form {
-                // MARK: Appearance
-                Section(L("settings.section.appearance")) {
-                    Picker(L("settings.appearance.label"), selection: selectedAppearance) {
-                        ForEach(AppearanceMode.allCases) { mode in
-                            Text(mode.localizedLabel).tag(mode)
-                        }
-                    }
-                    .pickerStyle(.menu)
-                }
-
                 // MARK: Language
                 Section(L("settings.section.language")) {
                     Picker(L("settings.language.label"), selection: Binding(
