@@ -16,7 +16,7 @@ struct HairSuggestionsSection: View {
 
     @AppStorage("hairPorosity", store: SharedDefaults.store) private var storedPorosity: String = HairPorosity.medium.rawValue
     @AppStorage("hairDryness", store: SharedDefaults.store) private var storedDryness: String = HairDryness.medium.rawValue
-    @AppStorage("chemicalTreatment") private var storedChemical: String = ChemicalTreatment.none.rawValue
+    @AppStorage("chemicalTreatment", store: SharedDefaults.store) private var storedChemical: String = ChemicalTreatment.none.rawValue
     @AppStorage("washFrequency", store: SharedDefaults.store) private var storedWashFrequency: Int = WashFrequency.three.rawValue
 
     private var displaySuggestions: [String] {

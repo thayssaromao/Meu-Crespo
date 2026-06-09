@@ -4,11 +4,11 @@ import PostHog
 private func migrateStandardToSharedIfNeeded() {
     let standard = UserDefaults.standard
     let shared = SharedDefaults.store
+    let migrationFlag = "migrationV1Completed"
 
-    // Already migrated
-    guard (shared.string(forKey: "hairPorosity") ?? "").isEmpty else { return }
+    guard !shared.bool(forKey: migrationFlag) else { return }
 
-    let stringKeys = ["hairPorosity", "hairDryness", "userName"]
+    let stringKeys = ["hairPorosity", "hairDryness", "userName", "chemicalTreatment"]
     let intKeys    = ["washFrequency"]
     let boolKeys   = ["hasChemical"]
     let objectKeys = ["customTreatments_v2", "customRestDays_v1"]
@@ -19,6 +19,8 @@ private func migrateStandardToSharedIfNeeded() {
     for key in boolKeys    { if standard.object(forKey: key) != nil  { shared.set(standard.bool(forKey: key), forKey: key) } }
     for key in objectKeys  { if let v = standard.object(forKey: key)  { shared.set(v, forKey: key) } }
     for key in doubleKeys  { let v = standard.double(forKey: key); if v != 0 { shared.set(v, forKey: key) } }
+
+    shared.set(true, forKey: migrationFlag)
 }
 
 @main

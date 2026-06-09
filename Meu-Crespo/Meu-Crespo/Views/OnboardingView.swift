@@ -10,7 +10,7 @@ struct OnboardingView: View {
     @AppStorage("hairPorosity", store: SharedDefaults.store) private var storedPorosity: String = HairPorosity.medium.rawValue
     @AppStorage("washFrequency", store: SharedDefaults.store) private var storedWashFrequency: WashFrequency = .three
     @AppStorage("hasChemical", store: SharedDefaults.store) private var storedChemical: Bool = false
-    @AppStorage("chemicalTreatment") private var storedChemicalTreatment: String = ChemicalTreatment.none.rawValue
+    @AppStorage("chemicalTreatment", store: SharedDefaults.store) private var storedChemicalTreatment: String = ChemicalTreatment.none.rawValue
     @AppStorage("hairDryness", store: SharedDefaults.store) private var storedDryness: String = HairDryness.medium.rawValue
 
     @State private var tempName: String = ""
@@ -589,13 +589,13 @@ struct AppleIntelligenceStep: View {
                 .padding(.horizontal, 28)
                 .padding(.top, 8)
 
-            VStack(spacing: 11) {
+            VStack(spacing: 15) {
                 ForEach(aiSteps, id: \.0) { number, key in
                     aiStepCard(number: number, text: L(key))
                 }
             }
             .padding(.horizontal, 28)
-            .padding(.top, 18)
+            .padding(.top, 22)
 
             Spacer(minLength: 0)
 
@@ -637,15 +637,15 @@ struct AppleIntelligenceStep: View {
     private func aiStepCard(number: String, text: String) -> some View {
         HStack(alignment: .top, spacing: 6) {
             Text("\(number).")
-                .font(.system(size: 15, weight: .medium))
+                .font(.system(size: 17, weight: .medium))
                 .foregroundColor(Color(red: 0.945, green: 0.361, blue: 0.361))
             Text(text)
-                .font(.system(size: 15, weight: .medium))
+                .font(.system(size: 17, weight: .medium))
                 .foregroundColor(obActiveColor)
                 .fixedSize(horizontal: false, vertical: true)
         }
         .padding(.horizontal, 16)
-        .padding(.vertical, 11)
+        .padding(.vertical, 13)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Color.white)
         .clipShape(RoundedRectangle(cornerRadius: 16))

@@ -14,7 +14,7 @@ struct TimelineView: View {
 
     @AppStorage("hairPorosity", store: SharedDefaults.store)      private var storedPorosity:  String = HairPorosity.medium.rawValue
     @AppStorage("hairDryness", store: SharedDefaults.store)       private var storedDryness:   String = HairDryness.medium.rawValue
-    @AppStorage("chemicalTreatment") private var storedChemical:  String = ChemicalTreatment.none.rawValue
+    @AppStorage("chemicalTreatment", store: SharedDefaults.store) private var storedChemical:  String = ChemicalTreatment.none.rawValue
     @AppStorage("washFrequency", store: SharedDefaults.store)     private var storedWashFreq:  Int    = WashFrequency.three.rawValue
 
     // Invalidates the .task when treatment, date, humidity or language changes.

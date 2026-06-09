@@ -68,7 +68,9 @@ final class WeatherManager: NSObject, ObservableObject, CLLocationManagerDelegat
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        #if DEBUG
         print("❌ Erro ao obter localização: \(error.localizedDescription)")
+        #endif
         status = .failed
         condition = L("weather.errorLocation")
         PostHogSDK.shared.capture("weather_failed", properties: [
@@ -184,7 +186,9 @@ final class WeatherManager: NSObject, ObservableObject, CLLocationManagerDelegat
                     updateWeather(for: Date())
                 }
             } catch {
+                #if DEBUG
                 print("❌ Erro ao buscar o clima com WeatherKit: \(error.localizedDescription)")
+                #endif
                 await MainActor.run {
                     self.status = .failed
                     self.condition = L("weather.errorLoad")
